@@ -885,17 +885,19 @@ footer{background:#00004A;color:#fff;padding:72px 7% 0}
         </div>
       </div>
       <div class="contact-form-wrap">
+        <form action="https://formspree.io/f/xdabowwo" method="POST">
         <h3>Send Us a Message</h3>
         <div class="form-row">
-          <div class="fg"><label>First Name</label><input placeholder="Chidi"></div>
-          <div class="fg"><label>Last Name</label><input placeholder="Okafor"></div>
+          <div class="fg"><label>First Name</label><input name="first_name" placeholder="Chidi"></div>
+          <div class="fg"><label>Last Name</label><input name="last_name" placeholder="Okafor"></div>
         </div>
-        <div class="fg"><label>Business Name</label><input placeholder="Your Business Name"></div>
-        <div class="fg"><label>Email Address</label><input type="email" placeholder="you@example.com"></div>
-        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+234 800 000 0000"></div>
-        <div class="fg"><label>Service Interested In</label><select><option value="">— Select a service —</option><option>Brand Management</option><option>Social Media Management</option><option>Content Creation</option><option>Branding & Design</option><option>Website Development</option><option>Business Registration</option><option>Multiple Services</option><option>Not sure yet</option></select></div>
-        <div class="fg"><label>Tell us about your business</label><textarea placeholder="Briefly describe your business and what you're looking to achieve..."></textarea></div>
-        <button class="btn-p" style="width:100%;padding:14px;font-size:14px" onclick="alert('Message sent! We\'ll be in touch within 24 hours.')">Send Message →</button>
+        <div class="fg"><label>Business Name</label><input name="business" placeholder="Your Business Name"></div>
+        <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="you@example.com"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="+234 800 000 0000"></div>
+        <div class="fg"><label>Service Interested In</label><select name="service"><option value="">— Select a service —</option><option>Brand Management</option><option>Social Media Management</option><option>Content Creation</option><option>Branding & Design</option><option>Website Development</option><option>Business Registration</option><option>Multiple Services</option><option>Not sure yet</option></select></div>
+        <div class="fg"><label>Tell us about your business</label><textarea name="message" placeholder="Briefly describe your business and what you're looking to achieve..."></textarea></div>
+        <button type="submit" class="btn-p" style="width:100%;padding:14px;font-size:14px">Send Message →</button>
+        </form>
       </div>
     </div>
   </div>
