@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabi Manager Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#000080;
+  --navy-mid:#00006A;
+  --navy-light:#0000A0;
+  --navy-dark:#00005A;
+  --orange:#F26522;--orange-h:#E05510;--orange-pale:#FFF3EC;
+  --white:#FFFFFF;--off-white:#F7F5F0;--cream:#FAF8F4;
+  --g100:#F0EDE8;--g300:#D4D0C8;--g500:#9A9590;
+  --text:#0A0A2A;--tbody:#3D3A55;--tmuted:#6A6880;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;font-size:15px;line-height:1.7}
+h1,h2,h3,h4,.serif{font-family:'Playfair Display',serif}
+a{text-decoration:none;color:inherit}
+button{font-family:'Montserrat',sans-serif;cursor:pointer}
+
+/* ── HEADER ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,128,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(242,101,34,0.15)}
+.hdr-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 5%;height:70px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-mark{width:40px;height:40px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;flex-shrink:0}
+.logo-text{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:#fff;line-height:1.2}
+.logo-text span{color:var(--orange)}
+nav{display:flex;align-items:center;justify-content:center;gap:26px}
+nav a{color:rgba(255,255,255,.8);font-size:13px;font-weight:500;letter-spacing:.3px;transition:color .2s;cursor:pointer;position:relative}
+nav a:hover,nav a.act{color:var(--orange)}
+nav a.act::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--orange);border-radius:1px}
+.nav-drop{position:relative}
+.nav-drop-menu{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--navy-mid);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px;min-width:220px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.nav-drop:hover .nav-drop-menu{display:block}
+.nav-drop-menu a{display:block;padding:9px 14px;font-size:13px;color:rgba(255,255,255,.75);border-radius:6px;transition:all .15s}
+.nav-drop-menu a:hover{background:rgba(242,101,34,.15);color:var(--orange)}
+.hdr-contact{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.hdr-contact a{font-size:12px;color:rgba(255,255,255,.6);font-weight:500;transition:color .2s}
+.hdr-contact a:hover{color:var(--orange)}
+.hdr-contact .hc-phone{font-size:13px;font-weight:700;color:#fff}
+.mob-btn{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:4px}
+.mob-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+
+/* ── BUTTONS ── */
+.btn-p{background:var(--orange);color:#fff;border:none;padding:13px 26px;border-radius:6px;font-size:13px;font-weight:700;letter-spacing:.4px;transition:all .2s;display:inline-block;cursor:pointer}
+.btn-p:hover{background:var(--orange-h);transform:translateY(-1px)}
+.btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);padding:13px 26px;border-radius:6px;font-size:13px;font-weight:700;transition:all .2s;display:inline-block;cursor:pointer}
+.btn-o:hover{border-color:var(--orange);color:var(--orange)}
+
+/* ── PAGES ── */
+.page{display:none;padding-top:70px;min-height:100vh}
+.page.active{display:block}
+
+/* ── SECTION BASE ── */
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.sec-title{font-size:clamp(28px,3.5vw,44px);font-weight:800;line-height:1.12;color:var(--navy)}
+.sec-title em{color:var(--orange);font-style:normal}
+.sec-sub{font-size:16px;color:var(--tbody);line-height:1.75;max-width:560px}
+section{padding:88px 7%}
+.sec-hdr{margin-bottom:52px}
+.sec-hdr.cen{text-align:center}
+.sec-hdr.cen .sec-sub{margin:12px auto 0}
+
+/* ── HERO ── */
+.hero{min-height:calc(100vh - 70px);background:var(--navy);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px 7%;gap:60px;position:relative;overflow:hidden}
+.hero-geo{position:absolute;right:0;top:0;bottom:0;width:45%;background:var(--navy-light);clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%);opacity:.3}
+.hero-geo2{position:absolute;right:0;top:0;bottom:0;width:40%;background:rgba(242,101,34,.05);clip-path:polygon(20% 0,100% 0,100% 100%,8% 100%)}
+.hero-content{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(242,101,34,.15);border:1px solid rgba(242,101,34,.3);color:#FF8A50;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:28px}
+.badge-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(38px,4.5vw,62px);font-weight:900;line-height:1.08;color:#fff;margin-bottom:24px;letter-spacing:-1.5px}
+.hero h1 em{color:var(--orange);font-style:normal}
+.hero-desc{font-size:17px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:40px;max-width:480px;font-weight:300}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.hero-stats{display:flex;gap:36px;padding-top:36px;border-top:1px solid rgba(255,255,255,.1)}
+.stat-n{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--orange)}
+.stat-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;font-weight:500}
+.hero-vis{position:relative;z-index:2;display:flex;flex-direction:column;gap:16px}
+.hv-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px 24px;backdrop-filter:blur(8px)}
+.hv-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.hv-icon{width:38px;height:38px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.hv-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff}
+.hv-sub{font-size:11px;color:rgba(255,255,255,.45);font-weight:500}
+.prog{height:5px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.prog-fill{height:100%;background:var(--orange);border-radius:3px}
+.prog-lbl{display:flex;justify-content:space-between;font-size:11px}
+.prog-lbl span:first-child{color:rgba(255,255,255,.45)}
+.prog-lbl span:last-child{color:var(--orange);font-weight:600}
+.hv-tags{display:flex;gap:7px;flex-wrap:wrap}
+.hv-tag{font-size:11px;background:rgba(242,101,34,.15);color:#FF8A50;padding:4px 10px;border-radius:100px;font-weight:600}
+
+/* ── PAIN ── */
+.pain-sec{background:var(--cream)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.pain-card{background:#fff;border-radius:16px;padding:32px 28px;border:1px solid var(--g300);position:relative;overflow:hidden;transition:all .25s}
+.pain-card:hover{transform:translateY(-4px);border-color:var(--orange);box-shadow:0 12px 40px rgba(242,101,34,.1)}
+.pain-x{position:absolute;top:18px;right:18px;font-size:20px;color:var(--g300);font-weight:700}
+.pain-card:hover .pain-x{color:rgba(242,101,34,.3)}
+.pain-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:var(--g100);line-height:1;margin-bottom:14px}
+.pain-card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.pain-card p{font-size:13px;color:var(--tmuted);line-height:1.65}
+.pain-divider{margin-top:52px;background:var(--navy);border-radius:16px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.pain-divider p{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,.8)}
+.pain-divider strong{color:var(--orange);font-style:normal}
+
+/* ── SOLUTION ── */
+.solution-sec{background:var(--navy)}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sol-points{display:flex;flex-direction:column;gap:28px;margin-top:32px}
+.sol-point{display:flex;gap:18px;align-items:flex-start}
+.sol-ic{width:48px;height:48px;min-width:48px;background:rgba(242,101,34,.15);border:1px solid rgba(242,101,34,.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.sol-point h4{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.sol-point p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65}
+.sol-vis{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:36px}
+.sol-step{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.sol-step:last-child{border-bottom:none}
+.sol-n{width:32px;height:32px;min-width:32px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:900;color:#fff}
+.sol-step h5{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.sol-step p{font-size:12px;color:rgba(255,255,255,.45)}
+
+/* ── PROJECTS PROOF ── */
+.proof-sec{background:var(--off-white)}
+.proof-header-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:20px;flex-wrap:wrap}
+.view-all-link{font-size:13px;font-weight:700;color:var(--orange);border-bottom:1.5px solid var(--orange);padding-bottom:2px;cursor:pointer;transition:opacity .2s;white-space:nowrap}
+.view-all-link:hover{opacity:.7}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proof-card{border-radius:14px;overflow:hidden;border:1px solid var(--g300);background:#fff;transition:all .25s;cursor:pointer}
+.proof-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,128,.12)}
+.proof-img{height:185px;display:flex;align-items:center;justify-content:center;font-size:50px;background:var(--navy);position:relative}
+.proof-badge{position:absolute;bottom:12px;left:12px;background:rgba(242,101,34,.92);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.5px}
+.proof-body{padding:18px 20px}
+.proof-cat{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
+.proof-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.proof-card p{font-size:12px;color:var(--tmuted);line-height:1.55}
+
+/* ── SERVICES PREVIEW ── */
+.serv-sec{background:#fff}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.serv-card{background:var(--cream);border-radius:14px;padding:28px;border:1px solid var(--g300);transition:all .25s;cursor:pointer;position:relative;overflow:hidden}
+.serv-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transition:transform .25s;transform-origin:bottom}
+.serv-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,128,.1);background:#fff}
+.serv-card:hover::before{transform:scaleY(1)}
+.serv-icon{font-size:28px;margin-bottom:16px;display:block}
+.serv-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
+.serv-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.serv-card p{font-size:13px;color:var(--tmuted);line-height:1.6;margin-bottom:16px}
+.serv-link{font-size:12px;font-weight:700;color:var(--orange);letter-spacing:.5px}
+
+/* ── ABOUT PREVIEW ── */
+.about-sec{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-vis{background:var(--navy);border-radius:20px;padding:40px;position:relative;overflow:hidden}
+.about-vis::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:rgba(242,101,34,.08);border-radius:50%}
+.about-quote{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;line-height:1.5;margin-bottom:24px;position:relative;padding-top:20px}
+.about-quote::before{content:'\201C';font-size:64px;color:var(--orange);opacity:.4;position:absolute;top:-12px;left:-8px;font-family:'Playfair Display',serif;line-height:1}
+.about-attr strong{color:var(--orange);display:block;font-size:14px;font-weight:700;margin-bottom:2px}
+.about-attr span{font-size:12px;color:rgba(255,255,255,.4)}
+.about-nums{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap}
+.about-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--orange)}
+.about-nl{font-size:12px;color:rgba(255,255,255,.4);font-weight:500;margin-top:2px}
+.about-text .sec-sub{margin-top:14px;margin-bottom:24px}
+.pillars{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.pillar{display:flex;gap:12px;align-items:center}
+.pillar-dot{width:8px;height:8px;background:var(--orange);border-radius:50%;flex-shrink:0}
+.pillar p{font-size:14px;font-weight:500;color:var(--text)}
+
+/* ── NUMBERS ── */
+.numbers-sec{background:var(--orange)}
+.nums-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.1)}
+.num-item{background:var(--orange);padding:52px 32px;text-align:center}
+.num-val{font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,58px);font-weight:900;color:#fff;line-height:1;margin-bottom:8px}
+.num-lbl{font-size:13px;color:rgba(255,255,255,.8);font-weight:600;letter-spacing:.5px}
+
+/* ── CLIENTS ── */
+.clients-sec{background:var(--cream)}
+.clients-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.client-pill{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--g300);border-radius:100px;padding:12px 22px;transition:all .2s}
+.client-pill:hover{border-color:var(--orange);box-shadow:0 4px 16px rgba(242,101,34,.12)}
+.client-icon{width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;font-family:'Playfair Display',serif}
+.client-name{font-size:13px;font-weight:600;color:var(--text)}
+
+/* ── TESTIMONIALS ── */
+.testi-sec{background:#fff}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.testi-card{background:var(--cream);border-radius:16px;padding:28px;border:1px solid var(--g300);transition:all .25s}
+.testi-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,128,.08)}
+.testi-stars{color:var(--orange);font-size:15px;margin-bottom:14px;letter-spacing:2px}
+.testi-text{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:20px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{width:40px;height:40px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:#fff;flex-shrink:0}
+.testi-name{font-size:14px;font-weight:700;color:var(--navy)}
+.testi-biz{font-size:12px;color:var(--tmuted);font-weight:500}
+
+/* ── CTA ── */
+.cta-sec{background:var(--navy);text-align:center;padding:100px 7%;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(242,101,34,.08) 0%,transparent 65%);pointer-events:none}
+.cta-pill{display:inline-block;background:rgba(242,101,34,.15);border:1px solid rgba(242,101,34,.3);color:#FF8A50;font-size:12px;font-weight:700;letter-spacing:1px;padding:8px 20px;border-radius:100px;margin-bottom:28px}
+.cta-sec h2{font-size:clamp(30px,4vw,50px);font-weight:900;color:#fff;margin-bottom:18px;line-height:1.15}
+.cta-sec h2 em{color:var(--orange);font-style:normal}
+.cta-sec p{font-size:17px;color:rgba(255,255,255,.55);margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-free{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:10px 24px;border-radius:100px;font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px}
+.cta-free strong{color:#fff}
+
+/* ══════════════════════════════
+   FOOTER — consistent all pages
+══════════════════════════════ */
+footer{background:#00004A;color:#fff;padding:72px 7% 0}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:48px;
+  margin-bottom:56px;
+}
+/* LEFT: Logo block */
+.foot-left{}
+.foot-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.foot-mark{width:38px;height:38px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:#fff;flex-shrink:0}
+.foot-name{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:#fff;line-height:1.2}
+.foot-name span{color:var(--orange)}
+.foot-tagline{display:flex;flex-direction:column;gap:4px;margin-bottom:22px}
+.foot-tagline-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.5);font-weight:500}
+.foot-tagline-dot{width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0}
+.foot-social{display:flex;gap:10px}
+.foot-social a{width:34px;height:34px;border-radius:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;transition:all .2s;cursor:pointer;color:rgba(255,255,255,.6)}
+.foot-social a:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+/* COLUMNS */
+.foot-col h5{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col ul li a{font-size:13px;color:rgba(255,255,255,.55);cursor:pointer;transition:color .2s;font-weight:500}
+.foot-col ul li a:hover{color:var(--orange)}
+/* BOTTOM */
+.foot-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.foot-copy{font-size:12px;color:rgba(255,255,255,.3);font-weight:500}
+.foot-copy span{color:var(--orange)}
+
+/* ── PAGE HERO ── */
+.pg-hero{background:var(--navy);padding:80px 7% 70px;position:relative;overflow:hidden}
+.pg-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),transparent)}
+.pg-hero h1{font-size:clamp(32px,5vw,54px);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.1}
+.pg-hero h1 em{color:var(--orange);font-style:normal}
+.pg-hero p{font-size:17px;color:rgba(255,255,255,.65);max-width:560px;line-height:1.75;font-weight:300}
+
+/* ── PROJECTS FULL PAGE ── */
+.proj-body{padding:72px 7%}
+.proj-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.pcat-btn{padding:9px 20px;border-radius:100px;border:1.5px solid var(--g300);font-size:12px;font-weight:700;color:var(--tmuted);cursor:pointer;transition:all .2s;background:#fff}
+.pcat-btn:hover,.pcat-btn.act{background:var(--orange);border-color:var(--orange);color:#fff}
+.proj-full-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pfc{border-radius:14px;overflow:hidden;border:1px solid var(--g300);background:#fff;transition:all .25s}
+.pfc:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,128,.1)}
+.pfc-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:56px;background:var(--navy);position:relative}
+.pfc-badge{position:absolute;bottom:12px;left:12px;background:rgba(242,101,34,.92);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.5px}
+.pfc-body{padding:20px}
+.pfc-type{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
+.pfc h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.pfc p{font-size:12px;color:var(--tmuted);line-height:1.55}
+.pfc-result{display:inline-block;margin-top:10px;background:var(--orange-pale);border:1px solid rgba(242,101,34,.2);color:var(--orange);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px}
+
+/* ── SERVICES FULL ── */
+.serv-full-body{padding:72px 7%}
+.service-full{background:#fff;border:1px solid var(--g300);border-radius:16px;overflow:hidden;margin-bottom:24px;transition:box-shadow .2s}
+.service-full:hover{box-shadow:0 8px 40px rgba(0,0,128,.08)}
+.sf-header{background:var(--cream);padding:28px 32px;display:flex;align-items:flex-start;gap:20px;border-bottom:1px solid var(--g300);cursor:pointer}
+.sf-icon{width:50px;height:50px;min-width:50px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.sf-meta{flex:1}
+.sf-cat{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:4px}
+.sf-meta h3{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.sf-meta p{font-size:13px;color:var(--tmuted);line-height:1.6}
+.sf-toggle{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--g300);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--g500);transition:all .25s;flex-shrink:0;margin-top:4px;background:#fff;cursor:pointer}
+.service-full.open .sf-toggle{background:var(--orange);border-color:var(--orange);color:#fff;transform:rotate(45deg)}
+.sf-body{display:none;padding:28px 32px}
+.service-full.open .sf-body{display:block}
+.inc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tmuted);margin-bottom:14px}
+.inc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px}
+.inc-item{display:flex;align-items:flex-start;gap:10px;background:var(--cream);border-radius:8px;padding:11px 13px}
+.inc-check{width:20px;height:20px;min-width:20px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;margin-top:1px}
+.inc-item p{font-size:13px;color:var(--tbody);line-height:1.5;font-weight:500}
+.sf-cta{background:var(--navy);border-radius:12px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.sf-cta h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
+.sf-cta p{font-size:13px;color:rgba(255,255,255,.5)}
+.free-tag{display:inline-block;background:rgba(242,101,34,.2);border:1px solid rgba(242,101,34,.3);color:var(--orange);font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;margin-bottom:7px}
+
+/* ── SHOP ── */
+.shop-tabs{display:flex;gap:0;padding:0 7%;background:var(--cream);border-bottom:2px solid var(--g300)}
+.shop-tab{padding:14px 24px;font-size:13px;font-weight:700;color:var(--tmuted);border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;transition:all .2s;background:none;border-left:none;border-right:none;border-top:none}
+.shop-tab:hover,.shop-tab.act{color:var(--navy);border-bottom-color:var(--orange)}
+.shop-body{padding:60px 7%}
+.shop-cat{display:none}
+.shop-cat.act{display:block}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.shop-card{background:#fff;border:1px solid var(--g300);border-radius:14px;overflow:hidden;transition:all .25s}
+.shop-card:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,128,.1)}
+.shop-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:52px;background:var(--navy);position:relative}
+.shop-badge{position:absolute;top:12px;right:12px;background:var(--orange);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px}
+.shop-body2{padding:20px}
+.shop-cat-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.shop-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:7px}
+.shop-card p{font-size:13px;color:var(--tmuted);line-height:1.6;margin-bottom:16px}
+.shop-footer{display:flex;align-items:center;justify-content:space-between}
+.shop-price{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)}
+.shop-btn{background:var(--orange);color:#fff;border:none;padding:9px 16px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;transition:background .2s}
+.shop-btn:hover{background:var(--orange-h)}
+
+/* ── BLOG ── */
+.blog-body{padding:70px 7%}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-card{border:1px solid var(--g300);border-radius:14px;overflow:hidden;background:#fff;transition:all .25s}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,128,.1)}
+.blog-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:44px;background:var(--navy)}
+.blog-card-body{padding:22px}
+.blog-meta{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.blog-tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange);background:var(--orange-pale);padding:4px 10px;border-radius:100px}
+.blog-date{font-size:11px;color:var(--tmuted);font-weight:500}
+.blog-card h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.4}
+.blog-card p{font-size:13px;color:var(--tmuted);line-height:1.65;margin-bottom:14px}
+.blog-read{font-size:12px;font-weight:700;color:var(--orange);letter-spacing:.5px}
+
+/* ── STORY ── */
+.story-body{padding:80px 7%}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.story-body h2{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:16px}
+.story-body p{font-size:16px;color:var(--tbody);line-height:1.8;margin-bottom:18px}
+.val-cards{display:flex;flex-direction:column;gap:14px}
+.val-card{background:var(--cream);border-radius:12px;padding:20px;border-left:4px solid var(--orange)}
+.val-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--orange);opacity:.4;float:right;margin-top:-8px}
+.val-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.val-card p{font-size:13px;color:var(--tmuted);margin:0;line-height:1.6}
+
+/* ── CONTACT ── */
+.contact-body{padding:72px 7%}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px}
+.contact-info-title{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.contact-info p{font-size:15px;color:var(--tbody);line-height:1.7;margin-bottom:28px}
+.contact-detail{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.cd-icon{width:42px;height:42px;min-width:42px;background:var(--orange-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.contact-detail h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--tmuted);margin-bottom:3px}
+.contact-detail p{font-size:14px;color:var(--tbody);margin:0;font-weight:500}
+.contact-form-wrap{background:var(--cream);border:1px solid var(--g300);border-radius:20px;padding:36px}
+.contact-form-wrap h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:24px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.3px}
+.fg input,.fg select,.fg textarea{padding:12px 14px;border:1.5px solid var(--g300);border-radius:8px;font-size:13px;color:var(--text);outline:none;transition:border-color .2s;width:100%;background:#fff;font-family:'Montserrat',sans-serif}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--orange)}
+.fg textarea{resize:vertical;min-height:80px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ── BOOKING MODAL ── */
+.modal-ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
+.modal-ov.open{opacity:1;pointer-events:all}
+.modal{background:#fff;border-radius:20px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;transform:translateY(20px);transition:transform .25s}
+.modal-ov.open .modal{transform:translateY(0)}
+.modal-hdr{background:var(--navy);padding:28px 32px;border-radius:20px 20px 0 0;display:flex;justify-content:space-between;align-items:flex-start}
+.modal-hdr h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:4px}
+.modal-hdr p{font-size:13px;color:rgba(255,255,255,.5)}
+.modal-x{width:32px;height:32px;background:rgba(255,255,255,.1);border:none;border-radius:50%;cursor:pointer;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.modal-x:hover{background:var(--orange)}
+.modal-body2{padding:32px}
+.modal-step{display:none}
+.modal-step.active{display:block}
+.step-dots{display:flex;gap:8px;margin-bottom:28px}
+.sdot{flex:1;height:4px;background:var(--g100);border-radius:2px;transition:background .3s}
+.sdot.done{background:var(--orange)}
+.date-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+.date-btn{background:var(--cream);border:1.5px solid var(--g300);border-radius:8px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .2s}
+.date-btn:hover,.date-btn.sel{background:var(--orange);border-color:var(--orange)}
+.date-btn:hover *,.date-btn.sel *{color:#fff!important}
+.db-day{font-size:10px;color:var(--tmuted);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.db-num{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--navy)}
+.db-mon{font-size:10px;color:var(--tmuted);font-weight:500}
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.time-btn{background:var(--cream);border:1.5px solid var(--g300);border-radius:8px;padding:10px;text-align:center;cursor:pointer;transition:all .2s;font-size:13px;font-weight:600;color:var(--tbody)}
+.time-btn:hover,.time-btn.sel{background:var(--orange);border-color:var(--orange);color:#fff}
+.modal-foot{display:flex;gap:10px;justify-content:flex-end;margin-top:24px}
+.btn-back{background:var(--cream);border:1.5px solid var(--g300);color:var(--tbody);padding:11px 22px;border-radius:8px;font-size:13px;font-weight:600;transition:all .2s;cursor:pointer}
+.btn-next{background:var(--orange);color:#fff;border:none;padding:11px 22px;border-radius:8px;font-size:13px;font-weight:600;transition:all .2s;cursor:pointer}
+.btn-next:hover{background:var(--orange-h)}
+.confirm-wrap{text-align:center;padding:16px 0}
+.confirm-icon{width:72px;height:72px;background:rgba(242,101,34,.1);border:2px solid rgba(242,101,34,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 20px}
+.confirm-wrap h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.confirm-wrap p{font-size:14px;color:var(--tmuted);line-height:1.7;margin-bottom:20px}
+.confirm-box{background:var(--cream);border:1px solid var(--g300);border-radius:12px;padding:20px;text-align:left;margin-bottom:20px}
+.cf-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--g300);font-size:13px}
+.cf-row:last-child{border-bottom:none}
+.cf-row span:first-child{color:var(--tmuted);font-weight:500}
+.cf-row span:last-child{font-weight:700;color:var(--navy)}
+.email-note{background:rgba(242,101,34,.06);border:1px solid rgba(242,101,34,.15);border-radius:8px;padding:12px 16px;font-size:12px;color:var(--tmuted);display:flex;gap:8px;align-items:flex-start;text-align:left}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;padding:60px 6%}.hero-vis,.hero-geo,.hero-geo2{display:none}
+  .pain-grid{grid-template-columns:1fr 1fr}.sol-grid{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr 1fr}.serv-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr}.nums-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
+  .story-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}
+  nav{display:none}.mob-btn{display:flex}
+  .proj-full-grid{grid-template-columns:1fr 1fr}.shop-grid{grid-template-columns:1fr 1fr}
+  .blog-grid{grid-template-columns:1fr 1fr}.inc-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  section{padding:60px 5%}.hero{padding:50px 5%}
+  .pain-grid{grid-template-columns:1fr}.serv-grid{grid-template-columns:1fr}
+  .nums-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}
+  .proof-grid,.proj-full-grid,.shop-grid,.blog-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}.date-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="hdr-inner">
+    <div class="logo" onclick="showPage('home')">
+      <div class="logo-mark">S</div>
+      <div class="logo-text">Sabi Manager<br><span>Global</span></div>
+    </div>
+    <nav id="mainNav">
+      <a onclick="showPage('home')" id="nav-home" class="act">Home</a>
+      <a onclick="showPage('story')" id="nav-story">Our Story</a>
+      <div class="nav-drop">
+        <a onclick="showPage('services')" id="nav-services">What We Do ▾</a>
+        <div class="nav-drop-menu">
+          <a onclick="showPage('services')">Brand Management</a>
+          <a onclick="showPage('services')">Social Media Management</a>
+          <a onclick="showPage('services')">Content Creation</a>
+          <a onclick="showPage('services')">Branding & Design</a>
+          <a onclick="showPage('services')">Website Development</a>
+          <a onclick="showPage('services')">Business Registration</a>
+        </div>
+      </div>
+      <a onclick="showPage('blog')" id="nav-blog">Blog</a>
+      <div class="nav-drop">
+        <a onclick="showPage('shop')" id="nav-shop">Shop ▾</a>
+        <div class="nav-drop-menu">
+          <a onclick="showPage('shop')">Courses</a>
+          <a onclick="showPage('shop')">Books</a>
+          <a onclick="showPage('shop')">Templates</a>
+        </div>
+      </div>
+      <a onclick="showPage('contact')" id="nav-contact">Reach Us</a>
+    </nav>
+    <div class="hdr-contact">
+      <a href="tel:+2348000000000" class="hc-phone">+234 800 000 0000</a>
+      <a href="mailto:hello@sabimanagerglobal.com">hello@sabimanagerglobal.com</a>
+    </div>
+    <button class="mob-btn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════
+     SHARED FOOTER TEMPLATE (JS rendered)
+══════════════════════════════════ -->
+<template id="footer-tpl">
+<footer>
+  <div class="footer-grid">
+    <!-- LEFT: Logo + tagline + social -->
+    <div class="foot-left">
+      <div class="foot-logo">
+        <div class="foot-mark">S</div>
+        <div class="foot-name">Sabi Manager<br><span>Global</span></div>
+      </div>
+      <div class="foot-tagline">
+        <div class="foot-tagline-item"><div class="foot-tagline-dot"></div>Structure</div>
+        <div class="foot-tagline-item"><div class="foot-tagline-dot"></div>Systems</div>
+        <div class="foot-tagline-item"><div class="foot-tagline-dot"></div>Strategy</div>
+      </div>
+      <div class="foot-social">
+        <a title="Instagram">IG</a>
+        <a title="LinkedIn">in</a>
+        <a title="Twitter/X">𝕏</a>
+        <a title="WhatsApp">WA</a>
+      </div>
+    </div>
+    <!-- COMPANY -->
+    <div class="foot-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a onclick="showPage('story')">About Us</a></li>
+        <li><a onclick="showPage('blog')">Blog</a></li>
+        <li><a onclick="showPage('contact')">Careers</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <!-- SERVICES -->
+    <div class="foot-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a onclick="showPage('services')">Brand Management</a></li>
+        <li><a onclick="showPage('services')">Social Media</a></li>
+        <li><a onclick="showPage('services')">Content Creation</a></li>
+        <li><a onclick="showPage('services')">Branding & Design</a></li>
+        <li><a onclick="showPage('services')">Website Development</a></li>
+        <li><a onclick="showPage('services')">Business Registration</a></li>
+      </ul>
+    </div>
+    <!-- QUICK LINKS -->
+    <div class="foot-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+      </ul>
+      <h5 style="margin-top:22px">Connect</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 <span>Sabi Manager Global</span>. All rights reserved.</div>
+    <div class="foot-copy">Built with structure. Built for growth.</div>
+  </div>
+</footer>
+</template>
+
+<!-- ══════════════════════
+     HOME PAGE
+══════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-geo"></div><div class="hero-geo2"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><div class="badge-dot"></div>Brand Structure & Business Systems</div>
+      <h1>Your Business<br>Is Active.<br><em>Let's Make It<br>Profitable.</em></h1>
+      <p class="hero-desc">We help growth-stage businesses build the structure and systems behind their brand — so you can stop hustling randomly and start growing consistently.</p>
+      <div class="hero-btns">
+        <button class="btn-p" onclick="openBooking()">Book Free Strategy Call — ₦50,000 Value</button>
+        <button class="btn-o" onclick="showPage('services')">See What We Do</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n">200+</div><div class="stat-l">Businesses Structured</div></div>
+        <div><div class="stat-n">98%</div><div class="stat-l">Client Satisfaction</div></div>
+        <div><div class="stat-n">₦50M+</div><div class="stat-l">Revenue Generated</div></div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="hv-card">
+        <div class="hv-head"><div class="hv-icon">📊</div><div><div class="hv-title">Brand Health Score</div><div class="hv-sub">After Sabi Manager</div></div></div>
+        <div class="prog"><div class="prog-fill" style="width:89%"></div></div>
+        <div class="prog-lbl"><span>Consistency</span><span>89/100</span></div>
+        <div class="prog" style="margin-top:10px"><div class="prog-fill" style="width:76%"></div></div>
+        <div class="prog-lbl"><span>Revenue Predictability</span><span>76/100</span></div>
+      </div>
+      <div class="hv-card">
+        <div class="hv-head"><div class="hv-icon">🏗️</div><div><div class="hv-title">Business Systems Active</div><div class="hv-sub">Confusion → Clarity</div></div></div>
+        <div class="hv-tags"><span class="hv-tag">Brand</span><span class="hv-tag">Content</span><span class="hv-tag">Systems</span><span class="hv-tag">Strategy</span><span class="hv-tag">Sales</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <section class="pain-sec">
+    <div class="sec-hdr">
+      <div class="sec-label">The Real Problem</div>
+      <div class="sec-title">Does this sound familiar?</div>
+      <p class="sec-sub" style="margin-top:12px">Most businesses aren't failing from lack of effort. They're stuck because the foundation is broken.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card"><div class="pain-x">✕</div><div class="pain-num">01</div><h3>Inconsistent Sales</h3><p>Some months are great, others are empty. You can't predict your revenue or plan for growth because there's no system — just hope and hustle.</p></div>
+      <div class="pain-card"><div class="pain-x">✕</div><div class="pain-num">02</div><h3>Unclear Business Structure</h3><p>You're doing everything yourself — no clear process, no documentation, no delegation. Your business runs only when you show up every day.</p></div>
+      <div class="pain-card"><div class="pain-x">✕</div><div class="pain-num">03</div><h3>Poor Brand Systems</h3><p>Your brand looks different every month. No consistent voice, no clear identity — potential clients can't tell what you do or why to trust you.</p></div>
+    </div>
+    <div class="pain-divider">
+      <p>Most businesses don't fail from lack of effort — they fail from lack of <strong>structure.</strong></p>
+      <button class="btn-p" onclick="openBooking()">Let's Fix That — Book Free Call</button>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution-sec">
+    <div class="sol-grid">
+      <div>
+        <div class="sec-label" style="color:var(--orange)">The Sabi Manager Way</div>
+        <div class="sec-title" style="color:#fff">We don't just make your brand look good.<br><em>We make it work.</em></div>
+        <div class="sol-points">
+          <div class="sol-point"><div class="sol-ic">🧭</div><div><h4>Structure First</h4><p>We diagnose your business and build the structural foundation that everything else grows from.</p></div></div>
+          <div class="sol-point"><div class="sol-ic">⚙️</div><div><h4>Systems That Scale</h4><p>Repeatable systems for content, sales, and operations so your business runs consistently without you doing everything.</p></div></div>
+          <div class="sol-point"><div class="sol-ic">📈</div><div><h4>Strategy for Consistent Profit</h4><p>Every action tied to a real business outcome — not aesthetics for aesthetics' sake.</p></div></div>
+        </div>
+      </div>
+      <div class="sol-vis">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px">Our 4-Step Process</div>
+        <div class="sol-step"><div class="sol-n">1</div><div><h5>Discovery & Business Audit</h5><p>Map your brand, systems, revenue, and audience gaps</p></div></div>
+        <div class="sol-step"><div class="sol-n">2</div><div><h5>Custom Strategy Build</h5><p>Tailored roadmap aligned to your business stage and goals</p></div></div>
+        <div class="sol-step"><div class="sol-n">3</div><div><h5>Full Execution</h5><p>Branding, content, systems, registration, web — all done</p></div></div>
+        <div class="sol-step"><div class="sol-n">4</div><div><h5>Manage & Optimise</h5><p>Ongoing management for consistent, growing results</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS PROOF -->
+  <section class="proof-sec">
+    <div class="proof-header-row">
+      <div>
+        <div class="sec-label">Proof of Work</div>
+        <div class="sec-title">Real Work. <em>Real Results.</em></div>
+        <p class="sec-sub" style="margin-top:10px">From CAC registrations to full brand overhauls — here's a look at what we've built for businesses like yours.</p>
+      </div>
+      <div class="view-all-link" onclick="showPage('projects')">View All Projects →</div>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">📋<div class="proof-badge">CAC REGISTRATION</div></div><div class="proof-body"><div class="proof-cat">Business Setup</div><h3>Amara Foods Ltd — CAC Registration</h3><p>Full business registration, documentation & TIN setup. Completed in 5 working days.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">💻<div class="proof-badge">WEBSITE</div></div><div class="proof-body"><div class="proof-cat">Website Development</div><h3>KO Consulting — Corporate Website</h3><p>6-page professional website. 340% increase in enquiries within 60 days of launch.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">🎨<div class="proof-badge">BRANDING</div></div><div class="proof-body"><div class="proof-cat">Branding & Design</div><h3>Tobi Logistics — Full Brand Identity</h3><p>Logo, brand kit, stationery and complete visual identity system delivered from scratch.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">📱<div class="proof-badge">SOCIAL MEDIA</div></div><div class="proof-body"><div class="proof-cat">Social Media Revamp</div><h3>BoldBrand Co. — Instagram Overhaul</h3><p>Full strategy reset, content system & visual revamp. Followers grew 4x in 90 days.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">📊<div class="proof-badge">ANALYTICS</div></div><div class="proof-body"><div class="proof-cat">Social Media Analytics</div><h3>ElevateNG — 90-Day Performance Report</h3><p>218% increase in reach, 3.4x engagement rate and consistent monthly lead flow.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">🏗️<div class="proof-badge">BRAND MANAGEMENT</div></div><div class="proof-body"><div class="proof-cat">Brand Management</div><h3>ClearPath SME — Brand Structure Project</h3><p>Revenue predictability improved from 28% to 91% over 12 months.</p></div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px"><button class="btn-p" onclick="showPage('projects')">See All Our Work →</button></div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="serv-sec">
+    <div class="sec-hdr">
+      <div class="sec-label">What We Do</div>
+      <div class="sec-title">Services built for <em>real growth</em></div>
+      <p class="sec-sub" style="margin-top:12px">Every service is designed to make your business more structured, more visible, and more profitable.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">🎯</span><span class="serv-tag">Core</span><h3>Brand Management</h3><p>Full brand strategy, identity, and ongoing management to keep your business consistent.</p><div class="serv-link">Learn more →</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">📱</span><span class="serv-tag">Support</span><h3>Social Media Management</h3><p>Strategic social presence that builds trust and converts followers into paying clients.</p><div class="serv-link">Learn more →</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">✍️</span><span class="serv-tag">Support</span><h3>Content Creation</h3><p>Purposeful content — copy, graphics, video — designed around your brand voice and goals.</p><div class="serv-link">Learn more →</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">🎨</span><span class="serv-tag">Support</span><h3>Branding & Design</h3><p>Logos, brand kits, visual identity that communicate trust at every touchpoint.</p><div class="serv-link">Learn more →</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">💻</span><span class="serv-tag">Setup</span><h3>Website Development</h3><p>Fast, professional websites built to convert visitors into clients around the clock.</p><div class="serv-link">Learn more →</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">📋</span><span class="serv-tag">Setup</span><h3>Business Registration</h3><p>Stress-free CAC registration and full business setup done properly from day one.</p><div class="serv-link">Learn more →</div></div>
+    </div>
+    <div style="text-align:center;margin-top:40px"><button class="btn-p" onclick="showPage('services')">View All Services →</button></div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="about-sec">
+    <div class="about-grid">
+      <div class="about-vis">
+        <div class="about-quote">We don't just make your brand look good — we make your business work better.</div>
+        <div class="about-attr"><strong>Sabi Manager Global</strong><span>Brand & Business Management</span></div>
+        <div class="about-nums">
+          <div><div class="about-n">5+</div><div class="about-nl">Years of Excellence</div></div>
+          <div><div class="about-n">200+</div><div class="about-nl">SMEs Transformed</div></div>
+          <div><div class="about-n">6</div><div class="about-nl">Core Services</div></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="sec-label">About Us</div>
+        <div class="sec-title">Structure is our <em>superpower</em></div>
+        <p class="sec-sub" style="margin-top:14px;margin-bottom:24px">Sabi Manager Global was founded on one conviction: most businesses don't fail from lack of effort — they fail from lack of structure. We exist to change that.</p>
+        <div class="pillars">
+          <div class="pillar"><div class="pillar-dot"></div><p>Clear strategies grounded in Nigerian business realities</p></div>
+          <div class="pillar"><div class="pillar-dot"></div><p>Partners in your growth — not just service providers</p></div>
+          <div class="pillar"><div class="pillar-dot"></div><p>Results first: revenue, consistency, and real business impact</p></div>
+        </div>
+        <button class="btn-p" style="margin-top:32px" onclick="showPage('story')">Read Our Story →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <div class="numbers-sec">
+    <div class="nums-grid">
+      <div class="num-item"><div class="num-val">200+</div><div class="num-lbl">Clients Served</div></div>
+      <div class="num-item"><div class="num-val">450+</div><div class="num-lbl">Projects Completed</div></div>
+      <div class="num-item"><div class="num-val">₦50M+</div><div class="num-lbl">Revenue Generated</div></div>
+      <div class="num-item"><div class="num-val">98%</div><div class="num-lbl">Client Retention Rate</div></div>
+    </div>
+  </div>
+
+  <!-- CLIENTS -->
+  <section class="clients-sec">
+    <div class="sec-hdr cen">
+      <div class="sec-label">Our Clients</div>
+      <div class="sec-title">Businesses that chose <em>structure</em></div>
+      <p class="sec-sub">Growth-stage businesses and SMEs across Nigeria who trusted us to build their brand right.</p>
+    </div>
+    <div class="clients-row">
+      <div class="client-pill"><div class="client-icon">A</div><div class="client-name">Amara Foods Ltd</div></div>
+      <div class="client-pill"><div class="client-icon">B</div><div class="client-name">BoldBrand Co.</div></div>
+      <div class="client-pill"><div class="client-icon">C</div><div class="client-name">ClearPath SME</div></div>
+      <div class="client-pill"><div class="client-icon">D</div><div class="client-name">Delta Retail</div></div>
+      <div class="client-pill"><div class="client-icon">E</div><div class="client-name">ElevateNG</div></div>
+      <div class="client-pill"><div class="client-icon">F</div><div class="client-name">FirstGrowth Ltd</div></div>
+      <div class="client-pill"><div class="client-icon">G</div><div class="client-name">GrowSmart Africa</div></div>
+      <div class="client-pill"><div class="client-icon">K</div><div class="client-name">KO Consulting</div></div>
+      <div class="client-pill"><div class="client-icon">T</div><div class="client-name">Tobi Logistics</div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-sec">
+    <div class="sec-hdr cen">
+      <div class="sec-label">Testimonials</div>
+      <div class="sec-title">Real feedback from <em>real businesses</em></div>
+      <p class="sec-sub">Don't take our word for it — here's what business owners who've worked with us say.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"Before Sabi Manager, I was posting every day and getting nothing. They gave my brand a clear identity — and within 3 months my enquiries tripled."</div><div class="testi-author"><div class="testi-av">A</div><div><div class="testi-name">Amara Nwosu</div><div class="testi-biz">CEO, Amara Foods Ltd</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"They didn't just build our website — they restructured how we present our entire business. The clarity we have now is worth more than any design."</div><div class="testi-author"><div class="testi-av">K</div><div><div class="testi-name">Kelechi Obi</div><div class="testi-biz">Founder, KO Consulting</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"CAC registration, branding, and our first social media campaign — all handled by one team who actually understood our vision. Exceptional work."</div><div class="testi-author"><div class="testi-av">T</div><div><div class="testi-name">Tobi Adeyemi</div><div class="testi-biz">MD, Tobi Logistics</div></div></div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-sec">
+    <div class="cta-pill">LIMITED AVAILABILITY</div>
+    <h2>Ready to Build a Business<br>That Actually <em>Works</em>?</h2>
+    <p>Book your free strategy call and get a clear picture of what your business needs to grow consistently and profitably.</p>
+    <div class="cta-free">This session is <strong>completely free</strong> — worth ₦50,000</div><br>
+    <button class="btn-p" style="font-size:15px;padding:16px 36px;margin-top:8px" onclick="openBooking()">Book Free Strategy Call →</button>
+  </div>
+
+  <div id="home-footer"></div>
+</div>
+
+<!-- ══════════════════════
+     PROJECTS PAGE (not in menu)
+══════════════════════ -->
+<div id="page-projects" class="page">
+  <div class="pg-hero">
+    <div class="sec-label">Our Work</div>
+    <h1>Real Work.<br><em>Real Results.</em></h1>
+    <p>From business registrations to full brand transformations — every project is proof that structure creates profit.</p>
+  </div>
+  <div class="proj-body">
+    <div class="proj-cats">
+      <button class="pcat-btn act" onclick="filterProj('all',this)">All Work</button>
+      <button class="pcat-btn" onclick="filterProj('cac',this)">CAC Documents</button>
+      <button class="pcat-btn" onclick="filterProj('website',this)">Websites Built</button>
+      <button class="pcat-btn" onclick="filterProj('branding',this)">Branding Designs</button>
+      <button class="pcat-btn" onclick="filterProj('social',this)">Social Media Revamps</button>
+      <button class="pcat-btn" onclick="filterProj('analytics',this)">Analytics Results</button>
+    </div>
+    <div class="proj-full-grid" id="projGrid">
+      <div class="pfc" data-cat="cac"><div class="pfc-img">📋<div class="pfc-badge">CAC</div></div><div class="pfc-body"><div class="pfc-type">Business Registration</div><h3>Amara Foods Ltd</h3><p>Full CAC registration, documentation & TIN. Completed in 5 working days.</p><div class="pfc-result">✓ Delivered in 5 days</div></div></div>
+      <div class="pfc" data-cat="cac"><div class="pfc-img">📄<div class="pfc-badge">CAC</div></div><div class="pfc-body"><div class="pfc-type">Business Registration</div><h3>DeltaCore Ventures</h3><p>Business name, CAC filing, Memorandum & Articles of Association.</p><div class="pfc-result">✓ Legally Incorporated</div></div></div>
+      <div class="pfc" data-cat="website"><div class="pfc-img">💻<div class="pfc-badge">WEBSITE</div></div><div class="pfc-body"><div class="pfc-type">Website Development</div><h3>KO Consulting</h3><p>6-page corporate website. 340% increase in client enquiries within 60 days.</p><div class="pfc-result">↑ 340% enquiry increase</div></div></div>
+      <div class="pfc" data-cat="website"><div class="pfc-img">🌐<div class="pfc-badge">WEBSITE</div></div><div class="pfc-body"><div class="pfc-type">Website Development</div><h3>GrowSmart Africa</h3><p>E-commerce site with payment integration. Launched on schedule.</p><div class="pfc-result">↑ 210% online sales</div></div></div>
+      <div class="pfc" data-cat="branding"><div class="pfc-img">🎨<div class="pfc-badge">BRANDING</div></div><div class="pfc-body"><div class="pfc-type">Brand Identity Design</div><h3>Tobi Logistics</h3><p>Logo, colour palette, typography, stationery & 24-page brand style guide.</p><div class="pfc-result">✓ Full Identity System</div></div></div>
+      <div class="pfc" data-cat="branding"><div class="pfc-img">🏷️<div class="pfc-badge">BRANDING</div></div><div class="pfc-body"><div class="pfc-type">Brand Identity Design</div><h3>FirstGrowth Ltd</h3><p>Complete rebrand — new logo, identity, messaging and visual system.</p><div class="pfc-result">✓ Full Rebrand</div></div></div>
+      <div class="pfc" data-cat="social"><div class="pfc-img">📱<div class="pfc-badge">SOCIAL</div></div><div class="pfc-body"><div class="pfc-type">Social Media Revamp</div><h3>BoldBrand Co.</h3><p>Instagram & LinkedIn overhaul, visual rebrand & content system. 4x growth in 90 days.</p><div class="pfc-result">↑ 4x follower growth</div></div></div>
+      <div class="pfc" data-cat="social"><div class="pfc-img">🔄<div class="pfc-badge">SOCIAL</div></div><div class="pfc-body"><div class="pfc-type">Social Media Revamp</div><h3>Delta Retail</h3><p>Content calendar, brand voice guide, and full redesign across all platforms.</p><div class="pfc-result">↑ 180% engagement</div></div></div>
+      <div class="pfc" data-cat="analytics"><div class="pfc-img">📊<div class="pfc-badge">ANALYTICS</div></div><div class="pfc-body"><div class="pfc-type">Analytics Report</div><h3>ElevateNG — 90-Day Report</h3><p>218% reach increase, 3.4x engagement rate, consistent monthly lead flow.</p><div class="pfc-result">↑ 218% reach</div></div></div>
+      <div class="pfc" data-cat="analytics"><div class="pfc-img">📈<div class="pfc-badge">ANALYTICS</div></div><div class="pfc-body"><div class="pfc-type">Analytics Report</div><h3>ClearPath SME — 6-Month Review</h3><p>Revenue predictability from 28% → 91%. 47 new leads generated.</p><div class="pfc-result">↑ 91% predictability</div></div></div>
+      <div class="pfc" data-cat="branding"><div class="pfc-img">🎯<div class="pfc-badge">BRAND MGT</div></div><div class="pfc-body"><div class="pfc-type">Brand Management</div><h3>HorizonBiz — 12-Month Retainer</h3><p>Full brand management covering content, social, and quarterly strategy reviews.</p><div class="pfc-result">✓ 12-Month Partnership</div></div></div>
+      <div class="pfc" data-cat="website"><div class="pfc-img">🖥️<div class="pfc-badge">WEBSITE</div></div><div class="pfc-body"><div class="pfc-type">Website Development</div><h3>Adept Solutions</h3><p>Company website with blog, team section, and CRM-integrated lead capture forms.</p><div class="pfc-result">✓ CRM Integrated</div></div></div>
+    </div>
+  </div>
+  <div class="cta-sec">
+    <div class="cta-pill">FREE STRATEGY CALL</div>
+    <h2>Want Results Like These<br>for <em>Your Business?</em></h2>
+    <p>Book a free strategy call and let's map out how we can structure and grow your business.</p>
+    <button class="btn-p" style="font-size:15px;padding:16px 36px;margin-top:16px" onclick="openBooking()">Book Free Call — Worth ₦50,000</button>
+  </div>
+  <div id="projects-footer"></div>
+</div>
+
+<!-- ══ OUR STORY ══ -->
+<div id="page-story" class="page">
+  <div class="pg-hero">
+    <div class="sec-label">Our Story</div>
+    <h1>We Are <em>Sabi Manager Global</em></h1>
+    <p>Built on one conviction: businesses don't fail from lack of effort — they fail from lack of structure.</p>
+  </div>
+  <div class="story-body">
+    <div class="story-grid">
+      <div>
+        <h2>How We Started</h2>
+        <p>Sabi Manager Global was born from watching talented Nigerian entrepreneurs work incredibly hard — and still not see consistent results. The hustle was real. The effort was real. But the structure wasn't.</p>
+        <p>We saw businesses post every day with no strategy. Register a company with no brand identity. Build beautiful logos with no positioning behind them. We knew there had to be a better way.</p>
+        <p>So we built a company to bridge that gap — combining brand management, business systems, and strategic thinking into a single partner for growth-stage businesses.</p>
+        <h2 style="margin-top:32px">Our Mission</h2>
+        <p>To help every growth-stage business in Africa achieve consistent, profitable results — by giving them the brand structure and systems they deserve.</p>
+        <button class="btn-p" style="margin-top:24px" onclick="openBooking()">Work With Us →</button>
+      </div>
+      <div>
+        <h2>Our Values</h2>
+        <div class="val-cards">
+          <div class="val-card"><div class="val-num">01</div><h4>Clarity Over Complexity</h4><p>We simplify your business enough to execute well — and structure it enough to scale far.</p></div>
+          <div class="val-card"><div class="val-num">02</div><h4>Results, Not Just Aesthetics</h4><p>A beautiful brand that doesn't make money is decoration. We build brands that perform.</p></div>
+          <div class="val-card"><div class="val-num">03</div><h4>Partnership Over Transactions</h4><p>Your success is our metric. We grow with you — not just deliver and disappear.</p></div>
+          <div class="val-card"><div class="val-num">04</div><h4>African Excellence</h4><p>World-class standards. African reality. Solutions that actually work in this market.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-sec"><div class="cta-pill">FREE STRATEGY CALL</div><h2>Let's Build Your Business <em>Right</em></h2><p>Book a free call and let's map out what your business needs.</p><button class="btn-p" style="margin-top:16px;font-size:15px;padding:16px 36px" onclick="openBooking()">Book Free Call — Worth ₦50,000</button></div>
+  <div id="story-footer"></div>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<div id="page-services" class="page">
+  <div class="pg-hero">
+    <div class="sec-label">What We Do</div>
+    <h1>Services Built for<br><em>Real Results</em></h1>
+    <p>Every service structured around one goal — making your business more organised, more visible, and more profitable.</p>
+  </div>
+  <div class="serv-full-body">
+    <div class="service-full" id="sf1"><div class="sf-header" onclick="toggleSF('sf1')"><div class="sf-icon">🎯</div><div class="sf-meta"><span class="sf-cat">Core Service</span><h3>Brand Management</h3><p>Your brand is more than a logo — it's the structure that makes people trust and choose you consistently.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Brand strategy & positioning</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand identity & messaging</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand guidelines document</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Consistency audits & management</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Competitor & market analysis</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Monthly brand health review</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Let's talk about what your brand needs to work harder for your business.</p></div><button class="btn-p" onclick="openBooking()">Book Now →</button></div></div></div>
+    <div class="service-full" id="sf2"><div class="sf-header" onclick="toggleSF('sf2')"><div class="sf-icon">📱</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Social Media Management</h3><p>Turn your social media into a consistent lead-generation engine — not just a posting schedule.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Social media strategy & content calendar</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Daily/weekly content creation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Community management & engagement</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Monthly analytics report</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Hashtag & growth strategy</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Paid ad campaign management</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>See how we'll transform your social presence into real results.</p></div><button class="btn-p" onclick="openBooking()">Book Now →</button></div></div></div>
+    <div class="service-full" id="sf3"><div class="sf-header" onclick="toggleSF('sf3')"><div class="sf-icon">✍️</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Content Creation</h3><p>Content that communicates your value clearly and moves your audience from curious to convinced.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Copywriting (web, social, ads)</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Graphic design for all platforms</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Short-form video scripting & editing</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Email marketing content</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Blog writing & SEO content</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand voice & tone development</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Let's talk about the content your business needs to convert.</p></div><button class="btn-p" onclick="openBooking()">Book Now →</button></div></div></div>
+    <div class="service-full" id="sf4"><div class="sf-header" onclick="toggleSF('sf4')"><div class="sf-icon">🎨</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Branding & Visual Design</h3><p>A brand identity that makes people trust you before you even say a word.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Logo design (primary & variations)</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand colour palette & typography</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Business card & stationery design</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Social media profile graphics</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand style guide (PDF)</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Packaging design (where applicable)</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Get a brand identity that makes your business unforgettable.</p></div><button class="btn-p" onclick="openBooking()">Book Now →</button></div></div></div>
+    <div class="service-full" id="sf5"><div class="sf-header" onclick="toggleSF('sf5')"><div class="sf-icon">💻</div><div class="sf-meta"><span class="sf-cat">Setup Service</span><h3>Website Development</h3><p>Professional websites designed to convert visitors into clients — 24 hours a day.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Custom design & development</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Mobile-responsive layout</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Contact forms & booking systems</p></div><div class="inc-item"><div class="inc-check">✓</div><p>SEO foundation setup</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Domain & hosting setup</p></div><div class="inc-item"><div class="inc-check">✓</div><p>1-month post-launch support</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Let's build a website that works for your business around the clock.</p></div><button class="btn-p" onclick="openBooking()">Book Now →</button></div></div></div>
+    <div class="service-full" id="sf6"><div class="sf-header" onclick="toggleSF('sf6')"><div class="sf-icon">📋</div><div class="sf-meta"><span class="sf-cat">Setup Service</span><h3>Business Registration (CAC)</h3><p>Get your business properly registered in Nigeria — legally, quickly, and without the stress.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Business name search & reservation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>CAC registration & documentation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Certificate of Incorporation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Memorandum & Articles of Association</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Tax Identification Number (TIN)</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Post-registration advisory</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Start your business on a solid legal foundation.</p></div><button class="btn-p" onclick="openBooking()">Book Now →</button></div></div></div>
+  </div>
+  <div id="services-footer"></div>
+</div>
+
+<!-- ══ SHOP ══ -->
+<div id="page-shop" class="page">
+  <div class="pg-hero"><div class="sec-label">Shop</div><h1>Tools for <em>Structured</em> Growth</h1><p>Courses, books, and templates to help you build structure faster.</p></div>
+  <div class="shop-tabs">
+    <button class="shop-tab act" onclick="showShop('courses',this)">Courses</button>
+    <button class="shop-tab" onclick="showShop('books',this)">Books</button>
+    <button class="shop-tab" onclick="showShop('templates',this)">Templates</button>
+  </div>
+  <div class="shop-body">
+    <div id="sc-courses" class="shop-cat act">
+      <div class="shop-grid">
+        <div class="shop-card"><div class="shop-img">🎓<div class="shop-badge">BESTSELLER</div></div><div class="shop-body2"><div class="shop-cat-tag">Course</div><h3>Brand Structure Masterclass</h3><p>8 modules covering identity, messaging, positioning, and ongoing management.</p><div class="shop-footer"><div class="shop-price">₦35,000</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Enrol Now</button></div></div></div>
+        <div class="shop-card"><div class="shop-img">💰</div><div class="shop-body2"><div class="shop-cat-tag">Course</div><h3>Sales Consistency System</h3><p>Turn random sales into a predictable revenue system. The framework used across 200+ SMEs.</p><div class="shop-footer"><div class="shop-price">₦25,000</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Enrol Now</button></div></div></div>
+        <div class="shop-card"><div class="shop-img">📱</div><div class="shop-body2"><div class="shop-cat-tag">Course</div><h3>Social Media That Converts</h3><p>Build a social strategy that drives real enquiries and consistent clients — not just likes.</p><div class="shop-footer"><div class="shop-price">₦18,000</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Enrol Now</button></div></div></div>
+      </div>
+    </div>
+    <div id="sc-books" class="shop-cat">
+      <div class="shop-grid">
+        <div class="shop-card"><div class="shop-img">📖<div class="shop-badge">NEW</div></div><div class="shop-body2"><div class="shop-cat-tag">Book</div><h3>Structure Before Scale</h3><p>The definitive guide to building business foundations that last — written for Nigerian entrepreneurs.</p><div class="shop-footer"><div class="shop-price">₦8,500</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Buy Now</button></div></div></div>
+        <div class="shop-card"><div class="shop-img">💡</div><div class="shop-body2"><div class="shop-cat-tag">Book</div><h3>The Brand Clarity Playbook</h3><p>A step-by-step workbook to define your brand position, voice, and visual identity clearly.</p><div class="shop-footer"><div class="shop-price">₦6,500</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Buy Now</button></div></div></div>
+        <div class="shop-card"><div class="shop-img">🚀</div><div class="shop-body2"><div class="shop-cat-tag">Book</div><h3>From Hustle to Systems</h3><p>How to stop doing everything yourself and build repeatable systems that generate profit.</p><div class="shop-footer"><div class="shop-price">₦7,000</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Buy Now</button></div></div></div>
+      </div>
+    </div>
+    <div id="sc-templates" class="shop-cat">
+      <div class="shop-grid">
+        <div class="shop-card"><div class="shop-img">📊<div class="shop-badge">POPULAR</div></div><div class="shop-body2"><div class="shop-cat-tag">Template</div><h3>Business Clarity Blueprint</h3><p>Audit your business, identify gaps, and build a 90-day action plan. Plug-and-play Notion template.</p><div class="shop-footer"><div class="shop-price">₦12,000</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Download</button></div></div></div>
+        <div class="shop-card"><div class="shop-img">📅</div><div class="shop-body2"><div class="shop-cat-tag">Template</div><h3>30-Day Content Calendar</h3><p>Pre-planned content ideas, captions, and hashtags for 30 days across all platforms.</p><div class="shop-footer"><div class="shop-price">₦8,000</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Download</button></div></div></div>
+        <div class="shop-card"><div class="shop-img">🎨</div><div class="shop-body2"><div class="shop-cat-tag">Template</div><h3>Brand Kit Canva Template</h3><p>Full Canva brand kit with logo, colours, fonts, mockups and social templates — ready to customise.</p><div class="shop-footer"><div class="shop-price">₦6,000</div><button class="shop-btn" onclick="alert('Redirecting to checkout...')">Download</button></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div id="shop-footer"></div>
+</div>
+
+<!-- ══ BLOG ══ -->
+<div id="page-blog" class="page">
+  <div class="pg-hero"><div class="sec-label">Blog</div><h1>Business Insights with<br><em>Nigerian Realism</em></h1><p>No fluff. Just clear, practical content on branding, structure, and growing consistently.</p></div>
+  <div class="blog-body">
+    <div class="blog-grid">
+      <div class="blog-card"><div class="blog-img">🏗️</div><div class="blog-card-body"><div class="blog-meta"><span class="blog-tag">Structure</span><span class="blog-date">April 2026</span></div><h3>Why Most Nigerian Businesses Stay Small — And How to Break Out</h3><p>The real reason 8 in 10 SMEs plateau and the structural shift that changes everything.</p><a class="blog-read">Read more →</a></div></div>
+      <div class="blog-card"><div class="blog-img">🎯</div><div class="blog-card-body"><div class="blog-meta"><span class="blog-tag">Branding</span><span class="blog-date">March 2026</span></div><h3>The Difference Between a Logo and a Brand (Most People Get This Wrong)</h3><p>Your logo is not your brand. Here's what branding really means and why it matters more.</p><a class="blog-read">Read more →</a></div></div>
+      <div class="blog-card"><div class="blog-img">📊</div><div class="blog-card-body"><div class="blog-meta"><span class="blog-tag">Sales</span><span class="blog-date">March 2026</span></div><h3>From Random Sales to Consistent Revenue: A 5-Step System</h3><p>Stop relying on luck. A repeatable sales system any SME can implement today.</p><a class="blog-read">Read more →</a></div></div>
+      <div class="blog-card"><div class="blog-img">📱</div><div class="blog-card-body"><div class="blog-meta"><span class="blog-tag">Social Media</span><span class="blog-date">Feb 2026</span></div><h3>Why You're Posting Every Day and Still Not Getting Clients</h3><p>Posting without strategy is just noise. Here's what to fix before creating more content.</p><a class="blog-read">Read more →</a></div></div>
+      <div class="blog-card"><div class="blog-img">💡</div><div class="blog-card-body"><div class="blog-meta"><span class="blog-tag">Business</span><span class="blog-date">Jan 2026</span></div><h3>CAC Registration in 2026: What You Need and What to Avoid</h3><p>A clear breakdown of how to register your business in Nigeria without unnecessary stress.</p><a class="blog-read">Read more →</a></div></div>
+      <div class="blog-card"><div class="blog-img">🔥</div><div class="blog-card-body"><div class="blog-meta"><span class="blog-tag">Growth</span><span class="blog-date">Jan 2026</span></div><h3>The 3 Systems Every SME Must Have Before They Scale</h3><p>Growth without systems creates chaos. These three foundations must be in place first.</p><a class="blog-read">Read more →</a></div></div>
+    </div>
+  </div>
+  <div id="blog-footer"></div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div id="page-contact" class="page">
+  <div class="pg-hero"><div class="sec-label">Reach Us</div><h1>Let's Build Your<br><em>Business Together</em></h1><p>Ready to add structure to your hustle? Reach out and let's talk.</p></div>
+  <div class="contact-body">
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-title">Get in Touch</div>
+        <p>Whether you're just starting or ready to scale — we're here. We respond within 24 hours.</p>
+        <div class="contact-detail"><div class="cd-icon">📧</div><div><h4>Email</h4><p>hello@sabimanagerglobal.com</p></div></div>
+        <div class="contact-detail"><div class="cd-icon">📞</div><div><h4>Phone / WhatsApp</h4><p>+234 800 000 0000</p></div></div>
+        <div class="contact-detail"><div class="cd-icon">📍</div><div><h4>Location</h4><p>Lagos, Nigeria (Global Reach)</p></div></div>
+        <div class="contact-detail"><div class="cd-icon">🕐</div><div><h4>Business Hours</h4><p>Mon – Fri: 9am – 6pm WAT</p></div></div>
+        <div style="margin-top:28px;padding:20px;background:var(--orange-pale);border-radius:12px;border-left:4px solid var(--orange)">
+          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px">Prefer a call?</div>
+          <div style="font-size:13px;color:var(--tmuted);margin-bottom:14px">Book your free strategy session worth ₦50,000.</div>
+          <button class="btn-p" onclick="openBooking()">Book Free Strategy Call →</button>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>Send Us a Message</h3>
+        <div class="form-row">
+          <div class="fg"><label>First Name</label><input placeholder="Chidi"></div>
+          <div class="fg"><label>Last Name</label><input placeholder="Okafor"></div>
+        </div>
+        <div class="fg"><label>Business Name</label><input placeholder="Your Business Name"></div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="you@example.com"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+234 800 000 0000"></div>
+        <div class="fg"><label>Service Interested In</label><select><option value="">— Select a service —</option><option>Brand Management</option><option>Social Media Management</option><option>Content Creation</option><option>Branding & Design</option><option>Website Development</option><option>Business Registration</option><option>Multiple Services</option><option>Not sure yet</option></select></div>
+        <div class="fg"><label>Tell us about your business</label><textarea placeholder="Briefly describe your business and what you're looking to achieve..."></textarea></div>
+        <button class="btn-p" style="width:100%;padding:14px;font-size:14px" onclick="alert('Message sent! We\'ll be in touch within 24 hours.')">Send Message →</button>
+      </div>
+    </div>
+  </div>
+  <div id="contact-footer"></div>
+</div>
+
+<!-- ══ BOOKING MODAL ══ -->
+<div class="modal-ov" id="bkOv" onclick="handleOv(event)">
+  <div class="modal">
+    <div class="modal-hdr"><div><h3>Book Your Free Strategy Call</h3><p>Worth ₦50,000 — yours at no cost</p></div><button class="modal-x" onclick="closeBooking()">✕</button></div>
+    <div class="modal-body2">
+      <div class="step-dots"><div class="sdot done" id="sd1"></div><div class="sdot" id="sd2"></div><div class="sdot" id="sd3"></div></div>
+      <div class="modal-step active" id="ms1">
+        <div style="font-size:12px;font-weight:700;color:var(--tmuted);margin-bottom:20px;letter-spacing:.5px">STEP 1 OF 3 — YOUR DETAILS</div>
+        <div class="form-row"><div class="fg"><label>Full Name *</label><input id="bk-name" placeholder="e.g. Amara Okonkwo"></div><div class="fg"><label>Business Name *</label><input id="bk-biz" placeholder="e.g. Amara Foods"></div></div>
+        <div class="form-row"><div class="fg"><label>Phone *</label><input id="bk-phone" type="tel" placeholder="+234 800 000 0000"></div><div class="fg"><label>Email *</label><input id="bk-email" type="email" placeholder="you@example.com"></div></div>
+        <div class="fg"><label>Industry *</label><select id="bk-ind"><option value="">— Select industry —</option><option>Fashion & Apparel</option><option>Food & Beverage</option><option>Beauty & Personal Care</option><option>Health & Wellness</option><option>Technology & Software</option><option>E-commerce & Retail</option><option>Professional Services</option><option>Real Estate & Construction</option><option>Education & Training</option><option>Media & Entertainment</option><option>Logistics & Transportation</option><option>Agriculture</option><option>Non-profit</option><option>Manufacturing</option><option>Other</option></select></div>
+        <div class="fg"><label>What does your business need most? *</label><select id="bk-need"><option value="">— Select your main need —</option><option>Brand identity & positioning</option><option>Social media strategy</option><option>Content creation system</option><option>Website development</option><option>Business registration (CAC)</option><option>Business systems & structure</option><option>General business growth strategy</option><option>I'm not sure — I need guidance</option></select></div>
+        <div class="modal-foot"><button class="btn-next" onclick="goStep(2)">Next: Pick a Date →</button></div>
+      </div>
+      <div class="modal-step" id="ms2">
+        <div style="font-size:12px;font-weight:700;color:var(--tmuted);margin-bottom:20px;letter-spacing:.5px">STEP 2 OF 3 — PICK DATE & TIME</div>
+        <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px">Available Dates</div>
+        <div class="date-grid" id="dateGrid"></div>
+        <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px;margin-top:20px">Available Times (WAT)</div>
+        <div class="time-grid">
+          <div class="time-btn" onclick="selT(this)">9:00 AM</div><div class="time-btn" onclick="selT(this)">10:00 AM</div><div class="time-btn" onclick="selT(this)">11:00 AM</div><div class="time-btn" onclick="selT(this)">12:00 PM</div><div class="time-btn" onclick="selT(this)">2:00 PM</div><div class="time-btn" onclick="selT(this)">3:00 PM</div><div class="time-btn" onclick="selT(this)">4:00 PM</div><div class="time-btn" onclick="selT(this)">5:00 PM</div><div class="time-btn" onclick="selT(this)">6:00 PM</div>
+        </div>
+        <div class="modal-foot"><button class="btn-back" onclick="goStep(1)">← Back</button><button class="btn-next" onclick="goStep(3)">Confirm Booking →</button></div>
+      </div>
+      <div class="modal-step" id="ms3">
+        <div class="confirm-wrap">
+          <div class="confirm-icon">✅</div>
+          <h3>You're Booked!</h3>
+          <p>Your free strategy call is confirmed. A confirmation email is on its way now.</p>
+          <div class="confirm-box">
+            <div class="cf-row"><span>Name</span><span id="cf-name">—</span></div>
+            <div class="cf-row"><span>Business</span><span id="cf-biz">—</span></div>
+            <div class="cf-row"><span>Date</span><span id="cf-date">—</span></div>
+            <div class="cf-row"><span>Time</span><span id="cf-time">—</span></div>
+            <div class="cf-row"><span>Platform</span><span>Google Meet</span></div>
+          </div>
+          <div class="email-note"><span style="font-size:16px">📧</span><span>A confirmation with your <strong>Google Meet link</strong> has been sent to <strong id="cf-email">your email</strong>. Check inbox and spam.</span></div>
+          <button class="btn-p" style="margin-top:20px;width:100%" onclick="closeBooking()">Done — Back to Website</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── RENDER FOOTER everywhere ──
+function renderFooters(){
+  const ids=['home','projects','story','services','shop','blog','contact'];
+  const tpl=document.getElementById('footer-tpl').innerHTML;
+  ids.forEach(id=>{
+    const el=document.getElementById(id+'-footer');
+    if(el)el.innerHTML=tpl;
+  });
+}
+renderFooters();
+
+// ── PAGE NAV ──
+function showPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('act'));
+  const map={home:'nav-home',story:'nav-story',services:'nav-services',blog:'nav-blog',shop:'nav-shop',contact:'nav-contact'};
+  if(map[n]){const el=document.getElementById(map[n]);if(el)el.classList.add('act')}
+  // close mob menu
+  document.getElementById('mainNav').style.cssText='';
+  mobOpen=false;
+}
+
+// ── MOBILE MENU ──
+let mobOpen=false;
+function toggleMob(){
+  mobOpen=!mobOpen;
+  const nav=document.getElementById('mainNav');
+  nav.style.cssText=mobOpen?'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:rgba(0,0,128,.98);padding:20px 6%;gap:18px;z-index:999;border-bottom:1px solid rgba(242,101,34,.12)':'';
+}
+
+// ── SERVICE ACCORDION ──
+function toggleSF(id){document.getElementById(id).classList.toggle('open')}
+
+// ── SHOP TABS ──
+function showShop(cat,btn){
+  document.querySelectorAll('.shop-tab').forEach(t=>t.classList.remove('act'));
+  document.querySelectorAll('.shop-cat').forEach(c=>c.classList.remove('act'));
+  btn.classList.add('act');
+  document.getElementById('sc-'+cat).classList.add('act');
+}
+
+// ── PROJECT FILTER ──
+function filterProj(cat,btn){
+  document.querySelectorAll('.pcat-btn').forEach(b=>b.classList.remove('act'));
+  btn.classList.add('act');
+  document.querySelectorAll('.pfc').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+  });
+}
+
+// ── BOOKING ──
+let selDate='',selTimeV='';
+function openBooking(){document.getElementById('bkOv').classList.add('open');buildDates();goStep(1)}
+function closeBooking(){document.getElementById('bkOv').classList.remove('open')}
+function handleOv(e){if(e.target===document.getElementById('bkOv'))closeBooking()}
+
+function buildDates(){
+  const g=document.getElementById('dateGrid');g.innerHTML='';
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const mons=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const d=new Date();let added=0,i=1;
+  while(added<8){
+    const nd=new Date(d);nd.setDate(d.getDate()+i);i++;
+    if(nd.getDay()===0||nd.getDay()===6)continue;
+    const b=document.createElement('div');b.className='date-btn';
+    const ds=`${days[nd.getDay()]}, ${nd.getDate()} ${mons[nd.getMonth()]}`;
+    b.innerHTML=`<div class="db-day">${days[nd.getDay()]}</div><div class="db-num">${nd.getDate()}</div><div class="db-mon">${mons[nd.getMonth()]}</div>`;
+    b.onclick=function(){document.querySelectorAll('.date-btn').forEach(x=>x.classList.remove('sel'));this.classList.add('sel');selDate=ds};
+    g.appendChild(b);added++;
+  }
+}
+function selT(el){document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');selTimeV=el.textContent}
+
+function goStep(n){
+  if(n===2){
+    const vals=[document.getElementById('bk-name').value,document.getElementById('bk-biz').value,document.getElementById('bk-phone').value,document.getElementById('bk-email').value,document.getElementById('bk-ind').value];
+    if(vals.some(v=>!v)){alert('Please fill in all required fields.');return}
+  }
+  if(n===3){
+    if(!selDate){alert('Please pick a date.');return}
+    if(!selTimeV){alert('Please pick a time.');return}
+    document.getElementById('cf-name').textContent=document.getElementById('bk-name').value;
+    document.getElementById('cf-biz').textContent=document.getElementById('bk-biz').value;
+    document.getElementById('cf-date').textContent=selDate;
+    document.getElementById('cf-time').textContent=selTimeV+' (WAT)';
+    document.getElementById('cf-email').textContent=document.getElementById('bk-email').value||'your email';
+  }
+  document.querySelectorAll('.modal-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('ms'+n).classList.add('active');
+  for(let i=1;i<=3;i++)document.getElementById('sd'+i).classList.toggle('done',i<=n);
+}
+</script>
+</body>
+</html>
