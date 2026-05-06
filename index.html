@@ -24,57 +24,55 @@ a{text-decoration:none;color:inherit}
 button{font-family:'Montserrat',sans-serif;cursor:pointer}
 img{max-width:100%;display:block}
 
-/* ── GEOMETRIC PLACEHOLDER ── */
+/* GEO PLACEHOLDER */
 .geo-placeholder{position:relative;background:var(--navy);overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .geo-placeholder svg{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.12}
 .geo-placeholder-label{position:relative;z-index:2;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase}
 
-/* ── HEADER ── */
+/* HEADER */
 header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,128,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(242,101,34,0.15)}
 .hdr-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 5%;height:80px;gap:24px}
 
-/* FIX 1: Logo stacked vertically */
-.logo{display:flex;align-items:center;gap:14px;cursor:pointer;text-decoration:none}
-.logo img{height:52px;width:auto;object-fit:contain;display:block;flex-shrink:0}
-.logo-img-fallback{width:48px;height:48px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;color:#fff;flex-shrink:0}
-.logo-text-block{display:flex;flex-direction:column;gap:2px}
-.logo-text-block .logo-name{font-family:'Playfair Display',serif;font-weight:800;font-size:15px;color:#fff;line-height:1.2;white-space:nowrap}
-.logo-text-block .logo-name span{color:var(--orange)}
-.logo-text-block .logo-slogan{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:rgba(255,255,255,0.75);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
+/* FIX 1: Logo - image+name side by side, slogan below */
+.logo{display:flex;flex-direction:column;align-items:flex-start;gap:2px;cursor:pointer;text-decoration:none}
+.logo-top{display:flex;align-items:center;gap:12px}
+.logo img{height:48px;width:auto;object-fit:contain;display:block;flex-shrink:0}
+.logo-img-fallback{width:44px;height:44px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;flex-shrink:0}
+.logo-name{font-family:'Playfair Display',serif;font-weight:800;font-size:15px;color:#fff;line-height:1.2;white-space:nowrap}
+.logo-name span{color:var(--orange)}
+.logo-slogan{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:rgba(255,255,255,0.75);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;padding-left:2px}
 
 nav{display:flex;align-items:center;justify-content:center;gap:22px}
 nav a{color:rgba(255,255,255,.9);font-size:13px;font-weight:600;cursor:pointer;position:relative;transition:color .2s;letter-spacing:0.3px}
 nav a:hover,nav a.act{color:var(--orange)}
 nav a.act::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--orange);border-radius:1px}
-.hdr-contact{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
-.hdr-contact a{font-size:12px;color:rgba(255,255,255,.75);font-weight:500;transition:color .2s}
-.hdr-contact a:hover{color:var(--orange)}
-.hdr-contact .hc-phone{font-size:13px;font-weight:700;color:#fff}
+
+/* FIX 2: Header right - Book Free Call button instead of phone/email */
+.hdr-book{display:flex;align-items:center}
 .mob-btn{display:none;background:none;border:none;flex-direction:column;gap:5px;padding:4px}
 .mob-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
 
-/* ── BUTTONS ── */
+/* BUTTONS */
 .btn-p{background:var(--orange);color:#fff;border:none;padding:14px 28px;border-radius:6px;font-size:14px;font-weight:700;letter-spacing:.4px;transition:all .2s;display:inline-block;cursor:pointer}
 .btn-p:hover{background:var(--orange-h);transform:translateY(-1px);box-shadow:0 6px 20px rgba(242,101,34,0.35)}
 .btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);padding:14px 28px;border-radius:6px;font-size:14px;font-weight:700;transition:all .2s;display:inline-block;cursor:pointer}
 .btn-o:hover{border-color:var(--orange);color:var(--orange)}
 
-/* ── PAGES ── */
+/* PAGES */
 .page{display:none;padding-top:80px;min-height:100vh}
 .page.active{display:block}
 
-/* ── SECTION BASE ── */
+/* SECTION BASE */
 .sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
 .sec-title{font-size:clamp(30px,3.5vw,46px);font-weight:800;line-height:1.12;color:var(--navy)}
 .sec-title em{color:var(--orange);font-style:normal}
-/* FIX 2: Text colors - sec-sub more visible */
 .sec-sub{font-size:17px;color:var(--tbody);line-height:1.8;max-width:580px}
 section{padding:96px 7%}
 .sec-hdr{margin-bottom:56px}
 .sec-hdr.cen{text-align:center}
 .sec-hdr.cen .sec-sub{margin:14px auto 0}
 
-/* ── HERO ── */
+/* HERO */
 .hero{min-height:calc(100vh - 80px);background:var(--navy);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px 7%;gap:60px;position:relative;overflow:hidden}
 .hero-geo-bg{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;opacity:.08}
 .hero-content{position:relative;z-index:2}
@@ -88,7 +86,7 @@ section{padding:96px 7%}
 .hero-img-wrap{position:relative;z-index:2;border-radius:20px;overflow:hidden}
 .hero-img-wrap img{width:100%;height:500px;object-fit:cover;border-radius:20px;display:block}
 
-/* ── PAIN ── */
+/* PAIN */
 .pain-sec{background:var(--cream)}
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
 .pain-card{background:#fff;border-radius:16px;padding:34px 30px;border:1px solid var(--g300);position:relative;overflow:hidden;transition:all .25s}
@@ -101,7 +99,7 @@ section{padding:96px 7%}
 .pain-divider p{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,.9)}
 .pain-divider strong{color:var(--orange);font-style:normal}
 
-/* ── SOLUTION ── */
+/* SOLUTION */
 .solution-sec{background:var(--navy)}
 .sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .sol-points{display:flex;flex-direction:column;gap:30px;margin-top:36px}
@@ -116,7 +114,7 @@ section{padding:96px 7%}
 .sol-step h5{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
 .sol-step p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.7}
 
-/* ── PROOF ── */
+/* PROOF */
 .proof-sec{background:var(--off-white)}
 .proof-header-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:20px;flex-wrap:wrap}
 .view-all-link{font-size:14px;font-weight:700;color:var(--orange);border-bottom:1.5px solid var(--orange);padding-bottom:2px;cursor:pointer}
@@ -131,7 +129,7 @@ section{padding:96px 7%}
 .proof-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
 .proof-card p{font-size:14px;color:var(--tbody);line-height:1.7}
 
-/* ── SERVICES ── */
+/* SERVICES */
 .serv-sec{background:#fff}
 .serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .serv-card{background:var(--cream);border-radius:14px;padding:30px;border:1px solid var(--g300);transition:all .25s;cursor:pointer;position:relative;overflow:hidden}
@@ -143,7 +141,7 @@ section{padding:96px 7%}
 .serv-card p{font-size:14px;color:var(--tbody);line-height:1.8;margin-bottom:18px}
 .serv-link{font-size:13px;font-weight:700;color:var(--orange)}
 
-/* ── ABOUT ── */
+/* ABOUT */
 .about-sec{background:var(--cream)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .about-img-wrap{border-radius:20px;overflow:hidden}
@@ -154,7 +152,7 @@ section{padding:96px 7%}
 .pillar-dot{width:9px;height:9px;min-width:9px;background:var(--orange);border-radius:50%;margin-top:8px}
 .pillar p{font-size:15px;font-weight:500;color:var(--text);line-height:1.7}
 
-/* ── CLIENTS MARQUEE ── */
+/* CLIENTS MARQUEE */
 .clients-sec{background:var(--cream);overflow:hidden}
 .marquee-wrap{position:relative;overflow:hidden;margin-top:44px;padding:8px 0}
 .marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
@@ -168,7 +166,7 @@ section{padding:96px 7%}
 .client-icon{width:32px;height:32px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;font-family:'Playfair Display',serif}
 .client-name{font-size:14px;font-weight:600;color:var(--text)}
 
-/* ── TESTIMONIALS ── */
+/* TESTIMONIALS */
 .testi-sec{background:#fff}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
 .testi-card{background:var(--cream);border-radius:16px;padding:30px;border:1px solid var(--g300);transition:all .25s}
@@ -180,20 +178,7 @@ section{padding:96px 7%}
 .testi-name{font-size:15px;font-weight:700;color:var(--navy)}
 .testi-biz{font-size:13px;color:var(--tbody);font-weight:500}
 
-  /* ── Blog Post ── */
-  <section style="padding:96px 7%;background:#fff">
-  <div class="sec-hdr">
-    <div class="sec-label">From The Blog</div>
-    <div class="sec-title">Insights for <em>Structured Growth</em></div>
-    <p class="sec-sub" style="margin-top:14px">Practical business advice for Nigerian entrepreneurs who are done with random hustle.</p>
-  </div>
-  <div class="blog-grid" id="homeBlogGrid"></div>
-  <div style="text-align:center;margin-top:40px">
-    <button class="btn-p" onclick="showPage('blog')">Read All Articles →</button>
-  </div>
-</section>
-
-/* ── CTA ── */
+/* CTA */
 .cta-sec{background:var(--navy);text-align:center;padding:108px 7%;position:relative;overflow:hidden}
 .cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(242,101,34,.08) 0%,transparent 65%);pointer-events:none}
 .cta-pill{display:inline-block;background:rgba(242,101,34,.15);border:1px solid rgba(242,101,34,.3);color:#FF8A50;font-size:12px;font-weight:700;letter-spacing:1px;padding:8px 20px;border-radius:100px;margin-bottom:28px}
@@ -203,19 +188,20 @@ section{padding:96px 7%}
 .cta-free{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:10px 26px;border-radius:100px;font-size:15px;color:rgba(255,255,255,.75);margin-bottom:34px}
 .cta-free strong{color:#fff}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 0.8fr 1fr;gap:40px;margin-bottom:60px}
-
-/* FIX 1: Footer logo stacked vertically */
 .foot-brand{}
-.foot-logo-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:20px}
-.foot-logo-wrap img{height:60px;width:auto;object-fit:contain;display:block}
-.foot-logo-img-fallback{width:52px;height:52px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:24px;color:#fff}
-.foot-logo-text-block{display:flex;flex-direction:column;gap:3px}
-.foot-logo-text-block .foot-logo-name{font-family:'Playfair Display',serif;font-weight:800;font-size:16px;color:#fff;line-height:1.2}
-.foot-logo-text-block .foot-logo-name span{color:var(--orange)}
-.foot-logo-text-block .foot-logo-slogan{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:rgba(255,255,255,.75);letter-spacing:1.5px;text-transform:uppercase}
+
+/* FIX 1: Footer logo - image+name side by side, slogan below */
+.foot-logo-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.foot-logo-top{display:flex;align-items:center;gap:12px}
+.foot-logo-wrap img{height:55px;width:auto;object-fit:contain;display:block;flex-shrink:0}
+.foot-logo-img-fallback{width:48px;height:48px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;flex-shrink:0}
+.foot-logo-name{font-family:'Playfair Display',serif;font-weight:800;font-size:16px;color:#fff;line-height:1.2}
+.foot-logo-name span{color:var(--orange)}
+.foot-logo-slogan{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:rgba(255,255,255,.75);letter-spacing:1.5px;text-transform:uppercase}
+
 .foot-social{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
 .foot-social a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer}
 .foot-social a:hover{background:var(--orange);border-color:var(--orange)}
@@ -228,14 +214,14 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .foot-copy{font-size:14px;color:rgba(255,255,255,.7);font-weight:500}
 .foot-copy span{color:var(--orange);font-weight:700}
 
-/* ── PAGE HERO ── */
+/* PAGE HERO */
 .pg-hero{background:var(--navy);padding:88px 7% 76px;position:relative;overflow:hidden}
 .pg-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),transparent)}
 .pg-hero h1{font-size:clamp(34px,5vw,56px);font-weight:900;color:#fff;margin-bottom:18px;line-height:1.1}
 .pg-hero h1 em{color:var(--orange);font-style:normal}
 .pg-hero p{font-size:18px;color:rgba(255,255,255,.82);max-width:580px;line-height:1.8;font-weight:300}
 
-/* ── PROJECTS ── */
+/* PROJECTS */
 .proj-body{padding:80px 7%}
 .proj-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px}
 .pf-btn{padding:10px 22px;border-radius:100px;border:1.5px solid var(--g300);font-size:13px;font-weight:700;color:var(--tbody);cursor:pointer;transition:all .2s;background:#fff}
@@ -251,7 +237,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .pfc p{font-size:14px;color:var(--tbody);line-height:1.7}
 .pfc-result{display:inline-block;margin-top:10px;background:var(--orange-pale);border:1px solid rgba(242,101,34,.2);color:var(--orange);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px}
 
-/* ── SERVICES FULL ── */
+/* SERVICES FULL */
 .serv-full-body{padding:80px 7%}
 .service-full{background:#fff;border:1px solid var(--g300);border-radius:18px;overflow:hidden;margin-bottom:26px}
 .sf-header{background:var(--cream);padding:30px 36px;display:flex;align-items:flex-start;gap:22px;border-bottom:1px solid var(--g300);cursor:pointer}
@@ -274,7 +260,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .sf-cta p{font-size:14px;color:rgba(255,255,255,.7)}
 .free-tag{display:inline-block;background:rgba(242,101,34,.2);border:1px solid rgba(242,101,34,.3);color:var(--orange);font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;margin-bottom:8px}
 
-/* ── BLOG ── */
+/* BLOG */
 .blog-body{padding:80px 7%}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .blog-card{border:1px solid var(--g300);border-radius:16px;overflow:hidden;background:#fff;transition:all .25s;cursor:pointer}
@@ -290,7 +276,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .blog-card p{font-size:14px;color:var(--tbody);line-height:1.75;margin-bottom:16px}
 .blog-read{font-size:13px;font-weight:700;color:var(--orange)}
 
-/* ── BLOG SINGLE ── */
+/* BLOG SINGLE */
 .blog-single{padding:60px 7%;max-width:860px;margin:0 auto}
 .blog-back{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;margin-bottom:36px;transition:color .2s}
 .blog-back:hover{color:var(--orange)}
@@ -331,7 +317,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .related-card h5{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:6px}
 .related-card p{font-size:12px;color:var(--tbody)}
 
-/* ── SHOP ── */
+/* SHOP */
 .shop-tabs{display:flex;gap:0;padding:0 7%;background:var(--cream);border-bottom:2px solid var(--g300)}
 .shop-tab{padding:15px 26px;font-size:14px;font-weight:700;color:var(--tbody);border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;transition:all .2s;background:none;border-left:none;border-right:none;border-top:none}
 .shop-tab:hover,.shop-tab.act{color:var(--navy);border-bottom-color:var(--orange)}
@@ -350,7 +336,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .shop-footer{display:flex;align-items:center;justify-content:space-between}
 .shop-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy)}
 
-/* ── PRODUCT DETAIL ── */
+/* PRODUCT DETAIL */
 .product-detail{padding:60px 7%;max-width:1000px;margin:0 auto}
 .product-back{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;margin-bottom:36px;transition:color .2s}
 .product-back:hover{color:var(--orange)}
@@ -365,12 +351,12 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .product-includes h4{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tbody);margin-bottom:14px}
 .product-includes ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .product-includes li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--tbody);line-height:1.6}
-.product-includes li::before{content:'✓';color:var(--orange);font-weight:700;flex-shrink:0}
+.product-includes li::before{content:'\\2713';color:var(--orange);font-weight:700;flex-shrink:0}
 .checkout-btn{width:100%;padding:16px;background:var(--orange);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;margin-bottom:12px}
 .checkout-btn:hover{background:var(--orange-h);transform:translateY(-1px)}
 .checkout-note{font-size:13px;color:var(--tbody);text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
 
-/* ── CHECKOUT MODAL ── */
+/* CHECKOUT MODAL */
 .checkout-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
 .checkout-overlay.open{opacity:1;pointer-events:all}
 .checkout-modal{background:#fff;border-radius:20px;width:100%;max-width:480px;transform:translateY(20px);transition:transform .25s}
@@ -395,7 +381,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .checkout-success h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:10px}
 .checkout-success p{font-size:15px;color:var(--tbody);line-height:1.75;margin-bottom:22px}
 
-/* ── STORY ── */
+/* STORY */
 .story-body{padding:88px 7%}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .story-body h2{font-size:30px;font-weight:800;color:var(--navy);margin-bottom:18px}
@@ -406,7 +392,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .val-card h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
 .val-card p{font-size:14px;color:var(--tbody);margin:0;line-height:1.7}
 
-/* ── CONTACT ── */
+/* CONTACT */
 .contact-body{padding:80px 7%}
 .contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:68px}
 .contact-info-title{font-size:26px;font-weight:800;color:var(--navy);margin-bottom:12px}
@@ -429,15 +415,9 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .success-msg h4{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:10px}
 .success-msg p{font-size:15px;color:var(--tbody);line-height:1.75;margin-bottom:18px}
 
-/* ── BOOKING PAGE (FIX 4) ── */
-.booking-page{padding:60px 7% 100px;max-width:700px;margin:0 auto}
-.booking-page-hdr{text-align:center;margin-bottom:48px}
-.booking-page-hdr .sec-label{justify-content:center;display:block}
-.booking-page-hdr h1{font-size:clamp(30px,4vw,46px);font-weight:900;color:var(--navy);margin-bottom:14px;line-height:1.15}
-.booking-page-hdr h1 em{color:var(--orange);font-style:normal}
-.booking-page-hdr p{font-size:17px;color:var(--tbody);max-width:500px;margin:0 auto;line-height:1.8}
-.booking-free-badge{display:inline-block;background:var(--orange-pale);border:1px solid rgba(242,101,34,.25);color:var(--orange);font-size:14px;font-weight:700;padding:9px 22px;border-radius:100px;margin:20px 0}
-.booking-form-card{background:var(--cream);border:1px solid var(--g300);border-radius:22px;padding:44px}
+/* FIX 4 & 5: BOOKING PAGE - wider */
+.booking-page{padding:60px 7% 100px;max-width:860px;margin:0 auto}
+.booking-form-card{background:var(--cream);border:1px solid var(--g300);border-radius:22px;padding:48px}
 .booking-steps{display:flex;gap:8px;margin-bottom:36px}
 .bstep{flex:1;height:4px;background:var(--g300);border-radius:2px;transition:background .3s}
 .bstep.done{background:var(--orange)}
@@ -459,8 +439,9 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .bk-next-btn{background:var(--orange);color:#fff;border:none;padding:12px 28px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s}
 .bk-next-btn:hover{background:var(--orange-h)}
 .bk-next-btn:disabled{opacity:.6;cursor:not-allowed}
+/* FIX 3: Booking confirmation - no WhatsApp, clean success */
 .booking-confirm{text-align:center;padding:20px 0}
-.confirm-icon-big{width:80px;height:80px;background:rgba(242,101,34,.1);border:2px solid rgba(242,101,34,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 22px}
+.confirm-icon-big{width:80px;height:80px;background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 22px}
 .booking-confirm h2{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:12px}
 .booking-confirm p{font-size:16px;color:var(--tbody);margin-bottom:22px;line-height:1.75}
 .confirm-details{background:#fff;border:1px solid var(--g300);border-radius:13px;padding:22px;text-align:left;margin-bottom:20px}
@@ -468,11 +449,11 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .cf-row:last-child{border-bottom:none}
 .cf-row span:first-child{color:var(--tbody);font-weight:500}
 .cf-row span:last-child{font-weight:700;color:var(--navy)}
+.email-note{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 16px;font-size:13px;color:var(--tbody);display:flex;gap:9px;align-items:flex-start;text-align:left;margin-bottom:16px}
 .meet-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:var(--navy);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;margin-bottom:12px;transition:all .2s}
 .meet-btn:hover{background:var(--navy-mid)}
-.email-note{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 16px;font-size:13px;color:var(--tbody);display:flex;gap:9px;align-items:flex-start;text-align:left;margin-bottom:16px}
 
-/* ── LEGAL PAGES ── */
+/* LEGAL PAGES */
 .legal-body{padding:70px 7%;max-width:900px;margin:0 auto}
 .legal-body h2{font-size:26px;font-weight:800;color:var(--navy);margin:36px 0 14px}
 .legal-body h3{font-size:20px;font-weight:700;color:var(--navy);margin:26px 0 10px}
@@ -481,7 +462,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .legal-body li{font-size:16px;color:var(--tbody);line-height:1.8;margin-bottom:8px}
 .legal-last-updated{display:inline-block;background:var(--orange-pale);border:1px solid rgba(242,101,34,.2);color:var(--orange);font-size:13px;font-weight:700;padding:6px 16px;border-radius:100px;margin-bottom:36px}
 
-/* ── CAREERS ── */
+/* CAREERS */
 .careers-body{padding:80px 7%}
 .jobs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:42px}
 .job-card{background:var(--cream);border-radius:16px;padding:30px;border:1px solid var(--g300);transition:all .25s;cursor:pointer}
@@ -495,13 +476,12 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .culture-card h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
 .culture-card p{font-size:14px;color:var(--tbody);line-height:1.75}
 
-/* FIX 5: Job Application Page */
+/* JOB APPLICATION PAGE */
 .job-apply-wrap{padding:60px 7%;max-width:760px;margin:0 auto}
 .job-back{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;margin-bottom:36px;transition:color .2s}
 .job-back:hover{color:var(--orange)}
 .job-details-card{background:var(--cream);border:1px solid var(--g300);border-radius:16px;padding:32px;margin-bottom:36px}
 .job-details-card h2{font-size:26px;font-weight:800;color:var(--navy);margin-bottom:10px}
-.job-details-card .job-type{margin-bottom:18px}
 .job-details-card p{font-size:15px;color:var(--tbody);line-height:1.8;margin-bottom:16px}
 .job-details-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:10px;margin-top:18px}
 .job-details-card ul{margin:0 0 0 20px}
@@ -509,7 +489,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .apply-form-card{background:var(--cream);border:1px solid var(--g300);border-radius:22px;padding:40px}
 .apply-form-card h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:24px}
 
-/* ── REFER & EARN ── */
+/* REFER & EARN */
 .refer-body{padding:80px 7%}
 .refer-hero-box{background:var(--navy);border-radius:20px;padding:56px;text-align:center;position:relative;overflow:hidden;margin-bottom:70px}
 .refer-hero-box::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(242,101,34,.07);pointer-events:none}
@@ -526,14 +506,14 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .refer-form-wrap .refer-sub{font-size:15px;color:var(--tbody);margin-bottom:28px;line-height:1.75}
 .refer-section-title{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin:24px 0 16px;padding-bottom:8px;border-bottom:1.5px solid var(--g300)}
 
-/* ── WHATSAPP FLOAT ── */
+/* WHATSAPP FLOAT */
 .wa-float{position:fixed;bottom:28px;right:28px;z-index:9000;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.45);transition:all .2s;text-decoration:none}
 .wa-float:hover{background:#1ebe5a;transform:scale(1.08)}
 .wa-float svg{width:30px;height:30px;fill:#fff}
 .wa-float-tooltip{position:absolute;right:68px;background:rgba(0,0,0,.75);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
 .wa-float:hover .wa-float-tooltip{opacity:1}
 
-/* ── COOKIE BANNER ── */
+/* COOKIE BANNER */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:8999;background:var(--navy);border-top:2px solid rgba(242,101,34,.3);padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease}
 .cookie-banner.visible{transform:translateY(0)}
 .cookie-banner p{font-size:14px;color:rgba(255,255,255,.85);flex:1;min-width:220px;line-height:1.6}
@@ -544,7 +524,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .cookie-reject{background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.25)}
 .cookie-learn{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.25)}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:1100px){
   .footer-grid{grid-template-columns:1fr 1fr 1fr}
   .footer-grid .foot-brand{grid-column:1/-1}
@@ -557,7 +537,6 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
   .proof-grid{grid-template-columns:1fr 1fr}
   .serv-grid{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:1fr}
-  .nums-grid{grid-template-columns:1fr 1fr}
   .testi-grid{grid-template-columns:1fr}
   .story-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
@@ -579,12 +558,11 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
   .hero{padding:52px 5%}
   .pain-grid{grid-template-columns:1fr}
   .serv-grid{grid-template-columns:1fr}
-  .nums-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr}
   .proof-grid,.proj-full-grid,.shop-grid,.blog-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .culture-grid{grid-template-columns:1fr}
-  .hdr-contact{display:none}
+  .hdr-book{display:none}
   .cookie-banner{flex-direction:column;align-items:flex-start}
   .booking-form-card{padding:28px 20px}
 }
@@ -596,12 +574,12 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 <header>
   <div class="hdr-inner">
     <div class="logo" onclick="showPage('home')">
-      <img src="logo.png" alt="Sabi Manager Global" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="logo-img-fallback" style="display:none">S</div>
-      <div class="logo-text-block">
+      <div class="logo-top">
+        <img src="logo.png" alt="Sabi Manager Global" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="logo-img-fallback" style="display:none">S</div>
         <div class="logo-name">Sabi Manager <span>Global</span></div>
-        <div class="logo-slogan">Structure. Systems. Strategy.</div>
       </div>
+      <div class="logo-slogan">Structure. Systems. Strategy.</div>
     </div>
     <nav id="mainNav">
       <a onclick="showPage('home')" id="nav-home" class="act">Home</a>
@@ -610,11 +588,9 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
       <a onclick="showPage('blog')" id="nav-blog">Blog</a>
       <a onclick="showPage('shop')" id="nav-shop">Shop</a>
       <a onclick="showPage('contact')" id="nav-contact">Reach Us</a>
-      <a onclick="showPage('booking')" id="nav-booking" style="background:var(--orange);color:#fff;padding:8px 16px;border-radius:6px;font-size:12px">Book Free Call</a>
     </nav>
-    <div class="hdr-contact">
-      <a href="tel:+2347052828629" class="hc-phone">+234 705 282 8629</a>
-      <a href="mailto:hello@sabimanagerglobal.com">hello@sabimanagerglobal.com</a>
+    <div class="hdr-book">
+      <button class="btn-p" onclick="showPage('booking')" style="font-size:12px;padding:10px 20px;white-space:nowrap">Book Free Strategy Call</button>
     </div>
     <button class="mob-btn" onclick="toggleMob()"><span></span><span></span><span></span></button>
   </div>
@@ -642,12 +618,12 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
   <div class="footer-grid">
     <div class="foot-brand">
       <div class="foot-logo-wrap">
-        <img src="logo.png" alt="Sabi Manager Global" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="foot-logo-img-fallback" style="display:none">S</div>
-        <div class="foot-logo-text-block">
+        <div class="foot-logo-top">
+          <img src="logo.png" alt="Sabi Manager Global" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="foot-logo-img-fallback" style="display:none">S</div>
           <div class="foot-logo-name">Sabi Manager <span>Global</span></div>
-          <div class="foot-logo-slogan">Structure. Systems. Strategy.</div>
         </div>
+        <div class="foot-logo-slogan">Structure. Systems. Strategy.</div>
       </div>
       <div class="foot-social">
         <a href="https://instagram.com/sabimanagerglobal" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
@@ -697,7 +673,7 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
     </div>
   </div>
   <div class="foot-bottom">
-    <div class="foot-copy">© 2026 <span>Sabi Manager Global</span>. All rights reserved.</div>
+    <div class="foot-copy">&copy; 2026 <span>Sabi Manager Global</span>. All rights reserved.</div>
     <div class="foot-copy">Built with structure. Built for growth.</div>
   </div>
 </footer>
@@ -713,15 +689,15 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
     </svg>
     <div class="hero-content">
       <div class="hero-badge"><div class="badge-dot"></div>Brand Structure &amp; Business Systems</div>
-      <h1>Your Business<br>Is Active.<br><em>Let's Make It<br>Profitable.</em></h1>
+      <h1>Your Business<br>Is Active.<br><em>Let&apos;s Make It<br>Profitable.</em></h1>
       <p class="hero-desc">We help growth-stage businesses build the structure and systems behind their brand, so you can stop hustling randomly and start growing consistently.</p>
       <div class="hero-btns">
-        <button class="btn-p" onclick="showPage('booking')">Book Free Strategy Call, Worth ₦50,000</button>
+        <button class="btn-p" onclick="showPage('booking')">Book Free Strategy Call, Worth &#8358;50,000</button>
         <button class="btn-o" onclick="showPage('services')">See What We Do</button>
       </div>
     </div>
     <div class="hero-img-wrap">
-      <img src="hero.jpg" alt="Sabi Manager Global Team" onerror="this.outerHTML='<div class=\'geo-placeholder\' style=\'height:500px;border-radius:20px\'><svg viewBox=\'0 0 400 480\' preserveAspectRatio=\'xMidYMid slice\'><defs><pattern id=\'hp1\' width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M0 20h40M20 0v40\' stroke=\'#F26522\' stroke-width=\'0.5\' fill=\'none\'/></pattern></defs><rect width=\'400\' height=\'480\' fill=\'url(#hp1)\'/><circle cx=\'200\' cy=\'240\' r=\'160\' fill=\'none\' stroke=\'#F26522\' stroke-width=\'1\'/></svg><span class=\'geo-placeholder-label\'>Hero Image</span></div>'">
+      <img src="hero.jpg" alt="Sabi Manager Global Team" onerror="this.outerHTML='<div class=geo-placeholder style=height:500px;border-radius:20px><span class=geo-placeholder-label>Hero Image</span></div>'">
     </div>
   </div>
 
@@ -729,16 +705,16 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
     <div class="sec-hdr">
       <div class="sec-label">The Real Problem</div>
       <div class="sec-title">Does this sound familiar?</div>
-      <p class="sec-sub" style="margin-top:14px">Most businesses aren't failing from lack of effort. They're stuck because the foundation is broken.</p>
+      <p class="sec-sub" style="margin-top:14px">Most businesses aren&apos;t failing from lack of effort. They&apos;re stuck because the foundation is broken.</p>
     </div>
     <div class="pain-grid">
-      <div class="pain-card"><div class="pain-x">✕</div><div class="pain-num">01</div><h3>Inconsistent Sales</h3><p>Some months are great, others are empty. You can't predict your revenue or plan for growth because there's no system, just hope and hustle.</p></div>
-      <div class="pain-card"><div class="pain-x">✕</div><div class="pain-num">02</div><h3>Unclear Business Structure</h3><p>You're doing everything yourself, no clear process, no documentation, no delegation. Your business runs only when you show up every single day.</p></div>
-      <div class="pain-card"><div class="pain-x">✕</div><div class="pain-num">03</div><h3>Poor Brand Systems</h3><p>Your brand looks different every month. No consistent voice, no clear identity. Potential clients can't tell what you do or why they should trust you.</p></div>
+      <div class="pain-card"><div class="pain-x">&#10005;</div><div class="pain-num">01</div><h3>Inconsistent Sales</h3><p>Some months are great, others are empty. You can&apos;t predict your revenue or plan for growth because there&apos;s no system, just hope and hustle.</p></div>
+      <div class="pain-card"><div class="pain-x">&#10005;</div><div class="pain-num">02</div><h3>Unclear Business Structure</h3><p>You&apos;re doing everything yourself, no clear process, no documentation, no delegation. Your business runs only when you show up every single day.</p></div>
+      <div class="pain-card"><div class="pain-x">&#10005;</div><div class="pain-num">03</div><h3>Poor Brand Systems</h3><p>Your brand looks different every month. No consistent voice, no clear identity. Potential clients can&apos;t tell what you do or why they should trust you.</p></div>
     </div>
     <div class="pain-divider">
-      <p>Most businesses don't fail from lack of effort, they fail from lack of <strong>structure.</strong></p>
-      <button class="btn-p" onclick="showPage('booking')">Let's Fix That — Book Free Call</button>
+      <p>Most businesses don&apos;t fail from lack of effort, they fail from lack of <strong>structure.</strong></p>
+      <button class="btn-p" onclick="showPage('booking')">Let&apos;s Fix That &mdash; Book Free Call</button>
     </div>
   </section>
 
@@ -746,18 +722,18 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
     <div class="sol-grid">
       <div>
         <div class="sec-label" style="color:var(--orange)">The Sabi Manager Way</div>
-        <div class="sec-title" style="color:#fff">We don't just make your brand look good.<br><em>We make it work.</em></div>
+        <div class="sec-title" style="color:#fff">We don&apos;t just make your brand look good.<br><em>We make it work.</em></div>
         <div class="sol-points">
-          <div class="sol-point"><div class="sol-ic">🧭</div><div><h4>Structure First</h4><p>We diagnose your business and build the structural foundation that everything else grows from.</p></div></div>
-          <div class="sol-point"><div class="sol-ic">⚙️</div><div><h4>Systems That Scale</h4><p>Repeatable systems for content, sales, and operations so your business runs consistently.</p></div></div>
-          <div class="sol-point"><div class="sol-ic">📈</div><div><h4>Strategy for Consistent Profit</h4><p>Every action tied to a real business outcome. Not aesthetics — measurable, growing revenue.</p></div></div>
+          <div class="sol-point"><div class="sol-ic">&#129517;</div><div><h4>Structure First</h4><p>We diagnose your business and build the structural foundation that everything else grows from.</p></div></div>
+          <div class="sol-point"><div class="sol-ic">&#9881;&#65039;</div><div><h4>Systems That Scale</h4><p>Repeatable systems for content, sales, and operations so your business runs consistently.</p></div></div>
+          <div class="sol-point"><div class="sol-ic">&#128200;</div><div><h4>Strategy for Consistent Profit</h4><p>Every action tied to a real business outcome. Not aesthetics &mdash; measurable, growing revenue.</p></div></div>
         </div>
       </div>
       <div class="sol-vis">
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:22px">Our 4-Step Process</div>
         <div class="sol-step"><div class="sol-n">1</div><div><h5>Discovery &amp; Business Audit</h5><p>We map your brand, systems, revenue, and audience gaps</p></div></div>
         <div class="sol-step"><div class="sol-n">2</div><div><h5>Custom Strategy Build</h5><p>Tailored roadmap aligned to your business stage and goals</p></div></div>
-        <div class="sol-step"><div class="sol-n">3</div><div><h5>Full Execution</h5><p>Branding, content, systems, registration, web — all done</p></div></div>
+        <div class="sol-step"><div class="sol-n">3</div><div><h5>Full Execution</h5><p>Branding, content, systems, registration, web &mdash; all done</p></div></div>
         <div class="sol-step"><div class="sol-n">4</div><div><h5>Manage &amp; Optimise</h5><p>Ongoing management for consistent, growing results</p></div></div>
       </div>
     </div>
@@ -765,60 +741,51 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 
   <section class="proof-sec">
     <div class="proof-header-row">
-      <div><div class="sec-label">Proof of Work</div><div class="sec-title">Real Work. <em>Real Results.</em></div><p class="sec-sub" style="margin-top:12px">From CAC registrations to full brand overhauls, here's proof that structure creates profit.</p></div>
-      <div class="view-all-link" onclick="showPage('projects')">View All Projects →</div>
+      <div><div class="sec-label">Proof of Work</div><div class="sec-title">Real Work. <em>Real Results.</em></div><p class="sec-sub" style="margin-top:12px">From CAC registrations to full brand overhauls, here&apos;s proof that structure creates profit.</p></div>
+      <div class="view-all-link" onclick="showPage('projects')">View All Projects &rarr;</div>
     </div>
     <div class="proof-grid">
-      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">📋<div class="proof-badge">CAC</div></div><div class="proof-body"><div class="proof-cat">Business Setup</div><h3>Amara Foods Ltd</h3><p>Full registration, documentation and TIN. Completed in 5 working days.</p></div></div>
-      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">💻<div class="proof-badge">WEBSITE</div></div><div class="proof-body"><div class="proof-cat">Website Development</div><h3>KO Consulting</h3><p>6-page professional website. 340% increase in enquiries within 60 days.</p></div></div>
-      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">🎨<div class="proof-badge">BRANDING</div></div><div class="proof-body"><div class="proof-cat">Branding &amp; Design</div><h3>Tobi Logistics</h3><p>Logo, brand kit and complete visual identity system from scratch.</p></div></div>
-      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">📱<div class="proof-badge">SOCIAL</div></div><div class="proof-body"><div class="proof-cat">Social Media Revamp</div><h3>BoldBrand Co.</h3><p>Full strategy reset. Followers grew 4x in 90 days.</p></div></div>
-      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">📊<div class="proof-badge">ANALYTICS</div></div><div class="proof-body"><div class="proof-cat">Social Media Analytics</div><h3>ElevateNG</h3><p>218% increase in reach, 3.4x engagement rate, consistent monthly leads.</p></div></div>
-      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">🏗️<div class="proof-badge">BRAND MGT</div></div><div class="proof-body"><div class="proof-cat">Brand Management</div><h3>ClearPath SME</h3><p>Revenue predictability from 28% to 91% over 12 months.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">&#128203;<div class="proof-badge">CAC</div></div><div class="proof-body"><div class="proof-cat">Business Setup</div><h3>Amara Foods Ltd</h3><p>Full registration, documentation and TIN. Completed in 5 working days.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">&#128187;<div class="proof-badge">WEBSITE</div></div><div class="proof-body"><div class="proof-cat">Website Development</div><h3>KO Consulting</h3><p>6-page professional website. 340% increase in enquiries within 60 days.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">&#127912;<div class="proof-badge">BRANDING</div></div><div class="proof-body"><div class="proof-cat">Branding &amp; Design</div><h3>Tobi Logistics</h3><p>Logo, brand kit and complete visual identity system from scratch.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">&#128241;<div class="proof-badge">SOCIAL</div></div><div class="proof-body"><div class="proof-cat">Social Media Revamp</div><h3>BoldBrand Co.</h3><p>Full strategy reset. Followers grew 4x in 90 days.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">&#128202;<div class="proof-badge">ANALYTICS</div></div><div class="proof-body"><div class="proof-cat">Social Media Analytics</div><h3>ElevateNG</h3><p>218% increase in reach, 3.4x engagement rate, consistent monthly leads.</p></div></div>
+      <div class="proof-card" onclick="showPage('projects')"><div class="proof-img">&#127959;&#65039;<div class="proof-badge">BRAND MGT</div></div><div class="proof-body"><div class="proof-cat">Brand Management</div><h3>ClearPath SME</h3><p>Revenue predictability from 28% to 91% over 12 months.</p></div></div>
     </div>
-    <div style="text-align:center;margin-top:40px"><button class="btn-p" onclick="showPage('projects')">See All Our Work →</button></div>
+    <div style="text-align:center;margin-top:40px"><button class="btn-p" onclick="showPage('projects')">See All Our Work &rarr;</button></div>
   </section>
 
   <section class="serv-sec">
     <div class="sec-hdr"><div class="sec-label">What We Do</div><div class="sec-title">Services built for <em>real growth</em></div><p class="sec-sub" style="margin-top:14px">Every service designed to make your business more structured, more visible, and more profitable.</p></div>
     <div class="serv-grid">
-      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">🎯</span><h3>Brand Management</h3><p>Full brand strategy, identity, and ongoing management to keep your business consistent and compelling.</p><div class="serv-link">Learn more →</div></div>
-      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">📱</span><h3>Social Media Management</h3><p>Strategic social presence that builds trust and converts followers into paying clients.</p><div class="serv-link">Learn more →</div></div>
-      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">✍️</span><h3>Content Creation</h3><p>Purposeful content — copy, graphics, video — designed around your brand voice and goals.</p><div class="serv-link">Learn more →</div></div>
-      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">🎨</span><h3>Branding &amp; Design</h3><p>Logos, brand kits, visual identity that communicate trust at every touchpoint.</p><div class="serv-link">Learn more →</div></div>
-      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">💻</span><h3>Website Development</h3><p>Fast, professional websites built to convert visitors into clients, not just look good.</p><div class="serv-link">Learn more →</div></div>
-      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">📋</span><h3>Business Registration</h3><p>Stress-free CAC registration and full business setup done properly from day one.</p><div class="serv-link">Learn more →</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">&#127919;</span><h3>Brand Management</h3><p>Full brand strategy, identity, and ongoing management to keep your business consistent and compelling.</p><div class="serv-link">Learn more &rarr;</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">&#128241;</span><h3>Social Media Management</h3><p>Strategic social presence that builds trust and converts followers into paying clients.</p><div class="serv-link">Learn more &rarr;</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">&#9999;&#65039;</span><h3>Content Creation</h3><p>Purposeful content &mdash; copy, graphics, video &mdash; designed around your brand voice and goals.</p><div class="serv-link">Learn more &rarr;</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">&#127912;</span><h3>Branding &amp; Design</h3><p>Logos, brand kits, visual identity that communicate trust at every touchpoint.</p><div class="serv-link">Learn more &rarr;</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">&#128187;</span><h3>Website Development</h3><p>Fast, professional websites built to convert visitors into clients, not just look good.</p><div class="serv-link">Learn more &rarr;</div></div>
+      <div class="serv-card" onclick="showPage('services')"><span class="serv-icon">&#128203;</span><h3>Business Registration</h3><p>Stress-free CAC registration and full business setup done properly from day one.</p><div class="serv-link">Learn more &rarr;</div></div>
     </div>
-    <div style="text-align:center;margin-top:44px"><button class="btn-p" onclick="showPage('services')">View All Services →</button></div>
+    <div style="text-align:center;margin-top:44px"><button class="btn-p" onclick="showPage('services')">View All Services &rarr;</button></div>
   </section>
 
   <section class="about-sec">
     <div class="about-grid">
       <div class="about-img-wrap">
-        <img src="about.jpg" alt="About Sabi Manager Global" onerror="this.outerHTML='<div class=\'geo-placeholder\' style=\'height:480px;border-radius:20px\'><svg viewBox=\'0 0 400 480\' preserveAspectRatio=\'xMidYMid slice\'><defs><pattern id=\'ap1\' width=\'60\' height=\'60\' patternUnits=\'userSpaceOnUse\'><polygon points=\'30,5 55,20 55,50 30,65 5,50 5,20\' fill=\'none\' stroke=\'#F26522\' stroke-width=\'0.6\'/></pattern></defs><rect width=\'400\' height=\'480\' fill=\'url(#ap1)\'/></svg><span class=\'geo-placeholder-label\'>About Us Photo</span></div>'">
+        <img src="about.jpg" alt="About Sabi Manager Global" onerror="this.outerHTML='<div class=geo-placeholder style=height:480px;border-radius:20px><span class=geo-placeholder-label>About Us Photo</span></div>'">
       </div>
       <div class="about-text">
         <div class="sec-label">About Us</div>
         <div class="sec-title">Structure is our <em>superpower</em></div>
-        <p class="sec-sub" style="margin-top:16px;margin-bottom:26px">Sabi Manager Global was founded on one conviction: most businesses don't fail from lack of effort, they fail from lack of structure. We exist to change that, one business at a time.</p>
+        <p class="sec-sub" style="margin-top:16px;margin-bottom:26px">Sabi Manager Global was founded on one conviction: most businesses don&apos;t fail from lack of effort, they fail from lack of structure. We exist to change that, one business at a time.</p>
         <div class="pillars">
           <div class="pillar"><div class="pillar-dot"></div><p>Clear, practical strategies grounded in Nigerian business realities</p></div>
           <div class="pillar"><div class="pillar-dot"></div><p>Partners in your growth, not just service providers</p></div>
           <div class="pillar"><div class="pillar-dot"></div><p>Results first: revenue, consistency, and real business impact</p></div>
         </div>
-        <button class="btn-p" style="margin-top:36px" onclick="showPage('story')">Read Our Story →</button>
+        <button class="btn-p" style="margin-top:36px" onclick="showPage('story')">Read Our Story &rarr;</button>
       </div>
     </div>
   </section>
-
-  <div class="numbers-sec">
-    <div class="nums-grid">
-      <div class="num-item"><div class="num-val">200+</div><div class="num-lbl">Clients Served</div></div>
-      <div class="num-item"><div class="num-val">450+</div><div class="num-lbl">Projects Completed</div></div>
-      <div class="num-item"><div class="num-val">₦50M+</div><div class="num-lbl">Revenue Generated</div></div>
-      <div class="num-item"><div class="num-val">98%</div><div class="num-lbl">Client Retention Rate</div></div>
-    </div>
-  </div>
 
   <section class="clients-sec">
     <div class="sec-hdr cen">
@@ -855,11 +822,24 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
   </section>
 
   <section class="testi-sec">
-    <div class="sec-hdr cen"><div class="sec-label">Testimonials</div><div class="sec-title">Real feedback from <em>real businesses</em></div><p class="sec-sub">Don't take our word for it — here's what business owners who've worked with us say.</p></div>
+    <div class="sec-hdr cen"><div class="sec-label">Testimonials</div><div class="sec-title">Real feedback from <em>real businesses</em></div><p class="sec-sub">Don&apos;t take our word for it &mdash; here&apos;s what business owners who&apos;ve worked with us say.</p></div>
     <div class="testi-grid">
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"Before Sabi Manager, I was posting every day and getting nothing. They gave my brand a clear identity, and within 3 months my enquiries tripled."</div><div class="testi-author"><div class="testi-av">A</div><div><div class="testi-name">Amara Nwosu</div><div class="testi-biz">CEO, Amara Foods Ltd</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"They didn't just build our website, they restructured how we present our entire business. The clarity we have now is worth more than any design."</div><div class="testi-author"><div class="testi-av">K</div><div><div class="testi-name">Kelechi Obi</div><div class="testi-biz">Founder, KO Consulting</div></div></div></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">"CAC registration, branding, and our first social media campaign, all handled by one team who actually understood our vision. Exceptional."</div><div class="testi-author"><div class="testi-av">T</div><div><div class="testi-name">Tobi Adeyemi</div><div class="testi-biz">MD, Tobi Logistics</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testi-text">&ldquo;Before Sabi Manager, I was posting every day and getting nothing. They gave my brand a clear identity, and within 3 months my enquiries tripled.&rdquo;</div><div class="testi-author"><div class="testi-av">A</div><div><div class="testi-name">Amara Nwosu</div><div class="testi-biz">CEO, Amara Foods Ltd</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testi-text">&ldquo;They didn&apos;t just build our website, they restructured how we present our entire business. The clarity we have now is worth more than any design.&rdquo;</div><div class="testi-author"><div class="testi-av">K</div><div><div class="testi-name">Kelechi Obi</div><div class="testi-biz">Founder, KO Consulting</div></div></div></div>
+      <div class="testi-card"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testi-text">&ldquo;CAC registration, branding, and our first social media campaign, all handled by one team who actually understood our vision. Exceptional.&rdquo;</div><div class="testi-author"><div class="testi-av">T</div><div><div class="testi-name">Tobi Adeyemi</div><div class="testi-biz">MD, Tobi Logistics</div></div></div></div>
+    </div>
+  </section>
+
+  <!-- FIX 5: Blog preview section (replaces numbers section) -->
+  <section style="padding:96px 7%;background:#fff">
+    <div class="sec-hdr">
+      <div class="sec-label">From The Blog</div>
+      <div class="sec-title">Insights for <em>Structured Growth</em></div>
+      <p class="sec-sub" style="margin-top:14px">Practical business advice for Nigerian entrepreneurs who are done with random hustle.</p>
+    </div>
+    <div class="blog-grid" id="homeBlogGrid"></div>
+    <div style="text-align:center;margin-top:40px">
+      <button class="btn-p" onclick="showPage('blog')">Read All Articles &rarr;</button>
     </div>
   </section>
 
@@ -867,8 +847,8 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
     <div class="cta-pill">LIMITED AVAILABILITY</div>
     <h2>Ready to Build a Business<br>That Actually <em>Works</em>?</h2>
     <p>Book your free strategy call and get a clear picture of what your business needs to grow consistently and profitably.</p>
-    <div class="cta-free">This session is <strong>completely free</strong>, worth ₦50,000</div><br>
-    <button class="btn-p" style="font-size:16px;padding:18px 40px;margin-top:10px" onclick="showPage('booking')">Book Free Strategy Call →</button>
+    <div class="cta-free">This session is <strong>completely free</strong>, worth &#8358;50,000</div><br>
+    <button class="btn-p" style="font-size:16px;padding:18px 40px;margin-top:10px" onclick="showPage('booking')">Book Free Strategy Call &rarr;</button>
   </div>
   <div id="home-footer"></div>
 </div>
@@ -886,63 +866,63 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
       <button class="pf-btn" onclick="filterProj('analytics',this)">Analytics Results</button>
     </div>
     <div class="proj-full-grid" id="projGrid">
-      <div class="pfc" data-cat="cac"><div class="pfc-img">📋<div class="pfc-badge">CAC</div></div><div class="pfc-body"><div class="pfc-type">Business Registration</div><h3>Amara Foods Ltd</h3><p>Full CAC registration, documentation and TIN. Completed in 5 working days.</p><div class="pfc-result">✓ Delivered in 5 days</div></div></div>
-      <div class="pfc" data-cat="cac"><div class="pfc-img">📄<div class="pfc-badge">CAC</div></div><div class="pfc-body"><div class="pfc-type">Business Registration</div><h3>DeltaCore Ventures</h3><p>Business name, CAC filing, Memorandum and Articles of Association.</p><div class="pfc-result">✓ Legally Incorporated</div></div></div>
-      <div class="pfc" data-cat="website"><div class="pfc-img">💻<div class="pfc-badge">WEBSITE</div></div><div class="pfc-body"><div class="pfc-type">Website Development</div><h3>KO Consulting</h3><p>6-page corporate website. 340% increase in client enquiries within 60 days.</p><div class="pfc-result">↑ 340% enquiry increase</div></div></div>
-      <div class="pfc" data-cat="website"><div class="pfc-img">🌐<div class="pfc-badge">WEBSITE</div></div><div class="pfc-body"><div class="pfc-type">Website Development</div><h3>GrowSmart Africa</h3><p>E-commerce site with payment integration. 210% online sales increase.</p><div class="pfc-result">↑ 210% online sales</div></div></div>
-      <div class="pfc" data-cat="branding"><div class="pfc-img">🎨<div class="pfc-badge">BRANDING</div></div><div class="pfc-body"><div class="pfc-type">Brand Identity</div><h3>Tobi Logistics</h3><p>Logo, colour palette, typography, stationery and 24-page brand guide.</p><div class="pfc-result">✓ Full Identity System</div></div></div>
-      <div class="pfc" data-cat="branding"><div class="pfc-img">🏷️<div class="pfc-badge">BRANDING</div></div><div class="pfc-body"><div class="pfc-type">Brand Identity</div><h3>FirstGrowth Ltd</h3><p>Complete rebrand — new logo, identity, messaging and visual system.</p><div class="pfc-result">✓ Full Rebrand</div></div></div>
-      <div class="pfc" data-cat="social"><div class="pfc-img">📱<div class="pfc-badge">SOCIAL</div></div><div class="pfc-body"><div class="pfc-type">Social Media Revamp</div><h3>BoldBrand Co.</h3><p>Instagram and LinkedIn overhaul. 4x follower growth in 90 days.</p><div class="pfc-result">↑ 4x follower growth</div></div></div>
-      <div class="pfc" data-cat="social"><div class="pfc-img">🔄<div class="pfc-badge">SOCIAL</div></div><div class="pfc-body"><div class="pfc-type">Social Media Revamp</div><h3>Delta Retail</h3><p>Content calendar, brand voice guide and full redesign across all platforms.</p><div class="pfc-result">↑ 180% engagement</div></div></div>
-      <div class="pfc" data-cat="analytics"><div class="pfc-img">📊<div class="pfc-badge">ANALYTICS</div></div><div class="pfc-body"><div class="pfc-type">Analytics Report</div><h3>ElevateNG, 90-Day Report</h3><p>218% reach increase, 3.4x engagement, consistent monthly lead flow.</p><div class="pfc-result">↑ 218% reach</div></div></div>
-      <div class="pfc" data-cat="analytics"><div class="pfc-img">📈<div class="pfc-badge">ANALYTICS</div></div><div class="pfc-body"><div class="pfc-type">Analytics Report</div><h3>ClearPath SME, 6-Month Review</h3><p>Revenue predictability: 28% to 91%. 47 new leads generated.</p><div class="pfc-result">↑ 91% predictability</div></div></div>
+      <div class="pfc" data-cat="cac"><div class="pfc-img">&#128203;<div class="pfc-badge">CAC</div></div><div class="pfc-body"><div class="pfc-type">Business Registration</div><h3>Amara Foods Ltd</h3><p>Full CAC registration, documentation and TIN. Completed in 5 working days.</p><div class="pfc-result">&#10003; Delivered in 5 days</div></div></div>
+      <div class="pfc" data-cat="cac"><div class="pfc-img">&#128196;<div class="pfc-badge">CAC</div></div><div class="pfc-body"><div class="pfc-type">Business Registration</div><h3>DeltaCore Ventures</h3><p>Business name, CAC filing, Memorandum and Articles of Association.</p><div class="pfc-result">&#10003; Legally Incorporated</div></div></div>
+      <div class="pfc" data-cat="website"><div class="pfc-img">&#128187;<div class="pfc-badge">WEBSITE</div></div><div class="pfc-body"><div class="pfc-type">Website Development</div><h3>KO Consulting</h3><p>6-page corporate website. 340% increase in client enquiries within 60 days.</p><div class="pfc-result">&#8593; 340% enquiry increase</div></div></div>
+      <div class="pfc" data-cat="website"><div class="pfc-img">&#127758;<div class="pfc-badge">WEBSITE</div></div><div class="pfc-body"><div class="pfc-type">Website Development</div><h3>GrowSmart Africa</h3><p>E-commerce site with payment integration. 210% online sales increase.</p><div class="pfc-result">&#8593; 210% online sales</div></div></div>
+      <div class="pfc" data-cat="branding"><div class="pfc-img">&#127912;<div class="pfc-badge">BRANDING</div></div><div class="pfc-body"><div class="pfc-type">Brand Identity</div><h3>Tobi Logistics</h3><p>Logo, colour palette, typography, stationery and 24-page brand guide.</p><div class="pfc-result">&#10003; Full Identity System</div></div></div>
+      <div class="pfc" data-cat="branding"><div class="pfc-img">&#127991;<div class="pfc-badge">BRANDING</div></div><div class="pfc-body"><div class="pfc-type">Brand Identity</div><h3>FirstGrowth Ltd</h3><p>Complete rebrand &mdash; new logo, identity, messaging and visual system.</p><div class="pfc-result">&#10003; Full Rebrand</div></div></div>
+      <div class="pfc" data-cat="social"><div class="pfc-img">&#128241;<div class="pfc-badge">SOCIAL</div></div><div class="pfc-body"><div class="pfc-type">Social Media Revamp</div><h3>BoldBrand Co.</h3><p>Instagram and LinkedIn overhaul. 4x follower growth in 90 days.</p><div class="pfc-result">&#8593; 4x follower growth</div></div></div>
+      <div class="pfc" data-cat="social"><div class="pfc-img">&#128260;<div class="pfc-badge">SOCIAL</div></div><div class="pfc-body"><div class="pfc-type">Social Media Revamp</div><h3>Delta Retail</h3><p>Content calendar, brand voice guide and full redesign across all platforms.</p><div class="pfc-result">&#8593; 180% engagement</div></div></div>
+      <div class="pfc" data-cat="analytics"><div class="pfc-img">&#128202;<div class="pfc-badge">ANALYTICS</div></div><div class="pfc-body"><div class="pfc-type">Analytics Report</div><h3>ElevateNG, 90-Day Report</h3><p>218% reach increase, 3.4x engagement, consistent monthly lead flow.</p><div class="pfc-result">&#8593; 218% reach</div></div></div>
+      <div class="pfc" data-cat="analytics"><div class="pfc-img">&#128200;<div class="pfc-badge">ANALYTICS</div></div><div class="pfc-body"><div class="pfc-type">Analytics Report</div><h3>ClearPath SME, 6-Month Review</h3><p>Revenue predictability: 28% to 91%. 47 new leads generated.</p><div class="pfc-result">&#8593; 91% predictability</div></div></div>
     </div>
   </div>
-  <div class="cta-sec"><div class="cta-pill">FREE STRATEGY CALL</div><h2>Want Results Like These<br>for <em>Your Business?</em></h2><p>Book a free strategy call and let's map out how we can structure and grow your business.</p><button class="btn-p" style="font-size:16px;padding:18px 40px;margin-top:18px" onclick="showPage('booking')">Book Free Call, Worth ₦50,000</button></div>
+  <div class="cta-sec"><div class="cta-pill">FREE STRATEGY CALL</div><h2>Want Results Like These<br>for <em>Your Business?</em></h2><p>Book a free strategy call and let&apos;s map out how we can structure and grow your business.</p><button class="btn-p" style="font-size:16px;padding:18px 40px;margin-top:18px" onclick="showPage('booking')">Book Free Call, Worth &#8358;50,000</button></div>
   <div id="projects-footer"></div>
 </div>
 
 <!-- OUR STORY -->
 <div id="page-story" class="page">
-  <div class="pg-hero"><div class="sec-label">Our Story</div><h1>We Are <em>Sabi Manager Global</em></h1><p>Built on one conviction: businesses don't fail from lack of effort, they fail from lack of structure.</p></div>
+  <div class="pg-hero"><div class="sec-label">Our Story</div><h1>We Are <em>Sabi Manager Global</em></h1><p>Built on one conviction: businesses don&apos;t fail from lack of effort, they fail from lack of structure.</p></div>
   <div class="story-body">
     <div class="story-grid">
       <div>
         <h2>How We Started</h2>
-        <p>Sabi Manager Global was born from watching talented Nigerian entrepreneurs work incredibly hard and still not see consistent results. The hustle was real. The effort was real. But the structure wasn't.</p>
+        <p>Sabi Manager Global was born from watching talented Nigerian entrepreneurs work incredibly hard and still not see consistent results. The hustle was real. The effort was real. But the structure wasn&apos;t.</p>
         <p>We saw businesses post every day with no strategy. Register a company with no brand identity. Build beautiful logos with no positioning behind them. We knew there had to be a better way.</p>
-        <p>So we built a company to bridge that gap — one that combines brand management, business systems, and strategic thinking into a single partner for growth-stage businesses.</p>
+        <p>So we built a company to bridge that gap &mdash; one that combines brand management, business systems, and strategic thinking into a single partner for growth-stage businesses.</p>
         <h2 style="margin-top:36px">Our Mission</h2>
         <p>To help every growth-stage business in Africa achieve consistent, profitable results by giving them the brand structure and business systems they deserve.</p>
         <h2 style="margin-top:36px">Our Approach</h2>
-        <p>Clear. Professional. Relatable — with a touch of Nigerian realism. We tell you what your business actually needs, build it with you, and stay accountable to results.</p>
-        <button class="btn-p" style="margin-top:30px" onclick="showPage('booking')">Work With Us →</button>
+        <p>Clear. Professional. Relatable &mdash; with a touch of Nigerian realism. We tell you what your business actually needs, build it with you, and stay accountable to results.</p>
+        <button class="btn-p" style="margin-top:30px" onclick="showPage('booking')">Work With Us &rarr;</button>
       </div>
       <div>
         <h2>Our Values</h2>
         <div class="val-cards">
           <div class="val-card"><div class="val-num">01</div><h4>Clarity Over Complexity</h4><p>We simplify your business enough to execute well, and structure it enough to scale far.</p></div>
-          <div class="val-card"><div class="val-num">02</div><h4>Results, Not Just Aesthetics</h4><p>A beautiful brand that doesn't make money is decoration. We build brands that perform.</p></div>
+          <div class="val-card"><div class="val-num">02</div><h4>Results, Not Just Aesthetics</h4><p>A beautiful brand that doesn&apos;t make money is decoration. We build brands that perform.</p></div>
           <div class="val-card"><div class="val-num">03</div><h4>Partnership Over Transactions</h4><p>Your success is our metric. We grow with you, not just deliver and disappear.</p></div>
           <div class="val-card"><div class="val-num">04</div><h4>African Excellence</h4><p>World-class standards. African reality. Solutions that actually work in this market.</p></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="cta-sec"><div class="cta-pill">FREE STRATEGY CALL</div><h2>Let's Build Your Business <em>Right</em></h2><p>Book a free call and let's map out exactly what your business needs.</p><button class="btn-p" style="font-size:16px;padding:18px 40px;margin-top:18px" onclick="showPage('booking')">Book Free Call, Worth ₦50,000</button></div>
+  <div class="cta-sec"><div class="cta-pill">FREE STRATEGY CALL</div><h2>Let&apos;s Build Your Business <em>Right</em></h2><p>Book a free call and let&apos;s map out exactly what your business needs.</p><button class="btn-p" style="font-size:16px;padding:18px 40px;margin-top:18px" onclick="showPage('booking')">Book Free Call, Worth &#8358;50,000</button></div>
   <div id="story-footer"></div>
 </div>
 
 <!-- SERVICES -->
 <div id="page-services" class="page">
-  <div class="pg-hero"><div class="sec-label">What We Do</div><h1>Services Built for<br><em>Real Results</em></h1><p>Every service structured around one goal — making your business more organised, more visible, and more profitable.</p></div>
+  <div class="pg-hero"><div class="sec-label">What We Do</div><h1>Services Built for<br><em>Real Results</em></h1><p>Every service structured around one goal &mdash; making your business more organised, more visible, and more profitable.</p></div>
   <div class="serv-full-body">
-    <div class="service-full" id="sf1"><div class="sf-header" onclick="toggleSF('sf1')"><div class="sf-icon">🎯</div><div class="sf-meta"><span class="sf-cat">Core Service</span><h3>Brand Management</h3><p>Your brand is more than a logo — it's the structure that makes people trust and choose you consistently.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Brand strategy and positioning</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand identity and messaging</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand guidelines document</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Consistency audits and management</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Competitor and market analysis</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Monthly brand health review</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Let's talk about what your brand needs to work harder for your business.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now →</button></div></div></div>
-    <div class="service-full" id="sf2"><div class="sf-header" onclick="toggleSF('sf2')"><div class="sf-icon">📱</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Social Media Management</h3><p>Turn your social media into a consistent lead-generation engine, not just a posting schedule.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Social media strategy and content calendar</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Daily and weekly content creation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Community management and engagement</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Monthly analytics report</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Hashtag and growth strategy</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Paid ad campaign management</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>See how we'll transform your social presence into real business results.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now →</button></div></div></div>
-    <div class="service-full" id="sf3"><div class="sf-header" onclick="toggleSF('sf3')"><div class="sf-icon">✍️</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Content Creation</h3><p>Content that communicates your value clearly and moves your audience from curious to convinced.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Copywriting for web, social and ads</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Graphic design for all platforms</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Short-form video scripting and editing</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Email marketing content</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Blog writing and SEO content</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand voice and tone development</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Let's talk about the content your business needs to convert.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now →</button></div></div></div>
-    <div class="service-full" id="sf4"><div class="sf-header" onclick="toggleSF('sf4')"><div class="sf-icon">🎨</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Branding &amp; Visual Design</h3><p>A brand identity that makes people trust you before you even say a word.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Logo design, primary and variations</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand colour palette and typography</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Business card and stationery design</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Social media profile graphics</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Brand style guide PDF</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Packaging design where applicable</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Get a brand identity that makes your business unforgettable.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now →</button></div></div></div>
-    <div class="service-full" id="sf5"><div class="sf-header" onclick="toggleSF('sf5')"><div class="sf-icon">💻</div><div class="sf-meta"><span class="sf-cat">Setup Service</span><h3>Website Development</h3><p>Professional websites designed to convert visitors into clients, 24 hours a day.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Custom design and development</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Mobile-responsive layout</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Contact forms and booking systems</p></div><div class="inc-item"><div class="inc-check">✓</div><p>SEO foundation setup</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Domain and hosting setup</p></div><div class="inc-item"><div class="inc-check">✓</div><p>1-month post-launch support</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Let's build a website that works for your business around the clock.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now →</button></div></div></div>
-    <div class="service-full" id="sf6"><div class="sf-header" onclick="toggleSF('sf6')"><div class="sf-icon">📋</div><div class="sf-meta"><span class="sf-cat">Setup Service</span><h3>Business Registration (CAC)</h3><p>Get your business properly registered in Nigeria — legally, quickly, and without the stress.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What's Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">✓</div><p>Business name search and reservation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>CAC registration and documentation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Certificate of Incorporation</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Memorandum and Articles of Association</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Tax Identification Number TIN</p></div><div class="inc-item"><div class="inc-check">✓</div><p>Post-registration advisory</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call — Worth ₦50,000</h4><p>Start your business on a solid legal foundation.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now →</button></div></div></div>
+    <div class="service-full" id="sf1"><div class="sf-header" onclick="toggleSF('sf1')"><div class="sf-icon">&#127919;</div><div class="sf-meta"><span class="sf-cat">Core Service</span><h3>Brand Management</h3><p>Your brand is more than a logo &mdash; it&apos;s the structure that makes people trust and choose you consistently.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What&apos;s Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">&#10003;</div><p>Brand strategy and positioning</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Brand identity and messaging</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Brand guidelines document</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Consistency audits and management</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Competitor and market analysis</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Monthly brand health review</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call &mdash; Worth &#8358;50,000</h4><p>Let&apos;s talk about what your brand needs to work harder for your business.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now &rarr;</button></div></div></div>
+    <div class="service-full" id="sf2"><div class="sf-header" onclick="toggleSF('sf2')"><div class="sf-icon">&#128241;</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Social Media Management</h3><p>Turn your social media into a consistent lead-generation engine, not just a posting schedule.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What&apos;s Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">&#10003;</div><p>Social media strategy and content calendar</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Daily and weekly content creation</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Community management and engagement</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Monthly analytics report</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Hashtag and growth strategy</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Paid ad campaign management</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call &mdash; Worth &#8358;50,000</h4><p>See how we&apos;ll transform your social presence into real business results.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now &rarr;</button></div></div></div>
+    <div class="service-full" id="sf3"><div class="sf-header" onclick="toggleSF('sf3')"><div class="sf-icon">&#9999;&#65039;</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Content Creation</h3><p>Content that communicates your value clearly and moves your audience from curious to convinced.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What&apos;s Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">&#10003;</div><p>Copywriting for web, social and ads</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Graphic design for all platforms</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Short-form video scripting and editing</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Email marketing content</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Blog writing and SEO content</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Brand voice and tone development</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call &mdash; Worth &#8358;50,000</h4><p>Let&apos;s talk about the content your business needs to convert.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now &rarr;</button></div></div></div>
+    <div class="service-full" id="sf4"><div class="sf-header" onclick="toggleSF('sf4')"><div class="sf-icon">&#127912;</div><div class="sf-meta"><span class="sf-cat">Support Service</span><h3>Branding &amp; Visual Design</h3><p>A brand identity that makes people trust you before you even say a word.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What&apos;s Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">&#10003;</div><p>Logo design, primary and variations</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Brand colour palette and typography</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Business card and stationery design</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Social media profile graphics</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Brand style guide PDF</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Packaging design where applicable</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call &mdash; Worth &#8358;50,000</h4><p>Get a brand identity that makes your business unforgettable.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now &rarr;</button></div></div></div>
+    <div class="service-full" id="sf5"><div class="sf-header" onclick="toggleSF('sf5')"><div class="sf-icon">&#128187;</div><div class="sf-meta"><span class="sf-cat">Setup Service</span><h3>Website Development</h3><p>Professional websites designed to convert visitors into clients, 24 hours a day.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What&apos;s Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">&#10003;</div><p>Custom design and development</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Mobile-responsive layout</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Contact forms and booking systems</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>SEO foundation setup</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Domain and hosting setup</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>1-month post-launch support</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call &mdash; Worth &#8358;50,000</h4><p>Let&apos;s build a website that works for your business around the clock.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now &rarr;</button></div></div></div>
+    <div class="service-full" id="sf6"><div class="sf-header" onclick="toggleSF('sf6')"><div class="sf-icon">&#128203;</div><div class="sf-meta"><span class="sf-cat">Setup Service</span><h3>Business Registration (CAC)</h3><p>Get your business properly registered in Nigeria &mdash; legally, quickly, and without the stress.</p></div><button class="sf-toggle">+</button></div><div class="sf-body"><div class="inc-title">What&apos;s Included</div><div class="inc-grid"><div class="inc-item"><div class="inc-check">&#10003;</div><p>Business name search and reservation</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>CAC registration and documentation</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Certificate of Incorporation</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Memorandum and Articles of Association</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Tax Identification Number TIN</p></div><div class="inc-item"><div class="inc-check">&#10003;</div><p>Post-registration advisory</p></div></div><div class="sf-cta"><div><div class="free-tag">FREE CONSULTATION</div><h4>Book a Free Strategy Call &mdash; Worth &#8358;50,000</h4><p>Start your business on a solid legal foundation.</p></div><button class="btn-p" onclick="showPage('booking')">Book Now &rarr;</button></div></div></div>
   </div>
   <div id="services-footer"></div>
 </div>
@@ -984,20 +964,20 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 
 <!-- CONTACT -->
 <div id="page-contact" class="page">
-  <div class="pg-hero"><div class="sec-label">Reach Us</div><h1>Let's Build Your<br><em>Business Together</em></h1><p>Ready to add structure to your hustle? Reach out and we'll get back to you within 24 hours.</p></div>
+  <div class="pg-hero"><div class="sec-label">Reach Us</div><h1>Let&apos;s Build Your<br><em>Business Together</em></h1><p>Ready to add structure to your hustle? Reach out and we&apos;ll get back to you within 24 hours.</p></div>
   <div class="contact-body">
     <div class="contact-grid">
       <div>
         <div class="contact-info-title">Get in Touch</div>
-        <p>Whether you're just starting or ready to scale, we're here to help.</p>
-        <div class="contact-detail"><div class="cd-icon">📧</div><div><h4>Email</h4><p>hello@sabimanagerglobal.com</p></div></div>
-        <div class="contact-detail"><div class="cd-icon">📞</div><div><h4>Phone / WhatsApp</h4><p>+234 705 282 8629</p></div></div>
-        <div class="contact-detail"><div class="cd-icon">📍</div><div><h4>Location</h4><p>Lagos, Nigeria (Global Reach)</p></div></div>
-        <div class="contact-detail"><div class="cd-icon">🕐</div><div><h4>Business Hours</h4><p>Mon – Fri: 9am – 6pm WAT</p></div></div>
+        <p>Whether you&apos;re just starting or ready to scale, we&apos;re here to help.</p>
+        <div class="contact-detail"><div class="cd-icon">&#128231;</div><div><h4>Email</h4><p>hello@sabimanagerglobal.com</p></div></div>
+        <div class="contact-detail"><div class="cd-icon">&#128222;</div><div><h4>Phone / WhatsApp</h4><p>+234 705 282 8629</p></div></div>
+        <div class="contact-detail"><div class="cd-icon">&#128205;</div><div><h4>Location</h4><p>Lagos, Nigeria (Global Reach)</p></div></div>
+        <div class="contact-detail"><div class="cd-icon">&#128336;</div><div><h4>Business Hours</h4><p>Mon &ndash; Fri: 9am &ndash; 6pm WAT</p></div></div>
         <div style="margin-top:30px;padding:22px;background:var(--orange-pale);border-radius:13px;border-left:4px solid var(--orange)">
           <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px">Prefer a call?</div>
-          <div style="font-size:14px;color:var(--tbody);margin-bottom:16px">Book your free strategy session worth ₦50,000.</div>
-          <button class="btn-p" onclick="showPage('booking')">Book Free Strategy Call →</button>
+          <div style="font-size:14px;color:var(--tbody);margin-bottom:16px">Book your free strategy session worth &#8358;50,000.</div>
+          <button class="btn-p" onclick="showPage('booking')">Book Free Strategy Call &rarr;</button>
         </div>
       </div>
       <div class="contact-form-wrap">
@@ -1010,14 +990,14 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
           <div class="fg"><label>Business Name *</label><input name="business_name" placeholder="Your Business Name" required></div>
           <div class="fg"><label>Email Address *</label><input type="email" name="email" placeholder="you@example.com" required></div>
           <div class="fg"><label>Phone Number *</label><input type="tel" name="phone" placeholder="+234 800 000 0000" required></div>
-          <div class="fg"><label>Service Interested In</label><select name="service"><option value="">— Select a service —</option><option>Brand Management</option><option>Social Media Management</option><option>Content Creation</option><option>Branding &amp; Design</option><option>Website Development</option><option>Business Registration</option><option>Multiple Services</option><option>Not sure yet</option></select></div>
+          <div class="fg"><label>Service Interested In</label><select name="service"><option value="">&#8212; Select a service &#8212;</option><option>Brand Management</option><option>Social Media Management</option><option>Content Creation</option><option>Branding &amp; Design</option><option>Website Development</option><option>Business Registration</option><option>Multiple Services</option><option>Not sure yet</option></select></div>
           <div class="fg"><label>Tell us about your business</label><textarea name="message" placeholder="Briefly describe your business and what you're looking to achieve..."></textarea></div>
-          <button type="submit" class="btn-p" id="contactSubmitBtn" style="width:100%;padding:15px;font-size:15px">Send Message →</button>
+          <button type="submit" class="btn-p" id="contactSubmitBtn" style="width:100%;padding:15px;font-size:15px">Send Message &rarr;</button>
         </form>
         <div class="success-msg" id="contactSuccess">
-          <div class="success-icon">🎉</div>
+          <div class="success-icon">&#127881;</div>
           <h4>Message Received!</h4>
-          <p>Thank you for reaching out. We'll get back to you within <strong>24 hours</strong>.</p>
+          <p>Thank you for reaching out. We&apos;ll get back to you within <strong>24 hours</strong>.</p>
           <div style="margin-top:18px"><button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="resetContactForm()">Send Another Message</button></div>
         </div>
       </div>
@@ -1026,24 +1006,23 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
   <div id="contact-footer"></div>
 </div>
 
-<!-- FIX 4: BOOKING PAGE -->
+<!-- BOOKING PAGE -->
 <div id="page-booking" class="page">
   <div class="pg-hero" style="text-align:center">
     <div class="sec-label">Free Strategy Call</div>
     <h1>Book Your <em>Free</em> Strategy Call</h1>
-    <p style="margin:0 auto">Worth ₦50,000 — completely free. No strings attached. Just clarity for your business.</p>
+    <p style="margin:0 auto">Worth &#8358;50,000 &mdash; completely free. No strings attached. Just clarity for your business.</p>
   </div>
   <div class="booking-page">
-    <div class="booking-form-card" id="bookingFormCard">
+    <div class="booking-form-card">
       <div class="booking-steps">
         <div class="bstep done" id="bsp1"></div>
         <div class="bstep" id="bsp2"></div>
         <div class="bstep" id="bsp3"></div>
       </div>
-
-      <!-- Booking Step 1 -->
+      <!-- Step 1 -->
       <div class="booking-step active" id="bms1">
-        <div class="bstep-lbl">Step 1 of 3 — Your Details</div>
+        <div class="bstep-lbl">Step 1 of 3 &mdash; Your Details</div>
         <div class="form-row">
           <div class="fg"><label>Full Name *</label><input id="bk-name" placeholder="e.g. Amara Okonkwo"></div>
           <div class="fg"><label>Business Name *</label><input id="bk-biz" placeholder="e.g. Amara Foods"></div>
@@ -1054,63 +1033,56 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
         </div>
         <div class="fg"><label>Industry *</label>
           <select id="bk-ind">
-            <option value="">— Select your industry —</option>
+            <option value="">&#8212; Select your industry &#8212;</option>
             <option>Fashion &amp; Apparel</option><option>Food &amp; Beverage</option><option>Beauty &amp; Personal Care</option><option>Health &amp; Wellness</option><option>Technology &amp; Software</option><option>E-commerce &amp; Retail</option><option>Professional Services</option><option>Real Estate &amp; Construction</option><option>Education &amp; Training</option><option>Media &amp; Entertainment</option><option>Logistics &amp; Transportation</option><option>Agriculture</option><option>Non-profit</option><option>Manufacturing</option><option>Other</option>
           </select>
         </div>
-        <div class="fg"><label>What does your business need most? *</label>
+        <div class="fg"><label>What does your business need most?</label>
           <select id="bk-need">
-            <option value="">— Select your main need —</option>
-            <option>Brand identity &amp; positioning</option><option>Social media strategy</option><option>Content creation system</option><option>Website development</option><option>Business registration (CAC)</option><option>Business systems &amp; structure</option><option>General business growth strategy</option><option>I'm not sure, I need guidance</option>
+            <option value="">&#8212; Select your main need &#8212;</option>
+            <option>Brand identity &amp; positioning</option><option>Social media strategy</option><option>Content creation system</option><option>Website development</option><option>Business registration (CAC)</option><option>Business systems &amp; structure</option><option>General business growth strategy</option><option>I&apos;m not sure, I need guidance</option>
           </select>
         </div>
         <div class="bk-foot" style="justify-content:flex-end">
-          <button class="bk-next-btn" onclick="bkGoStep(2)">Next: Pick a Date →</button>
+          <button class="bk-next-btn" onclick="bkGoStep(2)">Next: Pick a Date &rarr;</button>
         </div>
       </div>
-
-      <!-- Booking Step 2 -->
+      <!-- Step 2 -->
       <div class="booking-step" id="bms2">
-        <div class="bstep-lbl">Step 2 of 3 — Pick Date &amp; Time</div>
+        <div class="bstep-lbl">Step 2 of 3 &mdash; Pick Date &amp; Time</div>
         <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:13px">Available Dates</div>
         <div class="date-grid" id="bkDateGrid"></div>
         <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:13px;margin-top:22px">Available Times (WAT)</div>
         <div class="time-grid">
-          <div class="time-btn" onclick="bkSelT(this)">9:00 AM</div>
-          <div class="time-btn" onclick="bkSelT(this)">10:00 AM</div>
-          <div class="time-btn" onclick="bkSelT(this)">11:00 AM</div>
-          <div class="time-btn" onclick="bkSelT(this)">12:00 PM</div>
-          <div class="time-btn" onclick="bkSelT(this)">2:00 PM</div>
-          <div class="time-btn" onclick="bkSelT(this)">3:00 PM</div>
-          <div class="time-btn" onclick="bkSelT(this)">4:00 PM</div>
-          <div class="time-btn" onclick="bkSelT(this)">5:00 PM</div>
-          <div class="time-btn" onclick="bkSelT(this)">6:00 PM</div>
+          <div class="time-btn" onclick="bkSelT(this)">9:00 AM</div><div class="time-btn" onclick="bkSelT(this)">10:00 AM</div><div class="time-btn" onclick="bkSelT(this)">11:00 AM</div>
+          <div class="time-btn" onclick="bkSelT(this)">12:00 PM</div><div class="time-btn" onclick="bkSelT(this)">2:00 PM</div><div class="time-btn" onclick="bkSelT(this)">3:00 PM</div>
+          <div class="time-btn" onclick="bkSelT(this)">4:00 PM</div><div class="time-btn" onclick="bkSelT(this)">5:00 PM</div><div class="time-btn" onclick="bkSelT(this)">6:00 PM</div>
         </div>
         <div class="bk-foot">
-          <button class="bk-back-btn" onclick="bkGoStep(1)">← Back</button>
-          <button class="bk-next-btn" id="bkConfirmBtn" onclick="bkGoStep(3)">Confirm Booking →</button>
+          <button class="bk-back-btn" onclick="bkGoStep(1)">&larr; Back</button>
+          <button class="bk-next-btn" id="bkConfirmBtn" onclick="bkGoStep(3)">Confirm Booking &rarr;</button>
         </div>
       </div>
-
-      <!-- Booking Step 3 Confirmation -->
+      <!-- Step 3: FIX 3 - Success message only, no WhatsApp for client -->
       <div class="booking-step" id="bms3">
         <div class="booking-confirm">
-          <div class="confirm-icon-big">✅</div>
-          <h2>You're Booked!</h2>
-          <p>Your free strategy call is confirmed. A confirmation email with your Google Meet link has been sent to your inbox.</p>
+          <div class="confirm-icon-big">&#10003;</div>
+          <h2>Strategy Call Booked!</h2>
+          <p>Your free strategy call is confirmed. Check your email for your Google Meet link and full booking details.</p>
           <div class="confirm-details">
-            <div class="cf-row"><span>Name</span><span id="bk-cf-name">—</span></div>
-            <div class="cf-row"><span>Business</span><span id="bk-cf-biz">—</span></div>
-            <div class="cf-row"><span>Date</span><span id="bk-cf-date">—</span></div>
-            <div class="cf-row"><span>Time</span><span id="bk-cf-time">—</span></div>
+            <div class="cf-row"><span>Name</span><span id="bk-cf-name">&mdash;</span></div>
+            <div class="cf-row"><span>Business</span><span id="bk-cf-biz">&mdash;</span></div>
+            <div class="cf-row"><span>Date</span><span id="bk-cf-date">&mdash;</span></div>
+            <div class="cf-row"><span>Time</span><span id="bk-cf-time">&mdash;</span></div>
             <div class="cf-row"><span>Platform</span><span>Google Meet</span></div>
           </div>
           <div class="email-note">
-            <span>📧</span>
-            <span>Check your email (and spam folder) for your Google Meet link and full booking confirmation.</span>
+            <span>&#128231;</span>
+            <span>Check your email inbox (and spam folder) for your Google Meet link and booking confirmation from Sabi Manager Global.</span>
           </div>
-          <a class="meet-btn" href="https://meet.google.com/wdh-ykah-xiv" target="_blank">🎥 Join Google Meet</a>
-          <button class="btn-p" style="width:100%" onclick="showPage('home')">Back to Website</button>
+          <a class="meet-btn" href="https://meet.google.com/wdh-ykah-xiv" target="_blank">&#127757; Join Google Meet</a>
+          <button class="btn-p" style="width:100%;margin-bottom:12px" onclick="resetBookingForm()">Book Another Call</button>
+          <button class="bk-back-btn" style="width:100%" onclick="showPage('home')">Back to Website</button>
         </div>
       </div>
     </div>
@@ -1120,57 +1092,53 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 
 <!-- CAREERS -->
 <div id="page-careers" class="page">
-  <div class="pg-hero"><div class="sec-label">Careers</div><h1>Work With People Who<br><em>Actually Care</em></h1><p>We're building the team behind Africa's most structured brands. Talented, driven people who believe in the power of business systems.</p></div>
+  <div class="pg-hero"><div class="sec-label">Careers</div><h1>Work With People Who<br><em>Actually Care</em></h1><p>We&apos;re building the team behind Africa&apos;s most structured brands. Talented, driven people who believe in the power of business systems.</p></div>
   <div class="careers-body">
-    <div class="sec-hdr cen"><div class="sec-label">Our Culture</div><div class="sec-title">What It's Like to <em>Work Here</em></div><p class="sec-sub" style="margin-top:14px">A tight-knit team of strategists, creatives, and business thinkers who love what we do.</p></div>
+    <div class="sec-hdr cen"><div class="sec-label">Our Culture</div><div class="sec-title">What It&apos;s Like to <em>Work Here</em></div><p class="sec-sub" style="margin-top:14px">A tight-knit team of strategists, creatives, and business thinkers who love what we do.</p></div>
     <div class="culture-grid">
-      <div class="culture-card"><div class="culture-icon">🚀</div><h4>Growth Mindset</h4><p>We invest in our team the same way we invest in our clients. Continuous learning is part of the job.</p></div>
-      <div class="culture-card"><div class="culture-icon">🎯</div><h4>Results-Oriented</h4><p>We measure success by outcomes, not hours. We focus on what matters and cut the rest.</p></div>
-      <div class="culture-card"><div class="culture-icon">🤝</div><h4>Real Collaboration</h4><p>No silos. No politics. Just a team that genuinely helps each other do their best work every day.</p></div>
+      <div class="culture-card"><div class="culture-icon">&#128640;</div><h4>Growth Mindset</h4><p>We invest in our team the same way we invest in our clients. Continuous learning is part of the job.</p></div>
+      <div class="culture-card"><div class="culture-icon">&#127919;</div><h4>Results-Oriented</h4><p>We measure success by outcomes, not hours. We focus on what matters and cut the rest.</p></div>
+      <div class="culture-card"><div class="culture-icon">&#129309;</div><h4>Real Collaboration</h4><p>No silos. No politics. Just a team that genuinely helps each other do their best work every day.</p></div>
     </div>
     <div style="margin-top:70px">
       <div class="sec-hdr"><div class="sec-label">Open Positions</div><div class="sec-title">Current <em>Opportunities</em></div></div>
       <div class="jobs-grid">
-        <div class="job-card" onclick="openJobPage('Brand Strategist','Full-Time · Remote','Lead brand discovery, positioning, and strategy sessions for growth-stage SMEs. You will be the brain behind our clients brand identity, messaging, and market positioning.','Requirements:Brand strategy experience (2+ years)|Strong communication and presentation skills|Understanding of the Nigerian and African market|Ability to manage multiple client accounts')">
-          <div class="job-type">Full-Time · Remote</div>
-          <h3>Brand Strategist</h3>
-          <p>Lead brand discovery, positioning, and strategy sessions for growth-stage SMEs. Drive the brand identity and messaging for our clients.</p>
-          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Brand Strategist','Full-Time · Remote','Lead brand discovery, positioning, and strategy sessions for growth-stage SMEs. You will be the brain behind our clients brand identity, messaging, and market positioning.','Requirements:Brand strategy experience (2+ years)|Strong communication and presentation skills|Understanding of the Nigerian and African market|Ability to manage multiple client accounts')">Apply Now →</button>
+        <div class="job-card" onclick="openJobPage('Brand Strategist','Full-Time | Remote','Lead brand discovery, positioning, and strategy sessions for growth-stage SMEs. You will be the brain behind our clients brand identity, messaging, and market positioning.','Brand strategy experience (2+ years)|Strong communication and presentation skills|Understanding of the Nigerian and African market|Ability to manage multiple client accounts')">
+          <div class="job-type">Full-Time &middot; Remote</div><h3>Brand Strategist</h3>
+          <p>Lead brand discovery, positioning, and strategy sessions for growth-stage SMEs. Drive brand identity and messaging for our clients.</p>
+          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Brand Strategist','Full-Time | Remote','Lead brand discovery, positioning, and strategy sessions for growth-stage SMEs. You will be the brain behind our clients brand identity, messaging, and market positioning.','Brand strategy experience (2+ years)|Strong communication and presentation skills|Understanding of the Nigerian and African market|Ability to manage multiple client accounts')">Apply Now &rarr;</button>
         </div>
-        <div class="job-card" onclick="openJobPage('Social Media Manager','Full-Time · Hybrid (Lagos)','Manage social media accounts for multiple clients across Instagram, LinkedIn, TikTok, and Facebook. Strategy, content creation, and community management.','Requirements:Social media management experience (1+ years)|Graphic design skills (Canva or Adobe)|Strong copywriting and caption writing ability|Analytics and reporting proficiency')">
-          <div class="job-type">Full-Time · Hybrid (Lagos)</div>
-          <h3>Social Media Manager</h3>
+        <div class="job-card" onclick="openJobPage('Social Media Manager','Full-Time | Hybrid (Lagos)','Manage social media accounts for multiple clients across Instagram, LinkedIn, TikTok, and Facebook. Strategy, content creation, and community management.','Social media management experience (1+ years)|Graphic design skills (Canva or Adobe)|Strong copywriting and caption writing ability|Analytics and reporting proficiency')">
+          <div class="job-type">Full-Time &middot; Hybrid (Lagos)</div><h3>Social Media Manager</h3>
           <p>Manage social media for multiple clients. Strategy, content creation, and community management across all platforms.</p>
-          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Social Media Manager','Full-Time · Hybrid (Lagos)','Manage social media accounts for multiple clients across Instagram, LinkedIn, TikTok, and Facebook. Strategy, content creation, and community management.','Requirements:Social media management experience (1+ years)|Graphic design skills (Canva or Adobe)|Strong copywriting and caption writing ability|Analytics and reporting proficiency')">Apply Now →</button>
+          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Social Media Manager','Full-Time | Hybrid (Lagos)','Manage social media accounts for multiple clients across Instagram, LinkedIn, TikTok, and Facebook. Strategy, content creation, and community management.','Social media management experience (1+ years)|Graphic design skills (Canva or Adobe)|Strong copywriting and caption writing ability|Analytics and reporting proficiency')">Apply Now &rarr;</button>
         </div>
-        <div class="job-card" onclick="openJobPage('Content Creator','Full-Time · Remote','Write compelling copy, design on-brand graphics, and create video content that drives real engagement and business results for our clients.','Requirements:Copywriting and content creation experience|Proficiency in Canva and basic video editing|Understanding of brand voice and tone|Portfolio of previous content work required')">
-          <div class="job-type">Full-Time · Remote</div>
-          <h3>Content Creator</h3>
+        <div class="job-card" onclick="openJobPage('Content Creator','Full-Time | Remote','Write compelling copy, design on-brand graphics, and create video content that drives real engagement and business results for our clients.','Copywriting and content creation experience|Proficiency in Canva and basic video editing|Understanding of brand voice and tone|Portfolio of previous content work required')">
+          <div class="job-type">Full-Time &middot; Remote</div><h3>Content Creator</h3>
           <p>Write copy, design graphics, and create video content that drives engagement and real business results for our clients.</p>
-          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Content Creator','Full-Time · Remote','Write compelling copy, design on-brand graphics, and create video content that drives real engagement and business results for our clients.','Requirements:Copywriting and content creation experience|Proficiency in Canva and basic video editing|Understanding of brand voice and tone|Portfolio of previous content work required')">Apply Now →</button>
+          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Content Creator','Full-Time | Remote','Write compelling copy, design on-brand graphics, and create video content that drives real engagement and business results for our clients.','Copywriting and content creation experience|Proficiency in Canva and basic video editing|Understanding of brand voice and tone|Portfolio of previous content work required')">Apply Now &rarr;</button>
         </div>
-        <div class="job-card" onclick="openJobPage('Web Developer','Contract · Remote','Build fast, clean, professional websites for SME clients. HTML, CSS, JavaScript expertise required. WordPress and performance optimisation a bonus.','Requirements:HTML, CSS, JavaScript proficiency|Experience building business websites|Mobile-responsive design skills|Portfolio of previous web projects required')">
-          <div class="job-type">Contract · Remote</div>
-          <h3>Web Developer</h3>
+        <div class="job-card" onclick="openJobPage('Web Developer','Contract | Remote','Build fast, clean, professional websites for SME clients. HTML, CSS, JavaScript expertise required. WordPress and performance optimisation a bonus.','HTML, CSS, JavaScript proficiency|Experience building business websites|Mobile-responsive design skills|Portfolio of previous web projects required')">
+          <div class="job-type">Contract &middot; Remote</div><h3>Web Developer</h3>
           <p>Build professional, conversion-focused websites for SME clients. HTML, CSS, JavaScript required.</p>
-          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Web Developer','Contract · Remote','Build fast, clean, professional websites for SME clients. HTML, CSS, JavaScript expertise required. WordPress and performance optimisation a bonus.','Requirements:HTML, CSS, JavaScript proficiency|Experience building business websites|Mobile-responsive design skills|Portfolio of previous web projects required')">Apply Now →</button>
+          <button class="btn-p" style="font-size:13px;padding:10px 22px" onclick="event.stopPropagation();openJobPage('Web Developer','Contract | Remote','Build fast, clean, professional websites for SME clients. HTML, CSS, JavaScript expertise required. WordPress and performance optimisation a bonus.','HTML, CSS, JavaScript proficiency|Experience building business websites|Mobile-responsive design skills|Portfolio of previous web projects required')">Apply Now &rarr;</button>
         </div>
       </div>
       <div style="text-align:center;margin-top:40px;padding:30px;background:var(--cream);border-radius:16px;border:1px solid var(--g300)">
-        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">Don't see your role?</div>
-        <p style="font-size:15px;color:var(--tbody);margin-bottom:20px">We're always open to talented people. Send us your CV and a note about what you bring.</p>
-        <a href="mailto:careers@sabimanagerglobal.com" class="btn-p">Send an Open Application →</a>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">Don&apos;t see your role?</div>
+        <p style="font-size:15px;color:var(--tbody);margin-bottom:20px">We&apos;re always open to talented people. Send us your CV and a note about what you bring.</p>
+        <a href="mailto:careers@sabimanagerglobal.com" class="btn-p">Send an Open Application &rarr;</a>
       </div>
     </div>
   </div>
   <div id="careers-footer"></div>
 </div>
 
-<!-- FIX 5: JOB APPLICATION PAGE -->
+<!-- JOB APPLICATION PAGE -->
 <div id="page-job-apply" class="page">
   <div class="pg-hero"><div class="sec-label" id="jobApplyLabel">Apply Now</div><h1 id="jobApplyTitle">Position</h1><p id="jobApplyType"></p></div>
   <div class="job-apply-wrap">
-    <div class="job-back" onclick="showPage('careers')">← Back to Careers</div>
+    <div class="job-back" onclick="showPage('careers')">&larr; Back to Careers</div>
     <div class="job-details-card" id="jobDetailsCard"></div>
     <div class="apply-form-card">
       <h3>Submit Your Application</h3>
@@ -1181,14 +1149,14 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
           <div class="fg"><label>Phone Number *</label><input id="ja-phone" name="phone" type="tel" placeholder="+234 800 000 0000" required></div>
         </div>
         <div class="fg"><label>Email Address *</label><input id="ja-email" name="email" type="email" placeholder="you@example.com" required></div>
-        <div class="fg"><label>Link to CV or Portfolio *</label><input id="ja-cv" name="cv_link" type="url" placeholder="https://drive.google.com/your-cv or https://yourportfolio.com" required></div>
-        <div class="fg"><label>Cover Letter *</label><textarea id="ja-cover" name="cover_letter" style="min-height:160px" placeholder="Tell us why you want to join Sabi Manager Global, what makes you the right fit, and what excites you about this role..." required></textarea></div>
-        <button type="submit" class="btn-p" id="jaSubmitBtn" style="width:100%;padding:15px;font-size:15px;margin-top:8px">Submit Application →</button>
+        <div class="fg"><label>Link to CV or Portfolio *</label><input id="ja-cv" name="cv_link" type="url" placeholder="https://drive.google.com/your-cv" required></div>
+        <div class="fg"><label>Cover Letter *</label><textarea id="ja-cover" name="cover_letter" style="min-height:160px" placeholder="Tell us why you want to join Sabi Manager Global and what makes you the right fit..." required></textarea></div>
+        <button type="submit" class="btn-p" id="jaSubmitBtn" style="width:100%;padding:15px;font-size:15px;margin-top:8px">Submit Application &rarr;</button>
       </form>
       <div class="success-msg" id="jaSuccess">
-        <div class="success-icon">🎉</div>
+        <div class="success-icon">&#127881;</div>
         <h4>Application Received!</h4>
-        <p>Thank you for applying! We've received your application and will review it carefully. If you're a great fit, we'll reach out to you within <strong>7 business days</strong>.</p>
+        <p>Thank you for applying! We&apos;ve received your application and will review it carefully. If you&apos;re a great fit, we&apos;ll reach out within <strong>7 business days</strong>.</p>
         <button class="btn-p" style="font-size:13px;padding:10px 22px;margin-top:8px" onclick="showPage('careers')">Back to Careers</button>
       </div>
     </div>
@@ -1196,14 +1164,14 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
   <div id="job-apply-footer"></div>
 </div>
 
-<!-- FIX 3: REFER & EARN (with full Formspree form) -->
+<!-- REFER & EARN -->
 <div id="page-refer" class="page">
   <div class="pg-hero"><div class="sec-label">Refer &amp; Earn</div><h1>Earn Real Money by<br><em>Referring Businesses</em></h1><p>Know a business that needs structure? Refer them and earn a commission when they sign up.</p></div>
   <div class="refer-body">
     <div class="refer-hero-box">
-      <h2>Earn Up to <em>₦25,000</em> Per Referral</h2>
+      <h2>Earn Up to <em>&#8358;25,000</em> Per Referral</h2>
       <p>For every business you refer that becomes a paying client, you earn a commission. No cap, no limit.</p>
-      <button class="btn-p" style="font-size:15px;padding:14px 32px" onclick="document.getElementById('referFormSection').scrollIntoView({behavior:'smooth'})">Start Referring →</button>
+      <button class="btn-p" style="font-size:15px;padding:14px 32px" onclick="document.getElementById('referFormSection').scrollIntoView({behavior:'smooth'})">Start Referring &rarr;</button>
     </div>
     <div class="sec-hdr cen"><div class="sec-label">How It Works</div><div class="sec-title">Three Simple <em>Steps</em></div></div>
     <div class="refer-steps">
@@ -1214,38 +1182,37 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
     <div style="margin-top:70px" id="referFormSection">
       <div class="refer-form-wrap">
         <h3>Submit a Referral</h3>
-        <p class="refer-sub">Fill in your details and the business you're referring. We'll take it from there.</p>
+        <p class="refer-sub">Fill in your details and the business you&apos;re referring. We&apos;ll take it from there.</p>
         <form id="referForm">
           <div class="refer-section-title">Your Details (Referrer)</div>
           <div class="form-row">
-            <div class="fg"><label>Your Full Name *</label><input id="ref-name" name="referrer_name" placeholder="Your name" required></div>
-            <div class="fg"><label>Your Phone *</label><input id="ref-phone" name="referrer_phone" type="tel" placeholder="+234 800 000 0000" required></div>
+            <div class="fg"><label>Your Full Name *</label><input name="referrer_name" placeholder="Your name" required></div>
+            <div class="fg"><label>Your Phone *</label><input name="referrer_phone" type="tel" placeholder="+234 800 000 0000" required></div>
           </div>
-          <div class="fg"><label>Your Email *</label><input id="ref-email" name="referrer_email" type="email" placeholder="your@email.com" required></div>
-
+          <div class="fg"><label>Your Email *</label><input name="referrer_email" type="email" placeholder="your@email.com" required></div>
           <div class="refer-section-title">Business You Are Referring</div>
           <div class="form-row">
-            <div class="fg"><label>Business Name *</label><input id="ref-biz-name" name="referral_business_name" placeholder="Business name" required></div>
-            <div class="fg"><label>Business Owner Name *</label><input id="ref-biz-owner" name="referral_owner_name" placeholder="Owner's name" required></div>
+            <div class="fg"><label>Business Name *</label><input name="referral_business_name" placeholder="Business name" required></div>
+            <div class="fg"><label>Business Owner Name *</label><input name="referral_owner_name" placeholder="Owner&apos;s name" required></div>
           </div>
           <div class="form-row">
-            <div class="fg"><label>Business Owner Phone *</label><input id="ref-biz-phone" name="referral_phone" type="tel" placeholder="+234 800 000 0000" required></div>
-            <div class="fg"><label>Business Owner Email</label><input id="ref-biz-email" name="referral_email" type="email" placeholder="owner@business.com"></div>
+            <div class="fg"><label>Business Owner Phone *</label><input name="referral_phone" type="tel" placeholder="+234 800 000 0000" required></div>
+            <div class="fg"><label>Business Owner Email</label><input name="referral_email" type="email" placeholder="owner@business.com"></div>
           </div>
           <div class="fg"><label>Service They Need</label>
-            <select id="ref-service" name="service_needed">
-              <option value="">— Select service —</option>
+            <select name="service_needed">
+              <option value="">&#8212; Select service &#8212;</option>
               <option>Brand Management</option><option>Social Media Management</option><option>Content Creation</option><option>Branding &amp; Design</option><option>Website Development</option><option>Business Registration</option><option>Not sure</option>
             </select>
           </div>
-          <div class="fg"><label>Additional Notes</label><textarea id="ref-notes" name="notes" placeholder="Anything useful we should know about this business..."></textarea></div>
+          <div class="fg"><label>Additional Notes</label><textarea name="notes" placeholder="Anything useful we should know about this business..."></textarea></div>
           <input type="hidden" name="form_type" value="Referral Submission">
-          <button type="submit" class="btn-p" id="referSubmitBtn" style="width:100%;padding:14px;font-size:15px">Submit Referral →</button>
+          <button type="submit" class="btn-p" id="referSubmitBtn" style="width:100%;padding:14px;font-size:15px">Submit Referral &rarr;</button>
         </form>
         <div class="success-msg" id="referSuccess">
-          <div class="success-icon">🎉</div>
+          <div class="success-icon">&#127881;</div>
           <h4>Referral Submitted!</h4>
-          <p>Thank you! We've received your referral and will reach out to them shortly. You'll hear from us once they sign up.</p>
+          <p>Thank you! We&apos;ve received your referral and will reach out to them shortly. You&apos;ll hear from us once they sign up.</p>
           <button class="btn-p" style="font-size:13px;padding:10px 22px;margin-top:8px" onclick="resetReferForm()">Submit Another Referral</button>
         </div>
       </div>
@@ -1276,8 +1243,8 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
     <div class="legal-last-updated">Last Updated: May 2026</div>
     <h2>1. Agreement</h2><p>By accessing our website or engaging our services, you agree to these Terms of Service.</p>
     <h2>2. Services</h2><p>Sabi Manager Global provides brand management, social media management, content creation, branding, website development, and business registration services. Scope is defined in individual service agreements.</p>
-    <h2>3. Payments</h2><p>All fees are in Nigerian Naira (₦). Payments are processed via Paystack. Digital products are non-refundable once accessed. Service retainers require 30 days notice for cancellation.</p>
-    <h2>4. Intellectual Property</h2><p>Upon full payment, clients own deliverables created for them. We retain portfolio rights. Digital products are for personal/business use only — no redistribution.</p>
+    <h2>3. Payments</h2><p>All fees are in Nigerian Naira (&#8358;). Payments are processed via Paystack. Digital products are non-refundable once accessed. Service retainers require 30 days notice for cancellation.</p>
+    <h2>4. Intellectual Property</h2><p>Upon full payment, clients own deliverables created for them. We retain portfolio rights. Digital products are for personal/business use only &mdash; no redistribution.</p>
     <h2>5. Governing Law</h2><p>These terms are governed by the laws of the Federal Republic of Nigeria. Disputes shall be resolved through arbitration in Lagos, Nigeria.</p>
     <h2>6. Contact</h2><p>hello@sabimanagerglobal.com | +234 705 282 8629</p>
   </div>
@@ -1303,21 +1270,21 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
   <div class="checkout-modal">
     <div class="checkout-modal-hdr">
       <div><h3 id="checkoutProductName">Product</h3><p id="checkoutProductPrice"></p></div>
-      <button class="modal-x" onclick="closeCheckout()">✕</button>
+      <button class="modal-x" onclick="closeCheckout()">&#10005;</button>
     </div>
     <div class="checkout-modal-body">
       <div id="checkoutFormView">
-        <div class="checkout-summary"><span id="checkoutSummaryName">Product</span><strong id="checkoutSummaryPrice">₦0</strong></div>
+        <div class="checkout-summary"><span id="checkoutSummaryName">Product</span><strong id="checkoutSummaryPrice">&#8358;0</strong></div>
         <div class="checkout-form">
           <div class="fg"><label>Full Name *</label><input id="ch-name" placeholder="Your full name"></div>
           <div class="fg"><label>Email Address *</label><input id="ch-email" type="email" placeholder="your@email.com"></div>
           <div class="fg"><label>Phone Number *</label><input id="ch-phone" type="tel" placeholder="+234 800 000 0000"></div>
         </div>
-        <button class="pay-btn" onclick="initiatePaystack()">Pay with Paystack →</button>
-        <div class="checkout-note" style="margin-top:12px">🔒 Secure payment via Paystack. Test mode active.</div>
+        <button class="pay-btn" onclick="initiatePaystack()">Pay with Paystack &rarr;</button>
+        <div class="checkout-note" style="margin-top:12px">&#128274; Secure payment via Paystack. Test mode active.</div>
       </div>
       <div class="checkout-success" id="checkoutSuccessView" style="display:none">
-        <div class="checkout-success-icon">🎉</div>
+        <div class="checkout-success-icon">&#127881;</div>
         <h3>Payment Successful!</h3>
         <p>Thank you for your purchase. Check your email for access details within 24 hours.</p>
         <button class="btn-p" style="width:100%;padding:14px" onclick="closeCheckout()">Done, Back to Shop</button>
@@ -1337,84 +1304,78 @@ const PAYSTACK_KEY     = 'pk_test_xxxxxxxxxxxxxxxxxxxxxx';
 
 emailjs.init(EMAILJS_KEY);
 
-// BLOG DATA
 const blogs = [
-  {id:'b1',tag:'Structure',date:'April 2026',author:'Sabi Manager Team',title:'Why Most Nigerian Businesses Stay Small — And How to Break Out',excerpt:'The real reason 8 in 10 SMEs plateau and the structural shift that changes everything.',content:`<p>Every week, we speak with business owners who are exhausted. Working 12-hour days, posting on social media, attending networking events, and still not seeing the growth their business deserves. The frustrating truth? The problem is rarely effort. The problem is almost always structure.</p><h2>The Hustle Trap</h2><p>Nigerian entrepreneurs are among the most resilient in the world. But somewhere along the line, we were sold a lie: that working harder is the same as working smarter. It isn't. When a business lacks structure, every day becomes a crisis. You react instead of build. You lose clients not because your service is bad, but because your systems are inconsistent.</p><blockquote>Most businesses don't fail from lack of effort. They fail from lack of structure.</blockquote><h2>What Structure Actually Means</h2><p>Structure means having clear answers: Who is your ideal client? What happens after someone contacts you, every single time? How do you deliver your service consistently? How do you generate revenue predictably?</p><h2>Three Shifts That Change Everything</h2><h3>1. From Random Posting to a Content System</h3><p>Stop creating content based on inspiration. Build a system — a content calendar, a defined brand voice, and a posting strategy tied to business outcomes.</p><h3>2. From Manual Everything to Repeatable Processes</h3><p>Document your processes. How do you onboard a client? Every manual task you do more than once should become a documented process you can eventually delegate.</p><h3>3. From Hope-Based Sales to a Predictable Pipeline</h3><p>Know exactly where your clients come from. Track your conversion rate. Build referral systems. When your sales become predictable, your business becomes scalable.</p>`},
-  {id:'b2',tag:'Branding',date:'March 2026',author:'Sabi Manager Team',title:'The Difference Between a Logo and a Brand (Most People Get This Wrong)',excerpt:"Your logo is not your brand. Here's what branding really means and why it matters more than design.",content:`<p>One of the most common conversations we have with new clients: "I already have a logo, so my branding is sorted, right?" The short answer is no. Confusing a logo for a brand is one of the most expensive mistakes a growing business can make.</p><h2>What a Logo Actually Is</h2><p>A logo is a visual mark. One element of your brand — very important, but just one piece of a much larger picture. Think of it this way: your logo is your face. Your brand is your personality, reputation, values, and the experiences you deliver consistently.</p><blockquote>A beautiful logo on an inconsistent brand is like wearing an expensive suit to an interview but having nothing to say.</blockquote><h2>What a Brand Actually Is</h2><p>Your brand is the sum total of every experience someone has with your business — how you communicate, what you stand for, how consistently you show up, and the feeling clients get when they interact with you.</p><h2>Why This Matters for Revenue</h2><p>Businesses with strong brands command higher prices, attract better clients, and generate more referrals. A strong brand creates trust. And trust reduces the sales effort required to convert a prospect into a paying client.</p>`},
-  {id:'b3',tag:'Sales',date:'March 2026',author:'Sabi Manager Team',title:'From Random Sales to Consistent Revenue: A 5-Step System',excerpt:'Stop relying on luck. A repeatable sales system any SME can implement starting today.',content:`<p>If your revenue looks like a rollercoaster, you don't have a sales problem. You have a systems problem. Great months followed by empty months is the clearest sign your sales are driven by luck, not strategy.</p><h2>Step 1: Define Your Ideal Client</h2><p>Most businesses try to sell to everyone. The result: they connect with nobody deeply enough to convert. Get specific. Who benefits most from what you offer? The more specific you are, the easier every step becomes.</p><h2>Step 2: Build One Clear Offer</h2><p>Confusion kills sales. If your potential clients can't immediately understand what you offer, what it costs, and what result they get, they won't buy. Name it. Price it. Describe the outcome.</p><blockquote>Consistent sales require consistent lead flow. Consistent lead flow requires a system, not luck.</blockquote><h2>Step 3: Create a Lead Generation System</h2><p>Where do your ideal clients come from? If your answer is "referrals" or "I'm not sure" — you have hope, not a system. Build a process that brings in new conversations every week.</p><h2>Step 4: Build a Simple Follow-Up Process</h2><p>Most sales are lost not because the product was wrong, but because there was no follow-up. Document your follow-up process and do it every time.</p><h2>Step 5: Measure and Improve</h2><p>Track three numbers monthly: new leads, proposals sent, sales closed. These tell you exactly where your sales process is breaking down.</p>`},
-  {id:'b4',tag:'Social Media',date:'February 2026',author:'Sabi Manager Team',title:"Why You're Posting Every Day and Still Not Getting Clients",excerpt:"Posting without strategy is just noise. Here's what to fix first.",content:`<p>You are posting every day. Showing up on Instagram, LinkedIn, maybe even TikTok. Spending hours creating content. And yet your DMs are quiet. What is going wrong?</p><h2>The Vanity Metrics Trap</h2><p>Likes, followers, and reach are not business metrics. The question to ask about every piece of content: does this move someone closer to becoming a paying client?</p><h2>3 Reasons Your Content Isn't Converting</h2><h3>1. You're talking to everyone, meaning you talk to no one</h3><p>If your content applies to any business in any industry, it connects with nobody deeply. Speak directly to your ideal client's exact situation and frustration.</p><h3>2. You're educating but not converting</h3><p>Valuable content builds trust, but trust alone doesn't create sales. Every few posts, you need a clear call to action. Tell people exactly what to do next.</p><h3>3. You have no content strategy, just a posting habit</h3><p>A content calendar is not a strategy. A strategy knows who it's targeting, what stage of awareness they're at, and what content moves them from stranger to client.</p>`},
-  {id:'b5',tag:'Business',date:'January 2026',author:'Sabi Manager Team',title:'CAC Registration in 2026: What You Need and What to Avoid',excerpt:'A clear breakdown of how to register your business in Nigeria without expensive mistakes.',content:`<p>Registering your business with the CAC is one of the most important steps as a Nigerian entrepreneur. A registered business can open a corporate bank account, access government contracts, and build credibility with clients.</p><h2>What You Actually Need</h2><p>For a Business Name registration: a valid means of identification, personal information including date of birth, your proposed business name with alternatives, the nature of your business activities, and your business address.</p><h2>Most Common Mistakes</h2><h3>Not Checking Name Availability First</h3><p>Many build their entire brand around a name, then discover during registration it's already taken. Always search the CAC portal first.</p><h3>Using the Wrong Business Structure</h3><p>A Business Name registration is not the same as a Limited Liability Company. If you have investors or significant financial exposure, you should be a company. Get advice before registering.</p><h2>Honest Timeline</h2><p>A Business Name registration typically takes 3 to 7 working days when everything is in order. A company incorporation takes 7 to 14 working days.</p>`},
-  {id:'b6',tag:'Growth',date:'January 2026',author:'Sabi Manager Team',title:'The 3 Systems Every SME Must Have Before They Scale',excerpt:'Growth without systems creates chaos. These foundations must be in place before you scale.',content:`<p>There is a version of growth that destroys businesses — when a company gets more clients than it can handle, more revenue than its systems can process. The solution is not to grow slower. The solution is to build systems before you need them.</p><h2>System 1: Client Delivery System</h2><p>How do you onboard a new client? How do you deliver your service? If the answers live only in your head, you have a problem. Document every step. Create templates. Build checklists.</p><h2>System 2: Sales and Follow-Up System</h2><p>When someone enquires, what happens next? A CRM doesn't need to be expensive software — it can be a spreadsheet. What matters is that no lead falls through the cracks.</p><blockquote>A business without sales systems is just a person doing a job. A business with sales systems is a machine that generates revenue.</blockquote><h2>System 3: Finance and Reporting System</h2><p>Do you know exactly how much revenue you generated last month? Set up a simple bookkeeping system. Track income and expenses weekly. Review numbers monthly.</p>`}
+  {id:'b1',tag:'Structure',date:'April 2026',author:'Sabi Manager Team',title:'Why Most Nigerian Businesses Stay Small — And How to Break Out',excerpt:'The real reason 8 in 10 SMEs plateau and the structural shift that changes everything.',content:'<p>Every week, we speak with business owners who are exhausted. Working 12-hour days, posting on social media, attending networking events, and still not seeing the growth their business deserves. The frustrating truth? The problem is rarely effort. The problem is almost always structure.</p><h2>The Hustle Trap</h2><p>Nigerian entrepreneurs are among the most resilient in the world. But somewhere along the line, we were sold a lie: that working harder is the same as working smarter. It is not. When a business lacks structure, every day becomes a crisis. You react instead of build. You lose clients not because your service is bad, but because your systems are inconsistent.</p><blockquote>Most businesses do not fail from lack of effort. They fail from lack of structure.</blockquote><h2>What Structure Actually Means</h2><p>Structure means having clear answers: Who is your ideal client? What happens after someone contacts you, every single time? How do you deliver your service consistently? How do you generate revenue predictably?</p><h2>Three Shifts That Change Everything</h2><h3>1. From Random Posting to a Content System</h3><p>Stop creating content based on inspiration. Build a system with a defined content calendar, brand voice, and posting strategy tied to business outcomes.</p><h3>2. From Manual Everything to Repeatable Processes</h3><p>Document your processes. Every manual task you do more than once should become a documented process you can eventually delegate.</p><h3>3. From Hope-Based Sales to a Predictable Pipeline</h3><p>Know exactly where your clients come from. Track your conversion rate. Build referral systems. When your sales become predictable, your business becomes scalable.</p>'},
+  {id:'b2',tag:'Branding',date:'March 2026',author:'Sabi Manager Team',title:'The Difference Between a Logo and a Brand (Most People Get This Wrong)',excerpt:"Your logo is not your brand. Here is what branding really means and why it matters more than design.",content:'<p>One of the most common conversations we have with new clients: "I already have a logo, so my branding is sorted, right?" The short answer is no. Confusing a logo for a brand is one of the most expensive mistakes a growing business can make.</p><h2>What a Logo Actually Is</h2><p>A logo is a visual mark. One element of your brand. Think of it this way: your logo is your face. Your brand is your personality, reputation, values, and the experiences you deliver consistently.</p><blockquote>A beautiful logo on an inconsistent brand is like wearing an expensive suit to an interview but having nothing to say.</blockquote><h2>What a Brand Actually Is</h2><p>Your brand is the sum total of every experience someone has with your business. How you communicate, what you stand for, how consistently you show up, and the feeling clients get when they interact with you.</p><h2>Why This Matters for Revenue</h2><p>Businesses with strong brands command higher prices, attract better clients, and generate more referrals. A strong brand creates trust. And trust reduces the sales effort required to convert a prospect into a paying client.</p>'},
+  {id:'b3',tag:'Sales',date:'March 2026',author:'Sabi Manager Team',title:'From Random Sales to Consistent Revenue: A 5-Step System',excerpt:'Stop relying on luck. A repeatable sales system any SME can implement starting today.',content:'<p>If your revenue looks like a rollercoaster, you do not have a sales problem. You have a systems problem.</p><h2>Step 1: Define Your Ideal Client</h2><p>Most businesses try to sell to everyone. The result: they connect with nobody deeply enough to convert. Get specific. Who benefits most from what you offer?</p><h2>Step 2: Build One Clear Offer</h2><p>Confusion kills sales. Name it. Price it. Describe the outcome. Make it easy to say yes.</p><blockquote>Consistent sales require consistent lead flow. Consistent lead flow requires a system, not luck.</blockquote><h2>Step 3: Create a Lead Generation System</h2><p>Where do your ideal clients come from? Build a process that brings in new conversations every week.</p><h2>Step 4: Build a Simple Follow-Up Process</h2><p>Most sales are lost not because the product was wrong, but because there was no follow-up. Document your follow-up process and do it every time.</p><h2>Step 5: Measure and Improve</h2><p>Track three numbers monthly: new leads, proposals sent, sales closed. These tell you exactly where your sales process is breaking down.</p>'},
+  {id:'b4',tag:'Social Media',date:'February 2026',author:'Sabi Manager Team',title:"Why You Are Posting Every Day and Still Not Getting Clients",excerpt:"Posting without strategy is just noise. Here is what to fix first.",content:'<p>You are posting every day. Showing up on Instagram, LinkedIn, maybe even TikTok. Spending hours creating content. And yet your DMs are quiet. What is going wrong?</p><h2>The Vanity Metrics Trap</h2><p>Likes, followers, and reach are not business metrics. The question to ask about every piece of content: does this move someone closer to becoming a paying client?</p><h2>3 Reasons Your Content Is Not Converting</h2><h3>1. You are talking to everyone, meaning you talk to no one</h3><p>If your content applies to any business in any industry, it connects with nobody deeply. Speak directly to your ideal client\'s exact situation.</p><h3>2. You are educating but not converting</h3><p>Valuable content builds trust, but trust alone does not create sales. Every few posts, you need a clear call to action.</p><h3>3. You have no content strategy, just a posting habit</h3><p>A content calendar is not a strategy. A strategy knows who it is targeting, what stage of awareness they are at, and what content moves them from stranger to client.</p>'},
+  {id:'b5',tag:'Business',date:'January 2026',author:'Sabi Manager Team',title:'CAC Registration in 2026: What You Need and What to Avoid',excerpt:'A clear breakdown of how to register your business in Nigeria without expensive mistakes.',content:'<p>Registering your business with the CAC is one of the most important steps as a Nigerian entrepreneur. A registered business can open a corporate bank account, access government contracts, and build credibility with clients.</p><h2>What You Actually Need</h2><p>For a Business Name registration: a valid means of identification, personal information including date of birth, your proposed business name with alternatives, the nature of your business activities, and your business address.</p><h2>Most Common Mistakes</h2><h3>Not Checking Name Availability First</h3><p>Many build their entire brand around a name, then discover during registration it is already taken. Always search the CAC portal first.</p><h3>Using the Wrong Business Structure</h3><p>A Business Name registration is not the same as a Limited Liability Company. Get advice before registering.</p><h2>Honest Timeline</h2><p>A Business Name registration typically takes 3 to 7 working days. A company incorporation takes 7 to 14 working days.</p>'},
+  {id:'b6',tag:'Growth',date:'January 2026',author:'Sabi Manager Team',title:'The 3 Systems Every SME Must Have Before They Scale',excerpt:'Growth without systems creates chaos. These foundations must be in place before you scale.',content:'<p>There is a version of growth that destroys businesses. The solution is not to grow slower. The solution is to build systems before you need them.</p><h2>System 1: Client Delivery System</h2><p>How do you onboard a new client? How do you deliver your service? If the answers live only in your head, you have a problem. Document every step. Create templates. Build checklists.</p><h2>System 2: Sales and Follow-Up System</h2><p>When someone enquires, what happens next? A CRM does not need to be expensive software. What matters is that no lead falls through the cracks.</p><blockquote>A business without sales systems is just a person doing a job. A business with sales systems is a machine that generates revenue.</blockquote><h2>System 3: Finance and Reporting System</h2><p>Do you know exactly how much revenue you generated last month? Set up a simple bookkeeping system. Track income and expenses weekly.</p>'}
 ];
 
-// SHOP DATA
 const products = {
   courses:[
-    {id:'c1',cat:'Course',title:'Brand Structure Masterclass',price:35000,badge:'BESTSELLER',icon:'🎓',desc:'Build a consistent brand from scratch. 8 modules covering identity, messaging, positioning, and management. Lifetime access with certificate.',includes:['8 comprehensive video modules','Brand audit workbook','Messaging framework template','Brand guidelines template','Lifetime access','Certificate of completion']},
-    {id:'c2',cat:'Course',title:'Sales Consistency System',price:25000,badge:'',icon:'💰',desc:'Turn random sales into a predictable revenue system. The exact framework used across 200+ SMEs.',includes:['6 module video course','Sales pipeline tracker spreadsheet','Follow-up email templates','Pricing strategy calculator','Client onboarding checklist','Lifetime access']},
-    {id:'c3',cat:'Course',title:'Social Media That Converts',price:18000,badge:'',icon:'📱',desc:'Build a social strategy that drives real enquiries and consistent clients, not just likes.',includes:['5 module video course','90-day content calendar template','Caption writing framework','Platform strategy guides','Analytics tracking sheet','Lifetime access']}
+    {id:'c1',cat:'Course',title:'Brand Structure Masterclass',price:35000,badge:'BESTSELLER',icon:'&#127891;',desc:'Build a consistent brand from scratch. 8 modules covering identity, messaging, positioning, and management. Lifetime access with certificate.',includes:['8 comprehensive video modules','Brand audit workbook','Messaging framework template','Brand guidelines template','Lifetime access','Certificate of completion']},
+    {id:'c2',cat:'Course',title:'Sales Consistency System',price:25000,badge:'',icon:'&#128176;',desc:'Turn random sales into a predictable revenue system. The exact framework used across 200+ SMEs.',includes:['6 module video course','Sales pipeline tracker spreadsheet','Follow-up email templates','Pricing strategy calculator','Client onboarding checklist','Lifetime access']},
+    {id:'c3',cat:'Course',title:'Social Media That Converts',price:18000,badge:'',icon:'&#128241;',desc:'Build a social strategy that drives real enquiries and consistent clients, not just likes.',includes:['5 module video course','90-day content calendar template','Caption writing framework','Platform strategy guides','Analytics tracking sheet','Lifetime access']}
   ],
   books:[
-    {id:'bk1',cat:'Book',title:'Structure Before Scale',price:8500,badge:'NEW',icon:'📖',desc:'The definitive guide to building business foundations. Written for Nigerian entrepreneurs ready to grow beyond the plateau.',includes:['200-page digital PDF','Business audit framework','12-month growth roadmap','Printable workbook pages','Free updates']},
-    {id:'bk2',cat:'Book',title:'The Brand Clarity Playbook',price:6500,badge:'',icon:'💡',desc:'A step-by-step workbook to define your brand position, voice, and visual identity clearly.',includes:['150-page interactive PDF','Brand positioning exercises','Competitor analysis templates','Voice and tone guidelines','Visual identity checklist']},
-    {id:'bk3',cat:'Book',title:'From Hustle to Systems',price:7000,badge:'',icon:'🚀',desc:'How to stop doing everything yourself and build repeatable systems that generate profit consistently.',includes:['180-page digital PDF','Process documentation templates','Delegation framework','SOP starter kit','Free updates']}
+    {id:'bk1',cat:'Book',title:'Structure Before Scale',price:8500,badge:'NEW',icon:'&#128214;',desc:'The definitive guide to building business foundations. Written for Nigerian entrepreneurs ready to grow beyond the plateau.',includes:['200-page digital PDF','Business audit framework','12-month growth roadmap','Printable workbook pages','Free updates']},
+    {id:'bk2',cat:'Book',title:'The Brand Clarity Playbook',price:6500,badge:'',icon:'&#128161;',desc:'A step-by-step workbook to define your brand position, voice, and visual identity clearly.',includes:['150-page interactive PDF','Brand positioning exercises','Competitor analysis templates','Voice and tone guidelines','Visual identity checklist']},
+    {id:'bk3',cat:'Book',title:'From Hustle to Systems',price:7000,badge:'',icon:'&#128640;',desc:'How to stop doing everything yourself and build repeatable systems that generate profit consistently.',includes:['180-page digital PDF','Process documentation templates','Delegation framework','SOP starter kit','Free updates']}
   ],
   templates:[
-    {id:'t1',cat:'Template',title:'Business Clarity Blueprint',price:12000,badge:'POPULAR',icon:'📊',desc:'Audit your business, identify gaps, and build a 90-day action plan. Used by 100+ businesses.',includes:['Full Notion template','Business health audit','90-day planning framework','KPI tracking dashboard','Revenue goal calculator','Video walkthrough']},
-    {id:'t2',cat:'Template',title:'30-Day Content Calendar',price:8000,badge:'',icon:'📅',desc:'Pre-planned content ideas, captions, and hashtags for 30 days across Instagram, LinkedIn, and Facebook.',includes:['30 days of content ideas','Caption templates for each post','Hashtag strategy by platform','Canva graphics templates','Posting time guide','IG and LinkedIn versions']},
-    {id:'t3',cat:'Template',title:'Brand Kit Canva Template',price:6000,badge:'',icon:'🎨',desc:'Full Canva brand kit with logo placements, colour guide, font pairings, social media mockups.',includes:['50+ Canva templates','Logo placement guides','Colour palette documentation','Font pairing suggestions','Social media post templates','Business card and letterhead']}
+    {id:'t1',cat:'Template',title:'Business Clarity Blueprint',price:12000,badge:'POPULAR',icon:'&#128202;',desc:'Audit your business, identify gaps, and build a 90-day action plan. Used by 100+ businesses.',includes:['Full Notion template','Business health audit','90-day planning framework','KPI tracking dashboard','Revenue goal calculator','Video walkthrough']},
+    {id:'t2',cat:'Template',title:'30-Day Content Calendar',price:8000,badge:'',icon:'&#128197;',desc:'Pre-planned content ideas, captions, and hashtags for 30 days across Instagram, LinkedIn, and Facebook.',includes:['30 days of content ideas','Caption templates for each post','Hashtag strategy by platform','Canva graphics templates','Posting time guide','IG and LinkedIn versions']},
+    {id:'t3',cat:'Template',title:'Brand Kit Canva Template',price:6000,badge:'',icon:'&#127912;',desc:'Full Canva brand kit with logo placements, colour guide, font pairings, social media mockups.',includes:['50+ Canva templates','Logo placement guides','Colour palette documentation','Font pairing suggestions','Social media post templates','Business card and letterhead']}
   ]
 };
 
 let currentCheckoutProduct=null;
 
-// RENDER FOOTERS
 function renderFooters(){
   const tpl=document.getElementById('footer-tpl').innerHTML;
   ['home','projects','story','services','blog','blog-single','shop','product','contact','booking','careers','job-apply','refer','privacy-policy','terms-of-service','cookie-policy'].forEach(id=>{
     const el=document.getElementById(id+'-footer');
-    if(el) el.innerHTML=tpl;
+    if(el)el.innerHTML=tpl;
   });
 }
 
-// RENDER BLOG
 function renderBlogCards(){
   const g=document.getElementById('blogGrid');
-  if(!g) return;
+  if(!g)return;
   g.innerHTML=blogs.map(b=>`
     <div class="blog-card" onclick="openBlog('${b.id}')">
       <div class="blog-card-img"><div class="geo-placeholder" style="height:100%"><svg viewBox="0 0 400 180" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:.12"><defs><pattern id="bg${b.id}" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="10" fill="none" stroke="#F26522" stroke-width=".5"/></pattern></defs><rect width="400" height="180" fill="url(#bg${b.id})"/></svg></div></div>
       <div class="blog-card-body">
         <div class="blog-meta"><span class="blog-tag">${b.tag}</span><span class="blog-date">${b.date}</span><span class="blog-author-small">by ${b.author}</span></div>
-        <h3>${b.title}</h3>
-        <p>${b.excerpt}</p>
-        <span class="blog-read">Read article →</span>
+        <h3>${b.title}</h3><p>${b.excerpt}</p>
+        <span class="blog-read">Read article &rarr;</span>
       </div>
     </div>`).join('');
 }
 
 function renderHomeBlog(){
   const g=document.getElementById('homeBlogGrid');
-  if(!g) return;
+  if(!g)return;
   g.innerHTML=blogs.slice(0,3).map(b=>`
     <div class="blog-card" onclick="openBlog('${b.id}')">
       <div class="blog-card-img"><div class="geo-placeholder" style="height:100%"><svg viewBox="0 0 400 180" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:.12"><defs><pattern id="hbg${b.id}" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="10" fill="none" stroke="#F26522" stroke-width=".5"/></pattern></defs><rect width="400" height="180" fill="url(#hbg${b.id})"/></svg></div></div>
       <div class="blog-card-body">
         <div class="blog-meta"><span class="blog-tag">${b.tag}</span><span class="blog-date">${b.date}</span></div>
-        <h3>${b.title}</h3>
-        <p>${b.excerpt}</p>
-        <span class="blog-read">Read article →</span>
+        <h3>${b.title}</h3><p>${b.excerpt}</p>
+        <span class="blog-read">Read article &rarr;</span>
       </div>
     </div>`).join('');
 }
 
 function openBlog(id){
   const b=blogs.find(x=>x.id===id);
-  if(!b) return;
+  if(!b)return;
   const related=blogs.filter(x=>x.id!==id).slice(0,2);
   document.getElementById('blogSingleContent').innerHTML=`
     <div style="padding:0 7% 80px">
-      <div class="blog-back" onclick="showPage('blog')">← Back to Blog</div>
+      <div class="blog-back" onclick="showPage('blog')">&larr; Back to Blog</div>
       <div class="blog-single">
         <div class="blog-single-header">
           <div class="blog-single-tag">${b.tag}</div>
@@ -1426,8 +1387,8 @@ function openBlog(id){
         </div>
         <div class="blog-featured-img"><div class="geo-placeholder" style="height:100%"><svg viewBox="0 0 800 360" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:.15"><defs><pattern id="bfp${b.id}" width="60" height="60" patternUnits="userSpaceOnUse"><rect x="15" y="15" width="30" height="30" fill="none" stroke="#F26522" stroke-width=".8"/></pattern></defs><rect width="800" height="360" fill="url(#bfp${b.id})"/></svg><span class="geo-placeholder-label">Featured Image</span></div></div>
         <div class="blog-content">${b.content}</div>
-        <div class="blog-share"><h4>Share this article</h4><div class="share-btns"><button class="share-btn share-wa" onclick="shareWA('${b.title.replace(/'/g,"\\'")}')">💬 WhatsApp</button><button class="share-btn share-tw" onclick="shareTW('${b.title.replace(/'/g,"\\'")}')">𝕏 Twitter</button><button class="share-btn share-li" onclick="shareLI()">in LinkedIn</button><button class="share-btn share-copy" onclick="copyLink(this)">🔗 Copy Link</button></div></div>
-        <div class="related-posts"><h4>Related Articles</h4><div class="related-grid">${related.map(r=>`<div class="related-card" onclick="openBlog('${r.id}')"><div class="related-card-img"><div class="geo-placeholder" style="height:100%"></div></div><div class="related-card-body"><h5>${r.title}</h5><p>${r.date} · ${r.tag}</p></div></div>`).join('')}</div></div>
+        <div class="blog-share"><h4>Share this article</h4><div class="share-btns"><button class="share-btn share-wa" onclick="shareWA('${b.title.replace(/'/g,"\\'")}')">&#128172; WhatsApp</button><button class="share-btn share-tw" onclick="shareTW('${b.title.replace(/'/g,"\\'")}')">&#120143; Twitter</button><button class="share-btn share-li" onclick="shareLI()">in LinkedIn</button><button class="share-btn share-copy" onclick="copyLink(this)">&#128279; Copy Link</button></div></div>
+        <div class="related-posts"><h4>Related Articles</h4><div class="related-grid">${related.map(r=>`<div class="related-card" onclick="openBlog('${r.id}')"><div class="related-card-img"><div class="geo-placeholder" style="height:100%"></div></div><div class="related-card-body"><h5>${r.title}</h5><p>${r.date} &middot; ${r.tag}</p></div></div>`).join('')}</div></div>
       </div>
     </div>`;
   showPage('blog-single');
@@ -1436,13 +1397,12 @@ function openBlog(id){
 function shareWA(t){window.open('https://wa.me/?text='+encodeURIComponent(t+' - '+window.location.href),'_blank')}
 function shareTW(t){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(t)+'&url='+encodeURIComponent(window.location.href),'_blank')}
 function shareLI(){window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank')}
-function copyLink(btn){navigator.clipboard.writeText(window.location.href).then(()=>{btn.textContent='✓ Copied!';setTimeout(()=>btn.textContent='🔗 Copy Link',2000)})}
+function copyLink(btn){navigator.clipboard.writeText(window.location.href).then(()=>{btn.textContent='&#10003; Copied!';setTimeout(()=>btn.textContent='&#128279; Copy Link',2000)})}
 
-// RENDER SHOP
 function renderShop(){
   ['courses','books','templates'].forEach(cat=>{
     const g=document.getElementById('shop'+cat.charAt(0).toUpperCase()+cat.slice(1)+'Grid');
-    if(!g) return;
+    if(!g)return;
     g.innerHTML=products[cat].map(p=>`
       <div class="shop-card" onclick="openProduct('${p.id}')">
         <div class="shop-img">${p.icon}${p.badge?`<div class="shop-badge">${p.badge}</div>`:''}</div>
@@ -1450,7 +1410,7 @@ function renderShop(){
           <div class="shop-cat-tag">${p.cat}</div>
           <h3>${p.title}</h3>
           <p>${p.desc.substring(0,100)}...</p>
-          <div class="shop-footer"><div class="shop-price">₦${p.price.toLocaleString()}</div><button class="btn-p" style="padding:9px 16px;font-size:12px" onclick="event.stopPropagation();openProduct('${p.id}')">View Details</button></div>
+          <div class="shop-footer"><div class="shop-price">&#8358;${p.price.toLocaleString()}</div><button class="btn-p" style="padding:9px 16px;font-size:12px" onclick="event.stopPropagation();openProduct('${p.id}')">View Details</button></div>
         </div>
       </div>`).join('');
   });
@@ -1459,37 +1419,36 @@ function renderShop(){
 function openProduct(id){
   const all=[...products.courses,...products.books,...products.templates];
   const p=all.find(x=>x.id===id);
-  if(!p) return;
+  if(!p)return;
   currentCheckoutProduct=p;
   document.getElementById('productDetailContent').innerHTML=`
     <div class="product-detail">
-      <div class="product-back" onclick="showPage('shop')">← Back to Shop</div>
+      <div class="product-back" onclick="showPage('shop')">&larr; Back to Shop</div>
       <div class="product-grid">
         <div class="product-img"><div class="geo-placeholder" style="height:100%"><svg viewBox="0 0 400 360" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:.15"><defs><pattern id="pp${p.id}" width="50" height="50" patternUnits="userSpaceOnUse"><polygon points="25,5 45,15 45,35 25,45 5,35 5,15" fill="none" stroke="#F26522" stroke-width=".8"/></pattern></defs><rect width="400" height="360" fill="url(#pp${p.id})"/><text x="200" y="190" text-anchor="middle" font-size="72" fill="rgba(242,101,34,0.3)">${p.icon}</text></svg></div></div>
         <div class="product-info">
           <div class="shop-cat-tag">${p.cat}</div>
           <h1>${p.title}</h1>
-          <div class="product-price-big">₦${p.price.toLocaleString()}</div>
+          <div class="product-price-big">&#8358;${p.price.toLocaleString()}</div>
           <p class="product-desc">${p.desc}</p>
-          <div class="product-includes"><h4>What's Included</h4><ul>${p.includes.map(i=>`<li>${i}</li>`).join('')}</ul></div>
-          <button class="checkout-btn" onclick="openCheckout('${p.id}')">Buy Now — ₦${p.price.toLocaleString()} →</button>
-          <div class="checkout-note">🔒 Secure checkout via Paystack</div>
+          <div class="product-includes"><h4>What&apos;s Included</h4><ul>${p.includes.map(i=>`<li>${i}</li>`).join('')}</ul></div>
+          <button class="checkout-btn" onclick="openCheckout('${p.id}')">Buy Now &mdash; &#8358;${p.price.toLocaleString()} &rarr;</button>
+          <div class="checkout-note">&#128274; Secure checkout via Paystack</div>
         </div>
       </div>
     </div>`;
   showPage('product');
 }
 
-// CHECKOUT
 function openCheckout(id){
   const all=[...products.courses,...products.books,...products.templates];
   const p=all.find(x=>x.id===id);
-  if(!p) return;
+  if(!p)return;
   currentCheckoutProduct=p;
   document.getElementById('checkoutProductName').textContent=p.title;
-  document.getElementById('checkoutProductPrice').textContent='₦'+p.price.toLocaleString();
+  document.getElementById('checkoutProductPrice').textContent='&#8358;'+p.price.toLocaleString();
   document.getElementById('checkoutSummaryName').textContent=p.title;
-  document.getElementById('checkoutSummaryPrice').textContent='₦'+p.price.toLocaleString();
+  document.getElementById('checkoutSummaryPrice').textContent='&#8358;'+p.price.toLocaleString();
   document.getElementById('checkoutFormView').style.display='block';
   document.getElementById('checkoutSuccessView').style.display='none';
   document.getElementById('checkoutOverlay').classList.add('open');
@@ -1507,11 +1466,10 @@ function initiatePaystack(){
     if(typeof PaystackPop!=='undefined'){
       const h=PaystackPop.setup({key:PAYSTACK_KEY,email,amount:p.price*100,currency:'NGN',ref:'SMG_'+Date.now(),metadata:{name,phone,product:p.title},callback:()=>{document.getElementById('checkoutFormView').style.display='none';document.getElementById('checkoutSuccessView').style.display='block'},onClose:()=>{}});
       h.openIframe();
-    } else {setTimeout(()=>{document.getElementById('checkoutFormView').style.display='none';document.getElementById('checkoutSuccessView').style.display='block'},1000)}
-  } catch(e){setTimeout(()=>{document.getElementById('checkoutFormView').style.display='none';document.getElementById('checkoutSuccessView').style.display='block'},1000)}
+    }else{setTimeout(()=>{document.getElementById('checkoutFormView').style.display='none';document.getElementById('checkoutSuccessView').style.display='block'},1000)}
+  }catch(e){setTimeout(()=>{document.getElementById('checkoutFormView').style.display='none';document.getElementById('checkoutSuccessView').style.display='block'},1000)}
 }
 
-// PAGE NAVIGATION
 const allPages=['home','projects','story','services','blog','blog-single','shop','product','contact','booking','careers','job-apply','refer','privacy-policy','terms-of-service','cookie-policy'];
 function showPage(n){
   allPages.forEach(id=>{const el=document.getElementById('page-'+id);if(el)el.classList.remove('active')});
@@ -1520,7 +1478,7 @@ function showPage(n){
   window.scrollTo({top:0,behavior:'smooth'});
   history.pushState(null,null,'#'+n);
   document.querySelectorAll('nav a').forEach(a=>a.classList.remove('act'));
-  const map={home:'nav-home',story:'nav-story',services:'nav-services',blog:'nav-blog',shop:'nav-shop',contact:'nav-contact',booking:'nav-booking'};
+  const map={home:'nav-home',story:'nav-story',services:'nav-services',blog:'nav-blog',shop:'nav-shop',contact:'nav-contact'};
   if(map[n]){const a=document.getElementById(map[n]);if(a)a.classList.add('act')}
   document.getElementById('mainNav').style.cssText='';
   mobOpen=false;
@@ -1531,15 +1489,12 @@ window.addEventListener('load',()=>{
   if(hash&&allPages.includes(hash))showPage(hash);
   const consent=localStorage.getItem('smg_cookie_consent');
   if(!consent)setTimeout(()=>document.getElementById('cookieBanner').classList.add('visible'),1200);
-  // Build booking dates on load
   bkBuildDates();
 });
 
-// COOKIE
 function setCookieConsent(type){localStorage.setItem('smg_cookie_consent',type);closeCookieBanner()}
 function closeCookieBanner(){document.getElementById('cookieBanner').classList.remove('visible')}
 
-// MOBILE MENU
 let mobOpen=false;
 function toggleMob(){
   mobOpen=!mobOpen;
@@ -1547,10 +1502,8 @@ function toggleMob(){
   nav.style.cssText=mobOpen?'display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:rgba(0,0,128,.98);padding:22px 6%;gap:20px;z-index:999;border-bottom:1px solid rgba(242,101,34,.15)':'';
 }
 
-// SERVICE ACCORDION
 function toggleSF(id){document.getElementById(id).classList.toggle('open')}
 
-// SHOP TABS
 function showShop(cat,btn){
   document.querySelectorAll('.shop-tab').forEach(t=>t.classList.remove('act'));
   document.querySelectorAll('.shop-cat').forEach(c=>c.classList.remove('act'));
@@ -1558,14 +1511,12 @@ function showShop(cat,btn){
   document.getElementById('sc-'+cat).classList.add('act');
 }
 
-// PROJECT FILTER
 function filterProj(cat,btn){
   document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('act'));
   btn.classList.add('act');
   document.querySelectorAll('#projGrid .pfc').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'});
 }
 
-// CONTACT FORM
 document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('contactSubmitBtn');
@@ -1574,17 +1525,16 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   try{
     const res=await fetch(FORMSPREE,{method:'POST',body:data,headers:{'Accept':'application/json'}});
     if(res.ok){this.reset();this.style.display='none';document.getElementById('contactSuccess').classList.add('show')}
-    else{alert('Something went wrong. Please try again.');btn.textContent='Send Message →';btn.disabled=false}
-  }catch(err){alert('Network error. Please check your connection.');btn.textContent='Send Message →';btn.disabled=false}
+    else{alert('Something went wrong. Please try again.');btn.textContent='Send Message \u2192';btn.disabled=false}
+  }catch(err){alert('Network error. Please check your connection.');btn.textContent='Send Message \u2192';btn.disabled=false}
 });
 function resetContactForm(){
   document.getElementById('contactForm').style.display='block';
   document.getElementById('contactSuccess').classList.remove('show');
-  document.getElementById('contactSubmitBtn').textContent='Send Message →';
+  document.getElementById('contactSubmitBtn').textContent='Send Message \u2192';
   document.getElementById('contactSubmitBtn').disabled=false;
 }
 
-// FIX 3: REFER FORM connected to Formspree
 document.getElementById('referForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('referSubmitBtn');
@@ -1592,33 +1542,25 @@ document.getElementById('referForm').addEventListener('submit',async function(e)
   const fd=new FormData(this);
   try{
     const res=await fetch(FORMSPREE,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-    if(res.ok){
-      this.reset();this.style.display='none';
-      document.getElementById('referSuccess').classList.add('show');
-    } else{alert('Something went wrong. Please try again.');btn.textContent='Submit Referral →';btn.disabled=false}
-  }catch(err){alert('Network error. Please try again.');btn.textContent='Submit Referral →';btn.disabled=false}
+    if(res.ok){this.reset();this.style.display='none';document.getElementById('referSuccess').classList.add('show')}
+    else{alert('Something went wrong. Please try again.');btn.textContent='Submit Referral \u2192';btn.disabled=false}
+  }catch(err){alert('Network error. Please try again.');btn.textContent='Submit Referral \u2192';btn.disabled=false}
 });
 function resetReferForm(){
   document.getElementById('referForm').reset();
   document.getElementById('referForm').style.display='block';
   document.getElementById('referSuccess').classList.remove('show');
-  document.getElementById('referSubmitBtn').textContent='Submit Referral →';
+  document.getElementById('referSubmitBtn').textContent='Submit Referral \u2192';
   document.getElementById('referSubmitBtn').disabled=false;
 }
 
-// FIX 5: JOB APPLICATION
 function openJobPage(title,type,desc,reqStr){
   document.getElementById('jobApplyLabel').textContent='Apply: '+title;
   document.getElementById('jobApplyTitle').textContent=title;
   document.getElementById('jobApplyType').textContent=type;
   document.getElementById('ja-position').value=title;
-  const reqs=reqStr.replace('Requirements:','').split('|').map(r=>`<li>${r}</li>`).join('');
-  document.getElementById('jobDetailsCard').innerHTML=`
-    <div class="job-type">${type}</div>
-    <h2>${title}</h2>
-    <p>${desc}</p>
-    <h4>Requirements</h4>
-    <ul>${reqs}</ul>`;
+  const reqs=reqStr.split('|').map(r=>'<li>'+r+'</li>').join('');
+  document.getElementById('jobDetailsCard').innerHTML='<div class="job-type">'+type+'</div><h2>'+title+'</h2><p>'+desc+'</p><h4>Requirements</h4><ul>'+reqs+'</ul>';
   document.getElementById('jobApplyForm').style.display='block';
   document.getElementById('jaSuccess').classList.remove('show');
   showPage('job-apply');
@@ -1632,18 +1574,16 @@ document.getElementById('jobApplyForm').addEventListener('submit',async function
   fd.append('form_type','Job Application');
   try{
     const res=await fetch(FORMSPREE,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-    if(res.ok){
-      this.reset();this.style.display='none';
-      document.getElementById('jaSuccess').classList.add('show');
-    } else{alert('Something went wrong. Please try again.');btn.textContent='Submit Application →';btn.disabled=false}
-  }catch(err){alert('Network error. Please try again.');btn.textContent='Submit Application →';btn.disabled=false}
+    if(res.ok){this.reset();this.style.display='none';document.getElementById('jaSuccess').classList.add('show')}
+    else{alert('Something went wrong. Please try again.');btn.textContent='Submit Application \u2192';btn.disabled=false}
+  }catch(err){alert('Network error. Please try again.');btn.textContent='Submit Application \u2192';btn.disabled=false}
 });
 
-// FIX 4: BOOKING PAGE
+// BOOKING - FIX 3: No WhatsApp for client, silent notification only to owner
 let bkSelDate='',bkSelTime='';
 function bkBuildDates(){
   const g=document.getElementById('bkDateGrid');
-  if(!g) return;
+  if(!g)return;
   g.innerHTML='';
   const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const mons=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1677,7 +1617,7 @@ async function bkGoStep(n){
     const ind=document.getElementById('bk-ind').value;
     const need=document.getElementById('bk-need').value||'Not specified';
 
-    // Send EmailJS confirmation to CLIENT
+    // Send EmailJS confirmation email to CLIENT
     try{
       await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,{
         to_name:name,to_email:email,from_name:'Sabi Manager Global',
@@ -1687,33 +1627,39 @@ async function bkGoStep(n){
       });
     }catch(err){console.warn('EmailJS error:',err)}
 
-    // WhatsApp notification to business owner ONLY (client does NOT see this)
+    // Silent WhatsApp notification to business owner ONLY (client never sees this)
     const waMsg=encodeURIComponent('*New Strategy Call Booking*\n\n*Name:* '+name+'\n*Business:* '+biz+'\n*Phone:* '+phone+'\n*Email:* '+email+'\n*Industry:* '+ind+'\n*Need:* '+need+'\n*Date:* '+bkSelDate+'\n*Time:* '+bkSelTime+' WAT\n*Meet:* '+GOOGLE_MEET);
-    const waLink='https://wa.me/'+WA_NUMBER+'?text='+waMsg;
-    // Silent notification - opens in background
     const frame=document.createElement('a');
-    frame.href=waLink;frame.target='_blank';frame.rel='noopener noreferrer';frame.style.display='none';
+    frame.href='https://wa.me/'+WA_NUMBER+'?text='+waMsg;
+    frame.target='_blank';frame.rel='noopener noreferrer';frame.style.display='none';
     document.body.appendChild(frame);frame.click();setTimeout(()=>frame.remove(),3000);
 
-    // Update confirmation display
     document.getElementById('bk-cf-name').textContent=name;
     document.getElementById('bk-cf-biz').textContent=biz;
     document.getElementById('bk-cf-date').textContent=bkSelDate;
     document.getElementById('bk-cf-time').textContent=bkSelTime+' (WAT)';
-    btn.textContent='Confirm Booking →';btn.disabled=false;
+    btn.textContent='Confirm Booking \u2192';btn.disabled=false;
   }
-  // Switch steps
   document.querySelectorAll('.booking-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('bms'+n).classList.add('active');
   for(let i=1;i<=3;i++)document.getElementById('bsp'+i).classList.toggle('done',i<=n);
 }
 
+function resetBookingForm(){
+  bkSelDate='';bkSelTime='';
+  ['bk-name','bk-biz','bk-phone','bk-email','bk-ind','bk-need'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+  document.querySelectorAll('#page-booking .date-btn').forEach(b=>b.classList.remove('sel'));
+  document.querySelectorAll('#page-booking .time-btn').forEach(b=>b.classList.remove('sel'));
+  bkBuildDates();
+  bkGoStep(1);
+}
+
 // INIT
 renderFooters();
 renderBlogCards();
-renderShop();
 renderHomeBlog();
+renderShop();
 </script>
 <script src="https://js.paystack.co/v1/inline.js" async></script>
 </body>
-</html>
+</html>'''
