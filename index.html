@@ -33,13 +33,11 @@ img{max-width:100%;display:block}
 header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,128,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(242,101,34,0.15)}
 .hdr-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 5%;height:80px;gap:24px}
 
-/* FIX 1: Logo - image+name side by side, slogan below */
+/* Logo */
 .logo{display:flex;flex-direction:column;align-items:flex-start;gap:2px;cursor:pointer;text-decoration:none}
 .logo-top{display:flex;align-items:center;gap:12px}
 .logo img{height:48px;width:auto;object-fit:contain;display:block;flex-shrink:0}
 .logo-img-fallback{width:44px;height:44px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;flex-shrink:0}
-.logo-name{font-family:'Playfair Display',serif;font-weight:800;font-size:15px;color:#fff;line-height:1.2;white-space:nowrap}
-.logo-name span{color:var(--orange)}
 .logo-slogan{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:rgba(255,255,255,0.75);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;padding-left:2px}
 
 nav{display:flex;align-items:center;justify-content:center;gap:22px}
@@ -193,13 +191,11 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 0.8fr 1fr;gap:40px;margin-bottom:60px}
 .foot-brand{}
 
-/* FIX 1: Footer logo - image+name side by side, slogan below */
+/* FIX 1: Footer logo - image only, slogan below */
 .foot-logo-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
 .foot-logo-top{display:flex;align-items:center;gap:12px}
 .foot-logo-wrap img{height:55px;width:auto;object-fit:contain;display:block;flex-shrink:0}
 .foot-logo-img-fallback{width:48px;height:48px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;flex-shrink:0}
-.foot-logo-name{font-family:'Playfair Display',serif;font-weight:800;font-size:16px;color:#fff;line-height:1.2}
-.foot-logo-name span{color:var(--orange)}
 .foot-logo-slogan{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:rgba(255,255,255,.75);letter-spacing:1.5px;text-transform:uppercase}
 
 .foot-social{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
@@ -577,7 +573,6 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
       <div class="logo-top">
         <img src="logo.png" alt="Sabi Manager Global" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="logo-img-fallback" style="display:none">S</div>
-        <div class="logo-name">Sabi Manager <span>Global</span></div>
       </div>
       <div class="logo-slogan">Structure. Systems. Strategy.</div>
     </div>
@@ -621,7 +616,6 @@ footer{background:var(--navy-dark);color:#fff;padding:80px 7% 0}
         <div class="foot-logo-top">
           <img src="logo.png" alt="Sabi Manager Global" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="foot-logo-img-fallback" style="display:none">S</div>
-          <div class="foot-logo-name">Sabi Manager <span>Global</span></div>
         </div>
         <div class="foot-logo-slogan">Structure. Systems. Strategy.</div>
       </div>
